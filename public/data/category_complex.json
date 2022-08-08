@@ -1,0 +1,66 @@
+{
+    "LV_Id": 1149,
+    "Nome": "Addizionali all\u0027IRPEF",
+    "EleDocs": [{
+        "TipodocId": 0,
+        "TabellaOg": "Evento",
+        "TabellaId": 25494,
+        "Data": "\/Date(1428357600000)\/",
+        "Titolo": "Addizionali all\u0027Irpef - Decreto Semplificazioni",
+        "Descrizione": "\r\n\u003cp\u003eIl Decreto Semplificazioni (D.Lgs. 21 novembre 2014, n. 175) ha\r\napportato notevoli semplificazioni in materia di Addizionali\r\nRegionale e Comunale all\u0027Irpef.\u003c/p\u003e\r\n\u003cp\u003eIn particolare ha previsto che \u003cstrong\u003eentrambe le\r\naddizionali\u003c/strong\u003e debbano essere versate alla Regione e al\r\nComune in cui il contribuente ha il \u003cstrong\u003edomicilio fiscale al 1°\r\ngennaio\u003c/strong\u003e.\u003c/p\u003e\r\n\u003cp\u003eScompare quindi la previsione secondo la quale l\u0027addizionale\r\nregionale doveva essere versata alla Regione in cui il contribuente\r\naveva il domicilio fiscale al 31 dicembre.\u003c/p\u003e\r\n\u003cp\u003eGià dalla Certificazione Unica\u0026nbsp;e dai modelli dichiarativi\r\n(730 e Unico) relativi al\u0026nbsp;\u003cstrong\u003eperiodo d\u0027imposta\r\n2014\u003c/strong\u003e, non è più richiesta l\u0027indicazione del domicilio\r\nfiscale al 31 dicembre 2014.\u003c/p\u003e\r\n\u003cp\u003ePer quanto riguarda il periodo d\u0027imposta 2014, pertanto,\r\nl\u0027addizionale Regionale e quella Comunale saranno entrambe versate\r\navendo a riferimento il domicilio fiscale del contribuente al\r\n\u003cstrong\u003e1° gennaio 2014\u003c/strong\u003e.\u003c/p\u003e\r\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\r\n\u003cp\u003ePer quanto riguarda l\u0027addizionale comunale, il Decreto ha\r\ninoltre previsto che l\u0027\u003cstrong\u003eacconto\u003c/strong\u003e sarà sempre\r\ncalcolato con la stessa \u003cstrong\u003ealiquota deliberata dal comune per\r\nl\u0027anno precedente.\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eEventuali deliberazioni comunali relative alle aliquote\r\ndell\u0027addizionale Comunale per il 2015 troveranno applicazione\r\nsolo\u0026nbsp;nel calcolo del saldo, che sarà determinato della\r\nCertificazione Unica e nelle dichiarazioni dei redditi (730 e\r\nUnico) relative al 2015.\u003c/p\u003e\r\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\r\n\u003cp\u003eIl Decreto stabilisce, infine, che le Regioni e i Comuni devono\r\ncomunicare i dati relativi alle rispettive addizionale ai fini\r\ndella loro\u0026nbsp;pubblicazione sul sito del Dipartimento delle\r\nFinanze, consentendo così ai sostituti d\u0027imposta, ai CAF e agli\r\naltri intermediari di adempiere più semplicemente ai\r\nrispettivi\u0026nbsp;adempimenti certificativi e dichiarativi.\u003c/p\u003e\r\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\r\n\u003cp\u003e\u003c/p\u003e\r\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003eRif.:\u003c/em\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003eArt. 8 del D.Lgs. 21 novembre 2014, n. 175\u003c/em\u003e\u003c/p\u003e\r\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\r\n",
+        "EleFiles": [],
+        "EleLinks": []
+    }, {
+        "TipodocId": 0,
+        "TabellaOg": "Evento",
+        "TabellaId": 25551,
+        "Data": "\/Date(1428616800000)\/",
+        "Titolo": "aaa",
+        "Descrizione": "\r\n\u003cp\u003eE\u0027 in corso di pubblicazione nella Gazzetta Ufficiale il d.m. 3\r\naprile 2015 che, attuando le semplificazioni fiscali previste dal\r\nD.Lgs. n. 175/2014, individua i dati rilevanti per la\r\ndeterminazione dell\u0027addizionale regionale all\u0027IRPEF e le modalità\r\ncon cui le Regioni e le Province autonome di Trento e di Bolzano\r\nsono tenute ad inviarli al Dipartimento delle finanze.\u003c/p\u003e\r\n\u003cp\u003eLe Regioni e le Province autonome devono riportare i dati in una\r\ntabella excel allegata al decreto e trasmettere il file mediante\r\nPEC al Dipartimento delle finanze che provvederà alla pubblicazione\r\ndei dati nel sito\r\n\u003ca href=\"http://www.finanze.it/\"\u003ehttp://www.finanze.it/\u003c/a\u003e .\u003c/p\u003e\r\n\u003cp\u003eTale pubblicazione consentirà ai contribuenti, ai sostituti\r\nd\u0027imposta, ai centri di assistenza fiscale e agli altri\r\nintermediari fiscali di conoscere in modo semplice ed immediato le\r\naliquote dell\u0027addizionale regionale all\u0027IRPEF, agevolando in tal\r\nmodo le attività richieste ai fini della tassazione e della\r\npredisposizione della dichiarazione dei redditi.\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003eRiferimento: Ministero delle finanze, comunicato del 9\r\naprile 2015\u003c/em\u003e\u003c/p\u003e\r\n",
+        "EleFiles": [{
+            "FileId": 99245,
+            "Descrizione": "Regolamento 109/2019/UE",
+            "Percorso": "/documenti/cnaalimentare/normativa ce/anno 2017/reg_109_2019.pdf"
+        }],
+        "EleLinks": []
+    }, {
+        "TipodocId": 0,
+        "TabellaOg": "Evento",
+        "TabellaId": 25600,
+        "Data": "\/Date(1429135200000)\/",
+        "Titolo": "Addizionali regionali all\u0027IRPEF - i principi per creare e aggiornare la banca dati sul portale del Ministero delle finanze",
+        "Descrizione": "\r\n\u003cp\u003eUn decreto ministeriale ha definito le modalità che devono\r\nadottare le regioni e le province autonome di Trento e Bolzano per\r\ndare rilievo ai dati utili ai fini della determinazione\r\ndell\u0027addizionale regionale all\u0027Irpef.\u003c/p\u003e\r\n\u003cp\u003eI dati devono essere riportati in una tabella excel,\r\nappositamente predisposta dal Ministero delle Finanze e allegata al\r\ndecreto. Nella compilazione della tabella, gli enti devono\r\nrispettare i criteri di compilazione previsti nella tabella\r\nstessa.\u003c/p\u003e\r\n\u003cp\u003eIn sede di prima applicazione, le regioni e le province autonome\r\ndi Trento e Bolzano devono trasmettere la tabella, debitamente\r\ncompilata, entro il 30 aprile prossimo. La tabella va inviata\r\ntramite PEC al Ministero delle Finanze che ne cura la tempestiva\r\npubblicazione sul proprio portale.\u003c/p\u003e\r\n\u003cp\u003eA regime, invece, la tabella va trasmessa entro il 31 gennaio\r\ndell\u0027anno cui si riferisce l\u0027addizionale stessa (ad esempio, entro\r\nil 31/1/2016 per l\u0027addizionale regionale 2016). Qualora nel corso\r\ndell\u0027anno intervengano delle variazioni o si verifichi il\r\npresupposto, nelle regioni in situazione di deficit nel settore\r\nsanitario, per l\u0027applicazione di incrementi automatici, la regione\r\no la provincia autonoma interessata deve ritrasmettere la tabella\r\ncon l\u0027indicazione delle aliquote complessivamente applicabili entro\r\n30 giorni.\u003c/p\u003e\r\n\u003cp\u003eSe la regione o la provincia autonoma non trasmette i dati\r\nrilevanti per la determinazione dell\u0027addizionale all\u0027Irpef, non si\r\nrendono applicabili sanzioni e interessi nei confronti di sostituti\r\nd\u0027imposta e/o contribuenti.\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003eRiferimento: Ministero delle finanze, decreto 3 aprile 2015\r\n(pubblicato nella Gazzetta Ufficiale n. 87 del 15 aprile\r\n2015)\u003c/em\u003e\u003c/p\u003e\r\n\u003cp\u003eA cura di Fabrizio Sassi\u003c/p\u003e\r\n",
+        "EleFiles": [{
+            "FileId": 77648,
+            "Descrizione": "Ministero delle finanze, decreto 3 aprile 2015 ",
+            "Percorso": "/documenti/lavoro e contrattualistica/normativa/anno 2015/dm_3_aprile_2015.pdf"
+        }],
+        "EleLinks": [{
+            "LinkId": 4916,
+            "Descrizione": "Ministero finanze - Fiscalità locale - Addizionale regionale all\u0027IRPEF",
+            "Percorso": "http://www.finanze.it/export/finanze/per_conoscere_il_fisco/fiscalita_locale/newaddregirpef/index.htm"
+        }]
+    }, {
+        "TipodocId": 0,
+        "TabellaOg": "Evento",
+        "TabellaId": 25602,
+        "Data": "\/Date(1429135200000)\/",
+        "Titolo": "Addizionale regionale all\u0027Irpef",
+        "Descrizione": "\r\n\u003cp\u003eUn decreto ministeriale ha definito le modalità che devono\r\nadottare le regioni e le province autonome di Trento e Bolzano per\r\ndare rilievo ai dati utili ai fini della determinazione\r\ndell\u0027addizionale regionale all\u0027Irpef.\u003c/p\u003e\r\n\u003cp\u003eI dati devono essere riportati in una tabella excel,\r\nappositamente predisposta dal Ministero delle Finanze e allegata al\r\ndecreto. Nella compilazione della tabella, gli enti devono\r\nrispettare i criteri di compilazione previsti nella tabella\r\nstessa.\u003c/p\u003e\r\n\u003cp\u003eIn sede di prima applicazione, le regioni e le province autonome\r\ndi Trento e Bolzano devono trasmettere la tabella, debitamente\r\ncompilata, entro il 30 aprile prossimo. La tabella va inviata\r\ntramite PEC al Ministero delle Finanze che ne cura la tempestiva\r\npubblicazione sul proprio portale.\u003c/p\u003e\r\n\u003cp\u003eA regime, invece, la tabella va trasmessa entro il 31 gennaio\r\ndell\u0027anno cui si riferisce l\u0027addizionale stessa (ad esempio, entro\r\nil 31/1/2016 per l\u0027addizionale regionale 2016). Qualora nel corso\r\ndell\u0027anno intervengano delle variazioni o si verifichi il\r\npresupposto, nelle regioni in situazione di deficit nel settore\r\nsanitario, per l\u0027applicazione di incrementi automatici, la regione\r\no la provincia autonoma interessata deve ritrasmettere la tabella\r\ncon l\u0027indicazione delle aliquote complessivamente applicabili entro\r\n30 giorni.\u003c/p\u003e\r\n\u003cp\u003eSe la regione o la provincia autonoma non trasmette i dati\r\nrilevanti per la determinazione dell\u0027addizionale all\u0027Irpef, non si\r\nrendono applicabili sanzioni e interessi nei confronti di sostituti\r\nd\u0027imposta e/o contribuenti.\u003c/p\u003e\r\n",
+        "EleFiles": [],
+        "EleLinks": []
+    }, {
+        "TipodocId": 0,
+        "TabellaOg": "Impresa",
+        "TabellaId": 16352,
+        "Data": "\/Date(1428357600000)\/",
+        "Titolo": "Addizionali all\u0027Irpef - Decreto Semplificazioni",
+        "Descrizione": "\u003cp\u003eIl Decreto Semplificazioni (D.Lgs. 21 novembre 2014, n. 175) ha apportato notevoli semplificazioni in materia di Addizionali Regionale e Comunale all\u0027Irpef.\u003c/p\u003e\r\n\u003cp\u003eIn particolare ha previsto che \u003cstrong\u003eentrambe le addizionali\u003c/strong\u003e debbano essere versate alla Regione e al Comune in cui il contribuente ha il \u003cstrong\u003edomicilio fiscale al 1\u0026deg; gennaio\u003c/strong\u003e.\u003c/p\u003e\r\n\u003cp\u003eScompare quindi la previsione secondo la quale l\u0027addizionale Regionale doveva essere versata alla Regione in cui il contribuente aveva il domicilio fiscale al 31 dicembre.\u003c/p\u003e\r\n\u003cp\u003ePer quanto riguarda il periodo d\u0027imposta 2014, pertanto, l\u0027addizionale Regionale e quella Comunale saranno entrambe versate avendo a riferimento il domicilio fiscale del contribuente al \u003cstrong\u003e1\u0026deg; gennaio 2014\u003c/strong\u003e.\u003c/p\u003e\r\n\u003cp\u003ePer quanto riguarda l\u0027addizionale comunale, il Decreto ha inoltre previsto che l\u0027\u003cstrong\u003eacconto\u003c/strong\u003e sar\u0026agrave; sempre calcolato con la stessa \u003cstrong\u003ealiquota deliberata dal comune per l\u0027anno precedente.\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003eRif.:\u003c/em\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003eArt. 8 del D.Lgs. 21 novembre 2014, n. 175\u003c/em\u003e\u003c/p\u003e\r\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e",
+        "EleFiles": [{
+            "FileId": 53643,
+            "Descrizione": "Ordinanza 21/12/2011_Condanne per frodi alimentari",
+            "Percorso": "/documenti/cnaalimentare/normativa italiana/2012/ordinanza_21_12_2011__condanne_per_frodi_alimentari.docx"
+        }],
+        "EleLinks": []
+    }]
+}

@@ -1,0 +1,19 @@
+.root {
+    margin: auto;
+    width: 70%;
+    display: flex;
+}
+.main {
+    width: 900px;
+    /*padding-top: 2rem;*/
+    /*padding-bottom: 2rem;*/
+    background: #fff;
+}
+
+.side {
+    width: 300px;
+    /*padding: 1rem;*/
+    padding-top: 2rem;
+    padding-left: 2rem;
+    background-color: #fff;
+}

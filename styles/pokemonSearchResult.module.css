@@ -1,0 +1,20 @@
+/* .pokemonCard {
+    border: 4px solid white;
+    border-radius: 16px;
+    display: flex;
+    padding: 8px;
+    text-align: center;
+    background-color: #e0d494;
+    font-weight: 800;
+    color: #4f2424;
+    text-transform: capitalize;
+    align-items: center;
+} */
+  
+/* .searchGrid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 300px;
+    grid-gap: 8px;
+} */
