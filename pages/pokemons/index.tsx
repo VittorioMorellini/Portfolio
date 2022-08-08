@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
-import { Pokemon, PokemonSpecie } from '../../types/pokemon'
 import { Box } from '@mui/material'
-import Link from 'next/link'
 import PokemonsSearchResult from '../../components/pokemonSearchResult'
 import searchPokemons from "../../utils/searchPokemons";
 
@@ -34,7 +32,7 @@ function PokemonIndex() {
     }
         
     return (
-        <div className="flex flex-col items-center bg-blue-200 rounded-t">
+        <div className="flex flex-col items-center bg-blue-300 rounded-t">
             <h1>Search Your Pokemon</h1>
             <input
                 className='border-solid border border-slate-300'
@@ -55,7 +53,6 @@ export async function getServerSideProps(context: any) {
     console.log('data', data)
     return {
         props: {
-            //pokemons: data !== undefined ? data : ["vittoPokemon"]
             dehydratedState: dehydrate(queryClient),
         }
     }

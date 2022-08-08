@@ -1,17 +1,19 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, rgbToHex, Stack, Theme, Typography } from '@mui/material'
-import Link from 'next/link'
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import Image from 'next/image'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
+import { Container } from '../components/container'
 import { categoriesAtom } from '../recoil/categoryState'
 import { Category } from '../types/category'
 import { Photo } from '../types/photos'
+import ImageLoader from '../utils/imageLoader'
 
 interface HomeProps {
   categories: Category[];
-  photos: Photo[]
+  //photos: Photo[]
 }
 
-function Home<NextPage>({categories, photos}: HomeProps)  {
+function Home<NextPage>({categories}: HomeProps) {
   const [, setCategories] = useRecoilState<Category[]>(categoriesAtom)
   
   useEffect(() => {
@@ -19,63 +21,68 @@ function Home<NextPage>({categories, photos}: HomeProps)  {
   }, [])
 
   return (
-    <Box>
-        <Box>
-          <Container maxWidth="sm">
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
-            </Typography>
-            <Stack
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained" sx={{color: (theme: Theme) => theme.palette.primary.dark}} className="hover:text-white">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
-          </Container>
-        </Box>
-        <Container sx={{ py: 2 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {photos.map((photo) => (
-              <Grid item key={photo.id} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+    <div>
+    <Container size="2xl">
+      <Box className='grid grid-cols-2'>
+        <div className="relative w-full h-56 md:h-[500px]">
+            <Image
+              loader={ImageLoader}
+              unoptimized
+              src={"/images/vittorio.png"}
+              alt="Vittorio Morellini"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+            />
+        </div>
+        <div className="md:-translate-x-8 md:mt-28 h-full w-11/12 md:w-full m-auto md:m-0">
+            <div className="-translate-y-10 md:-translate-x-0 bg-blue-200 p-5 md:p-10">
+              <h1 className="font-black text-2xl md:text-5xl">
+                Software engineer at{" "}
+                <a
+                  href="https://sixtema.it"
+                  className="underline hover:text-blue-400"
+                  target="_blank"
                 >
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image={photo.thumbnailUrl}
-                    alt={photo.title}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      <a href={photo.url} target="_blank" rel="noreferrer"><h5 style={{fontSize: '1.25rem'}}>Go to image</h5></a>
-                    </Typography>
-                    <Typography>
-                      {photo.title}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" onClick={() => window.open(photo.url)}>View</Button>
-                    <Button size="small" onClick={() => alert('Edit not allowed')}>Edit</Button> 
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-        <Box className="flex mt-2 justify-between">
-          <Button variant="contained" sx={{color: (theme: Theme) => theme.palette.primary.dark}} className="hover:text-white">Try portal business</Button>
-          <Button variant="outlined">Portal Free at Home</Button>
-        </Box>  
-    </Box>
+                  Sixtema
+                </a>
+              </h1>
+              <h2 className="text-xl md:text-3xl mt-2">
+                Software Developer .Net (C#) and React (typescript)
+              </h2>
+            </div>
+        </div>
+      </Box>
+    </Container>
+    <Container size="xl">
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-2 mt-0 md:mt-24">
+          <p>
+            I'm a passionate and experienced software engineer. 
+            I've worked as a software engineer for almost
+            twenty years in product and consultancy
+            companies, taking the best from both worlds. <br />
+            <br />
+            <br />
+            I'm currently working as a <b>Senior Software Engineer</b> at{" "}
+            <b>Sixtema</b> in two main languages: <br/>
+            TypeScript and React on Frontend<br />
+            .Net(C#) and SqlServer on Backend <br />
+            <br />
+          </p>
+          <div className="relative w-full h-48 md:h-full">
+            <Image
+              loader={ImageLoader}
+              unoptimized
+              src={"/images/micheleriva_bejs.jpg"}
+              alt="Michele Riva at BeJS 2022, Brussels, Belgium"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+            />
+          </div>
+        </div>
+    </Container>  
+    </div>
   )
 }
 

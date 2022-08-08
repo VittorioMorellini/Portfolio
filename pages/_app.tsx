@@ -7,22 +7,13 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import SEO from '../components/SEO';
 
-// type NextPageWithLayout = AppProps & {
-//   getLayout?: (page: ReactElement) => ReactNode
-// }
-
-// type AppHomeProps = AppProps & {
-//   categories: Category[]
-// }
-
 function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   
-  //const getLayout = Component.getLayout ?? ((page) => page)
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>    
+        <Hydrate state={pageProps.dehydratedState}>
         <RecoilRoot>
           <Layout>
             <SEO />

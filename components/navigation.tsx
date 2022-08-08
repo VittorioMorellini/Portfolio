@@ -1,5 +1,4 @@
 import { Box, Button } from '@mui/material';
-import Link from 'next/link';
 //import styles from '../styles/navigation.module.css'
 import { OutlinedInput } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';

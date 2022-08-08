@@ -3,5 +3,6 @@ export type Category = {
     name: string,
     url: string,
     description: string,
-    title: string
+    title: string,
+    external: boolean
 }

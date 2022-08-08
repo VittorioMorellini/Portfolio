@@ -8,7 +8,7 @@ function PokemonsSearchResult({ pokemons }: { pokemons: string[] }) {
             <Link href={`/pokemons/${pokemon}`} key={pokemon}>
                 <a>
                     <div className="flex text-center p-2 border-2 border-black font-extrabold 
-                        rounded-2xl items-center capitalize bg-red-100">
+                        rounded-2xl items-center capitalize bg-blue-100">
                         {pokemon}
                     </div>
                 </a>
