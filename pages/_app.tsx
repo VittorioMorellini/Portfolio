@@ -1,11 +1,12 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 import { RecoilRoot } from "recoil";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import SEO from '../components/SEO';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());

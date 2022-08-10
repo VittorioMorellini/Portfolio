@@ -1,8 +1,4 @@
-import { HtmlProps } from 'next/dist/shared/lib/html-context';
-import { ReactNode } from 'react';
-import styles from '../../styles/menu.module.css'
 import React from 'react';
-import { Box, Button, Icon, } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { Category } from '../../types/category';
 import { categoriesAtom } from '../../recoil/categoryState';
@@ -10,8 +6,9 @@ import { BsTwitter, BsGithub, BsLinkedin } from "react-icons/bs";
 import { titleAtom } from '../../recoil/title';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { Icon } from '@mui/material';
 
-function Navbar() {
+function DesktopNavBar() {
     const [categories,] = useRecoilState<Category[]>(categoriesAtom)
     const [,setTitle] = useRecoilState<string>(titleAtom);
     const router = useRouter();
@@ -33,7 +30,7 @@ function Navbar() {
                     <div className="flex" id="navbar-default">
                         <div className="flex pt-4">
                             {categories?.map((category, index, categories) => (
-                                <div>                                    
+                                <div key={category.id}>                                    
                                     {category.external ?
                                         <div key={category.name} className="px-4 hover:underline">                                    
                                         <Link href={category.url} passHref>
@@ -80,4 +77,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default DesktopNavBar;

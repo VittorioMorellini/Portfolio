@@ -25,15 +25,15 @@ function PokemonCard({
         <div className="w-4/5">
           <h1 className='capitalize'>{name}</h1>
           <img src={image} alt={name} width="100px" />
-          <div className="grid grid-cols-2 bg-slate-200 bor</der-2 border-solid border-white text-left capitalize items-center">
+          <div className="grid grid-cols-2 bg-blue-100 bor</der-2 border-solid border-white text-left capitalize items-center">
             <p className="block text-black font-extrabold text-sm ml-4 uppercase justify-start">XP</p>
             <div>{xp}</div>
           </div>
-          <div className="grid grid-cols-2 bg-red-100 border-2 border-solid border-white text-left capitalize items-center">
+          <div className="grid grid-cols-2 bg-blue-200 border-2 border-solid border-white text-left capitalize items-center">
             <p className="block text-black font-extrabold text-sm ml-4 uppercase justify-start">Weight</p>
             <div>{weight / 10} kg</div>
           </div>
-          <div className="grid grid-cols-2 bg-red-100 border-2 border-solid border-white text-left capitalize items-center">
+          <div className="grid grid-cols-2 bg-blue-200 border-2 border-solid border-white text-left capitalize items-center">
             <p className="block text-black font-extrabold text-sm ml-4 uppercase justify-start">Abilities</p>
             <ul>
               {abilities?.map((ability) => (

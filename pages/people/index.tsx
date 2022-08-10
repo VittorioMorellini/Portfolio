@@ -1,12 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../../styles/people.module.css'
-import { Character, GetCharacterResults } from '../../types/types'
-import ImageLoader from '../../utils/imageLoader'
-import { server } from '../../config/config';
 import { Person } from '../../types/person'
-import { Employee } from '../../types/employee'
-import { ContentPasteSearchOutlined, PersonSharp } from '@mui/icons-material'
+import { PersonSharp } from '@mui/icons-material'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';

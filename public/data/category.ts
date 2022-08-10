@@ -3,22 +3,22 @@ import { Category } from "../../types/category";
 export const categories: Category[] = [
     {
       id: 1,
-      name: 'Career',
+      name: 'Home',
       url: '/',
       description: 'Home',
+      title: 'Home',
+      external: false
+    },
+    {
+      id: 2,
+      name: 'Career',
+      url: '/career',
+      description: 'Career',
       title: 'Career',
       external: false
     },
-    // {
-    //   id: 2,
-    //   name: 'Characters',
-    //   url: '/characters',
-    //   description: 'Characters',
-    //   title: 'Characters',
-    //   external: false
-    // },
     {
-      id: 2,
+      id: 3,
       name: 'Blog',
       url: '/blog',
       description: 'Blog',
