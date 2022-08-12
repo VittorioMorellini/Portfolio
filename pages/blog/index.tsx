@@ -23,11 +23,12 @@ export default function BlogIndex({posts}: BlogProps) {
     const message = useRef<string | JSX.Element | undefined>();
     
     // handler to assign the function on the confirm method
-    const confirmDelete = (id: string | number) => {
+    const confirmDelete = (id: string | number) => (e: React.MouseEvent<HTMLButtonElement>) => {
         setOpen(true)
         onConfirm.current = () => executeDelete(id);
     }
 
+    //Function that execute fisically the Delete Operation
     const executeDelete = (id: string | number) => {
         fetch(server + `/api/blog/${id}`, {
             method: 'DELETE',
@@ -55,7 +56,7 @@ export default function BlogIndex({posts}: BlogProps) {
         debugger;
         router.push('/blog/' + id);
     }    
-    //Initialize the controls
+    //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
 
     return (
@@ -63,11 +64,12 @@ export default function BlogIndex({posts}: BlogProps) {
           <Container>
           <div className="flex flex-row items-center mb-4">
               <div>
-                <Button variant="outlined" className="w-32" onClick={() => {    
-                            //setTitle(category.title);
-                            router.push('blog/0')
-                        }}>Add post
-                </Button>
+                  <Button variant="outlined" className="w-32" onClick={() => {    
+                      //setTitle(category.title);
+                      router.push('blog/0')
+                  }}>
+                      Add post
+                  </Button>
               </div>
               <div className="text-center w-full">
                 <h1 className="text-3xl font-black text-center">Tell me what do think about my personal site</h1>
@@ -94,7 +96,7 @@ export default function BlogIndex({posts}: BlogProps) {
                     //deletePost(post.Id)
                   */}
                   <ListItemIcon>
-                    <IconButton onClick={(e: React.MouseEvent<HTMLButtonElement>) => confirmDelete(post.Id) }>                    
+                    <IconButton onClick={confirmDelete(post.Id)}>                    
                       <Delete />
                     </IconButton>
                   </ListItemIcon> 
