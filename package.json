@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-query": "^3.39.1",
+    "react-toast-notifications": "^2.5.1",
     "recoil": "^0.7.4",
     "tailwindcss": "^3.1.6",
     "usehooks-ts": "^2.6.0"

@@ -4,13 +4,13 @@ function SEO() {
 
     return (
         <DefaultSeo
-            title='Sixtema business consulting'
-            description='Consulenza aziendale eseguita dai consukenti di Sixtema'
+            title='Vittorio Morellini'
+            description='Software engineer'
             openGraph={{
                 type: "website",
                 locale: "it_IT",
-                url: "https://businessconsulting.it",
-                site_name: "Business consulting",
+                url: "https://vittoriomorellini.it",
+                site_name: "Personal site",
                 images: [
                     {
                         url: "",

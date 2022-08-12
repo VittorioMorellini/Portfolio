@@ -1,10 +1,14 @@
 import { Button, TextareaAutosize, TextField } from '@mui/material';
 import axios from 'axios';
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useToasts } from 'react-toast-notifications';
 import { server } from '../../config/config';
 import { Post } from '../../types/post';
+import { Confirm } from '../../utils/ui/confirm';
 
 interface BlogDetailProps {
     post: Post;
@@ -17,20 +21,34 @@ function BlogDetail({ post }: BlogDetailProps) {
     const [text, setText] = useState('');
     const [author, setAuthor] = useState('');
     const [id, setId] = useState(0)
+    const { addToast } = useToasts()
+
+    const showToast = () => {
+        addToast("Succesfully updated", {
+            appearance: 'info',
+            autoDismiss: true,
+        })        
+    }
+
     const saveBlog = async (event: React.MouseEvent<HTMLButtonElement>) => {
         debugger;
         console.log('save post in my blog');
-        const response = await fetch(server + `/api/blog/${post.Id}`, {
+        const response = fetch(server + `/api/blog/${post.Id}`, {
             method: 'POST',
-            body: JSON.stringify({Text: text, Author: author, Id: post.Id ? post.Id : 0, Date: new Date()}),
+            body: JSON.stringify({Text: text, Author: author, Id: post.Id ? post.Id : 0, Date: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
             headers: {'Content-Type': 'application/json'}
         })
-        const data: Post = await response.json()
-        console.log(data)
-        //setId(data.Id);
-        if (post.Id === 0) {
-            router.push('/blog');
-        }
+        .then(res => {
+            showToast()
+            if (post.Id === 0)
+                router.push('/blog');
+            })
+        .catch(err => {
+            addToast(err, {
+                appearance: 'error',
+                autoDismiss: true,
+            })  
+        })        
     }
 
     useEffect(() => {
@@ -40,6 +58,7 @@ function BlogDetail({ post }: BlogDetailProps) {
     }, [])
 
     return (
+        <>
         <div className='flex relative max-w-full'>
             <div className="w-1/5">
                 <Link href="/blog" passHref>
@@ -50,21 +69,23 @@ function BlogDetail({ post }: BlogDetailProps) {
                 <div className="text-center mb-4">
                     <h3>Post Id: {id}</h3>
                 </div>
-                <div>
+                <div className='block'>
+                    <label className='italic'>Content</label>
                     <TextareaAutosize
                         className='w-full border-gray-400 border-solid bg-gray-200'
-                        cols={200}  
-                        minRows={5}                      
+                        cols={250}  
+                        minRows={15}                      
                         maxRows={50}                         
                         value={text}                        
                         onChange={(e) => setText(e.target.value)} 
                         placeholder="Text"                         
                     />                
                 </div>
-                <div>
+                <div className='mt-8 block'>
+                    <label className='italic'>Author</label>
                     <TextareaAutosize
-                        className='bg-gray-200 w-full mt-8 border-gray-400 border-solid'
-                        cols={200}
+                        className='bg-gray-200 w-full border-gray-400 border-solid'
+                        cols={250}
                         placeholder="Author" 
                         maxRows={1}                         
                         value={author} 
@@ -81,11 +102,11 @@ function BlogDetail({ post }: BlogDetailProps) {
                 </div>
             </div>
         </div>
+        </>    
     )
 }
 
 export async function getServerSideProps(context: any) {
-
     console.log('I am in server side props loading SSR')
     //const { data } = await axios.get(server + `/api/blog/${context.query.id}`)
     const  data  = await fetch(server + `/api/blog/${context.query.id}`)
@@ -96,7 +117,7 @@ export async function getServerSideProps(context: any) {
 
     return {
       props: {
-        post: result
+        post: JSON.parse(JSON.stringify(result))
       }
     }
 }

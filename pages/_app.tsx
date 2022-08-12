@@ -7,6 +7,9 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import SEO from '../components/SEO';
 import { useRouter } from 'next/router';
+import { ToastProvider, DefaultToast } from 'react-toast-notifications';
+import CustomToast from '../components/customToast';
+
 
 function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -15,6 +18,11 @@ function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
+        <ToastProvider autoDismiss={true} 
+                      autoDismissTimeout={6000} 
+                      placement="top-center"
+                      //components={{ Toast: CustomToast }}
+                      >       
         <RecoilRoot>
           <Layout>
             <SEO />
@@ -22,6 +30,7 @@ function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
             <ReactQueryDevtools initialIsOpen={false} />
           </Layout>
         </RecoilRoot>
+        </ToastProvider>
         </Hydrate>
       </QueryClientProvider>    
     </>
