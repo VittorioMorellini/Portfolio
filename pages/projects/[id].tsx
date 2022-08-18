@@ -13,11 +13,9 @@ function ProjectItem({ image, name, id }: ProjectItemProps) {
 
   return (
     <div
-      className="projectItem"
-      onClick={() => {
-        router.push("/projects/" + id);
-      }}
+      className="text-center"
     >
+      <h1>Detail of project personal {router.query.id}</h1>
       <div style={{ backgroundImage: `url(${image})` }} className="bgImage" />
       <h1> {name} </h1>
     </div>
