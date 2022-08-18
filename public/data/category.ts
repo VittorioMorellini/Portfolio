@@ -11,14 +11,22 @@ export const categories: Category[] = [
     },
     {
       id: 2,
-      name: 'Career',
-      url: '/career',
-      description: 'Career',
-      title: 'Career',
+      name: 'Projects',
+      url: '/projects',
+      description: 'Projects',
+      title: 'Projects',
       external: false
     },
     {
       id: 3,
+      name: 'Experience',
+      url: '/experience',
+      description: 'Experience',
+      title: 'Experience',
+      external: false
+    },
+    {
+      id: 4,
       name: 'Blog',
       url: '/blog',
       description: 'Blog',
@@ -26,7 +34,7 @@ export const categories: Category[] = [
       external: false
     },
     {
-      id: 4,
+      id: 5,
       name: 'Pokemon',
       url: '/pokemons',
       description: 'Pokemon',
@@ -34,7 +42,7 @@ export const categories: Category[] = [
       external: false
     },
     {
-      id: 5,
+      id: 6,
       name: 'Resume',
       url: '/static/resume.pdf',
       description: 'Resume',
@@ -42,7 +50,7 @@ export const categories: Category[] = [
       external: true
     },
     {
-      id: 6,
+      id: 7,
       name: 'Contacts',
       url: '/contacts',
       description: 'Contacts',

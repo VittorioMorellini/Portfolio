@@ -30,6 +30,7 @@ export default function BlogIndex({posts}: BlogProps) {
 
     //Function that execute fisically the Delete Operation
     const executeDelete = (id: string | number) => {
+        console.log({id})
         fetch(server + `/api/blog/${id}`, {
             method: 'DELETE',
             //body: Json

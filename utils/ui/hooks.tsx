@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import Confirm from './ui/confirm';
+import Confirm from './confirm';
 
 function useConfirm() {
     const [open, setOpen] = useState(false);

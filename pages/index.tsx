@@ -58,9 +58,12 @@ function Home<NextPage>({categories}: HomeProps) {
       <Container size="xl">
           <div className="grid gap-10 grid-cols-1 md:grid-cols-2 mt-0 md:mt-12">
             <p>
-              I'm a passionate and experienced software engineer. 
+              I'm a passionate software engineer. I love web development.
               I've worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
+              Some tecnical director told me that I'm still mid level on the web 
+              (I started in vb6), but I have the ambition and the determination 
+              to become a <b>SDE II</b><br />
               <br />
               <br />
               I'm currently working as a <b>Senior Software Engineer</b> at{" "}
