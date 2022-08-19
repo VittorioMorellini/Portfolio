@@ -20,12 +20,12 @@ export const ProjectList = [
     id: 3,
     name: "Personal portfolio",
     image: Proj3,
-    skills: "Next.js,Node.js,Tailwindcss",
+    skills: "Next.js, Node.js, Tailwindcss",
   },
   {
     id: 4,
     name: "Printed circuits",
     image: Proj4,
-    skills: "Vb6,Pervasive",
+    skills: "Vb6, Pervasive",
   },
 ];

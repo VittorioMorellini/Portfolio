@@ -26,6 +26,75 @@ function Experience() {
           variant="body1"
           color="text.secondary"
         >
+          1970, febbrary 3. I was born in Carpi, Italy
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color="primary" variant="outlined">
+            <SystemIcon />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+            My life began
+          </Typography>
+          <Typography>Live your life</Typography>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+          align="right"
+          variant="body1"
+          color="text.secondary"
+        >
+          1995, July. Informatic Engineering Degree (106/110 Modena, Italy)
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color="primary" variant="outlined">
+            <SystemIcon />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+            I have completed my education
+          </Typography>
+          <Typography>Thesis: A method to translate Easier Schema in PLC code</Typography>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+          align="right"
+          variant="body1"
+          color="text.secondary"
+        >
+          1995, November. Engineering profession enabling (Modena, Italy)
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color="primary" variant="outlined">
+            <SystemIcon />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          <Typography variant="h6" component="span">
+            I became an engineer
+          </Typography>
+          <Typography>Examination during the army service</Typography>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+          align="right"
+          variant="body1"
+          color="text.secondary"
+        >
           1996 Delta Informatica (Modena, Italy)
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -62,7 +131,7 @@ function Experience() {
           <Typography variant="h6" component="span">
             Visual basic 6 developer
           </Typography>
-          <Typography>My target is to develop, not to administer tecnology, so I started to follow my road</Typography>
+          <Typography>My target is to develop software, not to administer tecnology, so I started my route</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -123,7 +192,7 @@ function Experience() {
           <TimelineDot color="primary" variant="outlined">
             <DesktopIcon />
           </TimelineDot>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
+          <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span">
