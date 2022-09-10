@@ -11,10 +11,10 @@ export const categories: Category[] = [
     },
     {
       id: 2,
-      name: 'Projects',
+      name: 'Personal',
       url: '/projects',
-      description: 'Projects',
-      title: 'Projects',
+      description: 'Personal',
+      title: 'Personal projects',
       external: false
     },
     {
