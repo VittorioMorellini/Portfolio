@@ -7,10 +7,9 @@ import Link from "next/link";
 
 function Projects() {
   return (
-    <Container>
-    {/* <div className="w-full h-auto flex justify-center items-center flex-col"> */}
+    <div className="w-full h-auto flex justify-center items-center flex-col">
       <h1 className="text-3xl text-center font-bold">My Personal Projects</h1>
-      <div className="grid h-auto text-center place-items-center md:grid-cols-2">
+      <div className="grid h-auto place-items-center md:grid-cols-2">
         {ProjectList.map((project, idx) => {
           return (
             <div key={idx}
@@ -36,8 +35,7 @@ function Projects() {
           );
         })}
       </div>
-    {/* </div> */}
-    </Container>
+    </div>
   );
 }
 
