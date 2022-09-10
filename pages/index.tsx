@@ -78,8 +78,8 @@ function Home<NextPage>({categories}: HomeProps) {
               <Image
                 loader={ImageLoader}
                 unoptimized
-                src={"/images/coding.jpg"}
-                alt="Michele Riva at BeJS 2022, Brussels, Belgium"
+                src={"/public/images/coding.jpg"}
+                alt="Coding is our life"
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
