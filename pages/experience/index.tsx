@@ -40,7 +40,7 @@ function Experience() {
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span">
-            Education completed
+            Education
           </Typography>
           <Typography>Thesis: A method to translate Easier Schema in PLC code</Typography>
         </TimelineContent>
@@ -65,7 +65,7 @@ function Experience() {
           <Typography variant="h6" component="span">
             Engineer professionist
           </Typography>
-          <Typography>Examination during the army service</Typography>
+          <Typography>Exam taken during military service</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -86,7 +86,7 @@ function Experience() {
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span">
-            Novell Lan administrator
+            Lan manager and Access developer
           </Typography>
           <Typography>System administration</Typography>
         </TimelineContent>
