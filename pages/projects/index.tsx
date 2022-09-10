@@ -9,8 +9,8 @@ function Projects() {
   return (
     <Container>
     <div className="w-full h-auto flex justify-center items-center flex-col">
-      <h1 className="text-3xl text-center font-bold"> My Personal Projects</h1>
-      <div className="h-auto grid md:grid-cols-2 place-items-center" style={{width: '70vw'}}>
+      <h1 className="text-3xl text-center font-bold">My Personal Projects</h1>
+      <div className="h-auto place-items-center grid md:grid-cols-2 " style={{width: 'auto'}}>
         {ProjectList.map((project, idx) => {
           return (
             <div key={idx}
