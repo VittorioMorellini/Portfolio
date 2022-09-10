@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 import { server } from '../../config/config';
 import { Post } from '../../types/post';
-import { Confirm } from '../../utils/ui/confirm';
+import Confirm from '../../utils/ui/confirm';
 
 interface BlogDetailProps {
     post: Post;

@@ -29,7 +29,7 @@ function Navigation(props: NavigationProps) {
             </div>
             <ul className='list-disc pl-5'>
                 {categories?.map((category, index, categories) => (
-                    <li className="mt-4">
+                    <li className="mt-4" key={index}>
                         <Button variant="outlined" className="pl-4 w-32" onClick={() => {    
                             setTitle(category.title);
                             router.push(category.url)

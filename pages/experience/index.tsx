@@ -12,6 +12,9 @@ import SystemIcon from '@mui/icons-material/SystemSecurityUpdateWarning';
 import DesktopIcon from '@mui/icons-material/DesktopWindows';
 import WebIcon from '@mui/icons-material/WebOutlined';
 import ComputerIcon from '@mui/icons-material/SecurityRounded';
+import StartIcon from '@mui/icons-material/StartOutlined';
+import EducationIcon from '@mui/icons-material/BookOnlineOutlined';
+import ArmyIcon from '@mui/icons-material/WarningOutlined';
 import Typography from '@mui/material/Typography';
 
 function Experience() {
@@ -26,41 +29,18 @@ function Experience() {
           variant="body1"
           color="text.secondary"
         >
-          1970, febbrary 3. I was born in Carpi, Italy
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot color="primary" variant="outlined">
-            <SystemIcon />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            My life began
-          </Typography>
-          <Typography>Live your life</Typography>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
-          align="right"
-          variant="body1"
-          color="text.secondary"
-        >
           1995, July. Informatic Engineering Degree (106/110 Modena, Italy)
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary" variant="outlined">
-            <SystemIcon />
+            <EducationIcon />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span">
-            I have completed my education
+            Education completed
           </Typography>
           <Typography>Thesis: A method to translate Easier Schema in PLC code</Typography>
         </TimelineContent>
@@ -77,13 +57,13 @@ function Experience() {
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary" variant="outlined">
-            <SystemIcon />
+            <ArmyIcon />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span">
-            I became an engineer
+            Engineer professionist
           </Typography>
           <Typography>Examination during the army service</Typography>
         </TimelineContent>
@@ -176,7 +156,7 @@ function Experience() {
           <Typography variant="h6" component="span">
             .Net web engineer
           </Typography>
-          <Typography>Not all the startup have a winning road</Typography>
+          <Typography>Startup experience</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -198,7 +178,7 @@ function Experience() {
           <Typography variant="h6" component="span">
             .Net web and winform developer
           </Typography>
-          <Typography>Web services and applications for health enviroment</Typography>
+          <Typography>Web services and applications for health sector</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -218,9 +198,9 @@ function Experience() {
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
           <Typography variant="h6" component="span">
-          .Net 6 and React typescript developer
+          .Net 6 and React developer
           </Typography>
-          <Typography>Web application for Digital signature and web enterprise documental</Typography>
+          <Typography>Web application for Digital signature and enterprise documental</Typography>
         </TimelineContent>
       </TimelineItem>
     </Timeline>

@@ -50,17 +50,17 @@ function DesktopNavBar() {
                             ))}
                         </ul>
                         <div className="flex px-4 pt-4 justify-between">
-                            <a href="https://twitter.com/VittoMorellini" target="_blank">
+                            <a href="https://twitter.com/VittoMorellini" target="_blank" rel="noreferrer">
                                 <Icon className="h-8 w-8 hover:text-gray-400">
                                     <BsTwitter />
                                 </Icon>
                             </a>
-                            <a href="https://www.linkedin.com/in/vittorio-morellini-0325b620" target="_blank">
+                            <a href="https://www.linkedin.com/in/vittorio-morellini-0325b620" target="_blank" rel="noreferrer">
                                 <Icon className="h-8 w-8 hover:text-gray-400">
                                     <BsLinkedin />
                                 </Icon>
                             </a>
-                            <a href="https://github.com/vittoriomorellini" target="_blank">
+                            <a href="https://github.com/vittoriomorellini" target="_blank" rel="noreferrer">
                                 <Icon className="h-8 w-8 hover:text-gray-400">
                                     <BsGithub />
                                 </Icon>

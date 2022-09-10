@@ -44,6 +44,7 @@ function Home<NextPage>({categories}: HomeProps) {
                     href="https://sixtema.it"
                     className="underline hover:text-blue-400"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Sixtema
                   </a>
@@ -58,17 +59,17 @@ function Home<NextPage>({categories}: HomeProps) {
       <Container size="xl">
           <div className="grid gap-10 grid-cols-1 md:grid-cols-2 mt-0 md:mt-12">
             <p>
-              I'm a passionate software engineer. I love web development.
-              I've worked as a software engineer for more than
+              I am a software engineer. I love web development.
+              I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
-              Some tecnical director told me that I'm still mid level on the web 
+              Some tecnical director told me that I am still mid level on the web 
               (I started in vb6), but I have the ambition and the determination 
-              to become a <b>SDE II</b><br />
+              to become a <b>SDE II</b> on the Web<br />
               <br />
               <br />
-              I'm currently working as a <b>Senior Software Engineer</b> at{" "}
+              I am currently working as a <b>Senior Software Engineer</b> at{" "}
               <b>Sixtema</b> in two main languages: <br/>
-              TypeScript and React on Frontend<br />
+              React on Frontend<br />
               .Net (C#) on Backend <br />
               <br />
             </p>
