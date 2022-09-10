@@ -78,7 +78,7 @@ function Home<NextPage>({categories}: HomeProps) {
               <Image
                 loader={ImageLoader}
                 unoptimized
-                src={"/public/images/coding.jpg"}
+                src={"/images/Coding.jpg"}
                 alt="Coding is our life"
                 layout="fill"
                 objectFit="cover"
