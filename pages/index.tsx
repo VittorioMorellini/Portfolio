@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { Container } from '../components/container'
+import { server } from '../config/config'
 import { categoriesAtom } from '../recoil/categoryState'
 import { Category } from '../types/category'
 import ImageLoader from '../utils/imageLoader'
@@ -95,7 +96,7 @@ function Home<NextPage>({categories}: HomeProps) {
 export async function getServerSideProps (context: any) {
   console.log('Sono in server sides category')
 
-  const res = await fetch('http://localhost:3000/api/category')
+  const res = await fetch(server +'/api/category')
   console.log('Res recuperate server sides category', res)
   const results: Category[] = await res.json();
   

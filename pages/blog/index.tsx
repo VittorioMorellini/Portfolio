@@ -93,14 +93,12 @@ export default function BlogIndex({posts}: BlogProps) {
                       <PostAddSharp />
                   </ListItemButton> 
                   {/*             
-                    //setOpen(true)                        
-                    //deletePost(post.Id)
-                  */}
                   <ListItemIcon>
                     <IconButton onClick={confirmDelete(post.Id)}>                    
                       <Delete />
                     </IconButton>
                   </ListItemIcon> 
+                  */}
                                
                 </ListItem>
               })}
