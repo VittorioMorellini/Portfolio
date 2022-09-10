@@ -44,7 +44,7 @@ export const categories: Category[] = [
     {
       id: 6,
       name: 'Resume',
-      url: '/static/resume.pdf',
+      url: '/static/Resume.pdf',
       description: 'Resume',
       title: 'Resume',
       external: true
