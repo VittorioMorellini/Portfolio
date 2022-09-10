@@ -57,8 +57,7 @@ function Experience() {
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary" variant="outlined">
-            {/* <ArmyIcon /> */}
-            <EducationIcon />
+            <ArmyIcon />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
