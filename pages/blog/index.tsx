@@ -82,7 +82,7 @@ export default function BlogIndex({posts}: BlogProps) {
           <div>
           <Container>
             <div className='bg-blue-200 text-center'>
-              {posts?.map((post: Post, index: number) => {
+              {posts && posts?.map((post: Post, index: number) => {
                   //To manage the timezone in formatting date
                   //const date = new Date()
                   return <ListItem key={index} className="px-5">
