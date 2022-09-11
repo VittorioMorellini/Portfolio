@@ -53,7 +53,7 @@ function Experience() {
             variant="body1"
             color="text.secondary"
           >
-            1995, November. Engineering profession enabling (Modena, Italy)
+            1995, November (Modena, Italy)
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector />
