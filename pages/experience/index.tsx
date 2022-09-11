@@ -20,9 +20,9 @@ import { Container } from '../../components/container';
 
 function Experience() {
   return (
-    <div className='grid text-center'>
+    <div className='text-center'>
       <h1 className="text-3xl text-center font-bold"> My professional experience</h1>
-      <Timeline position="alternate" className='grid place-items-center bg-slate-300 ml-0'>
+      <Timeline position="alternate" className='grid place-items-center bg-slate-100 mx-auto'>
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}

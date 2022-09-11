@@ -49,6 +49,7 @@ function Home<NextPage>({categories}: HomeProps) {
                   >
                     Sixtema
                   </a>
+                  (Modena, Italy)
                 </h1>
                 <h2 className="text-xl md:text-3xl mt-2">
                   Software Developer .Net (C#) and React (typescript)
@@ -63,7 +64,7 @@ function Home<NextPage>({categories}: HomeProps) {
               I am a software engineer. I love web development.
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
-              Some tecnical director told me that I am still mid level on the web 
+              Some technical director told me that I am still mid level on the web 
               (I started in vb6), but I have the ambition and the determination 
               to become a <b>SDE II</b> on the Web<br />
               <br />
