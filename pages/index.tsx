@@ -49,7 +49,7 @@ function Home<NextPage>({categories}: HomeProps) {
                   >
                     Sixtema
                   </a>
-                  (Modena, Italy)
+                  <br />(Modena, Italy)
                 </h1>
                 <h2 className="text-xl md:text-3xl mt-2">
                   Software Developer .Net (C#) and React (typescript)
