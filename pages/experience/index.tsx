@@ -22,7 +22,7 @@ function Experience() {
   return (
     <Box>
       <h1 className="text-3xl text-center font-bold"> My professional experience</h1>
-      <Timeline position="alternate">
+      <Timeline position="alternate" className='flex flex-col mx-auto justify-center'>
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
