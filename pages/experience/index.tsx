@@ -12,17 +12,17 @@ import SystemIcon from '@mui/icons-material/SystemSecurityUpdateWarning';
 import DesktopIcon from '@mui/icons-material/DesktopWindows';
 import WebIcon from '@mui/icons-material/WebOutlined';
 import ComputerIcon from '@mui/icons-material/SecurityRounded';
-import StartIcon from '@mui/icons-material/StartOutlined';
 import EducationIcon from '@mui/icons-material/BookOnlineOutlined';
 import ArmyIcon from '@mui/icons-material/WarningOutlined';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
+import { Container } from '../../components/container';
 
 function Experience() {
   return (
-    <Box>
+    <div className='grid text-center'>
       <h1 className="text-3xl text-center font-bold"> My professional experience</h1>
-      <Timeline position="alternate" className='flex flex-col mx-auto' style={{minWidth: '390px'}}>
+      <Timeline position="alternate" className='grid place-items-center bg-slate-300 ml-0'>
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
@@ -208,7 +208,7 @@ function Experience() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </Box>
+    </div>
   );
 }
 
