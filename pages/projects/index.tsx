@@ -10,7 +10,7 @@ function Projects() {
     //* className="w-full h-auto flex justify-center items-center flex-col"
     <div>
       <h1 className="text-3xl text-center font-bold">My Personal Projects</h1>
-      <div className="grid md:grid-cols-2 bg-slate-400 place-items-center">
+      <div className="grid md:grid-cols-2 place-items-center">
         {ProjectList.map((project, idx) => {
           return (
             <div key={idx}
