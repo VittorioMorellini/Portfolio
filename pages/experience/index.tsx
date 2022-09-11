@@ -22,10 +22,10 @@ function Experience() {
   return (
     <Box>
       <h1 className="text-3xl text-center font-bold"> My professional experience</h1>
-      <Timeline position="alternate" className='flex flex-col mx-auto justify-center'>
+      <Timeline position="alternate" className='flex flex-col mx-auto justify-center' style={{minWidth: '360px'}}>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
             align="right"
             variant="body1"
             color="text.secondary"
@@ -48,8 +48,8 @@ function Experience() {
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
-            align="right"
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            align="left"
             variant="body1"
             color="text.secondary"
           >
@@ -71,7 +71,7 @@ function Experience() {
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
             align="right"
             variant="body1"
             color="text.secondary"
@@ -87,15 +87,15 @@ function Experience() {
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography variant="h6" component="span">
-              Lan manager and Access developer
+              Lan manager
             </Typography>
             <Typography>System administration</Typography>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
-            align="right"
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            align="left"
             variant="body1"
             color="text.secondary"
           >
@@ -117,7 +117,7 @@ function Experience() {
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
             align="right"
             variant="body1"
             color="text.secondary"
@@ -140,7 +140,8 @@ function Experience() {
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            align="left"
             variant="body1"
             color="text.secondary"
           >
@@ -162,7 +163,8 @@ function Experience() {
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            align="right"
             variant="body1"
             color="text.secondary"
           >
@@ -184,7 +186,8 @@ function Experience() {
         </TimelineItem>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ m: 'auto 0', fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            sx={{ fontStyle: 'bold', bgcolor: 'rgb(59 130 246 / 0.5)' }}
+            align="left"
             variant="body1"
             color="text.secondary"
           >
