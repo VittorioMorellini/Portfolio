@@ -7,13 +7,14 @@ import Link from "next/link";
 
 function Projects() {
   return (
-    <div className="w-full h-auto flex justify-center items-center flex-col">
+    //* className="w-full h-auto flex justify-center items-center flex-col"
+    <div>
       <h1 className="text-3xl text-center font-bold">My Personal Projects</h1>
-      <div className="grid md:grid-cols-2 h-auto text-center mx-auto">
+      <div className="grid md:grid-cols-2 bg-slate-400 place-items-center">
         {ProjectList.map((project, idx) => {
           return (
             <div key={idx}
-              className="text-center shadow-lg m-10 h-72 w-72 rounded-2xl"
+              className="text-center shadow-lg m-10 h-60 w-60 rounded-2xl"
             >
               <div style={{/* backgroundImage: `url(${project.image})` */}} className="w-full h-52 bg-center bg-no-repeat bg-cover rounded-t-2xl">
                 <Image
