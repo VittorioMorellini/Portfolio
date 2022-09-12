@@ -28,7 +28,7 @@ function Projects() {
               </div>  
               <div> 
                 <Link href={`/projects/${project.id}`}>
-                  <a className="hover:text-blue-400"><h1 className="text-2xl">{project.name} </h1></a>
+                  <a className="hover:text-blue-400 block"><h2 className="text-2xl">{project.name}</h2></a>
                 </Link>                
               </div>
               <h1>{project.skills}</h1>
