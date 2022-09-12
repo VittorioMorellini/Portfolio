@@ -9,7 +9,7 @@ function SEO() {
             openGraph={{
                 type: "website",
                 locale: "it_IT",
-                url: "https://vittoriomorellini.it",
+                url: "https://portfolio-vittoriomorellini.vercel.app",
                 site_name: "Personal site",
                 images: [
                     {
