@@ -12,7 +12,7 @@ export const ProjectList = [
   },
   {
     id: 2,
-    name: "Mattress orders",
+    name: "Mattresses orders",
     image: Proj2,
     skills: "Asp.Net (C#), jQuery, Oracle",
   },
