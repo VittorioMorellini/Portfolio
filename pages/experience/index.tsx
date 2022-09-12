@@ -89,7 +89,7 @@ function Experience() {
             <Typography variant="h6" component="span">
               Lan manager
             </Typography>
-            <Typography>System administration</Typography>
+            <Typography></Typography>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>
@@ -112,7 +112,7 @@ function Experience() {
             <Typography variant="h6" component="span">
               Visual basic 6 developer
             </Typography>
-            <Typography>My target is to develop software, not to administer tecnology, so I started my route</Typography>
+            <Typography>My target is to develop software, I started my route</Typography>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>
@@ -156,7 +156,7 @@ function Experience() {
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography variant="h6" component="span">
-              .Net web engineer
+              Web engineer
             </Typography>
             <Typography>Startup experience</Typography>
           </TimelineContent>
@@ -202,7 +202,7 @@ function Experience() {
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography variant="h6" component="span">
-            .Net 6 and React developer
+            .Net and React developer
             </Typography>
             <Typography>Web application for Digital signature and enterprise documental</Typography>
           </TimelineContent>
