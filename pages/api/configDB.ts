@@ -12,5 +12,4 @@ export const configDB = {
 }
 
 //Connection string for Msaccess
-//export const connString = 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Development\\Personal\\Portfolio\\public\\data\\Portfolio.mdb';
 export const connString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='public/data/Portfolio.mdb'";
