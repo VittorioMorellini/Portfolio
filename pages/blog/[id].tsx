@@ -31,16 +31,15 @@ function BlogDetail({ post }: BlogDetailProps) {
     }
 
     const saveBlog = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        debugger;
         console.log('save post in my blog');
-        const response = fetch(server + `/api/blog/${post.Id}`, {
+        const response = fetch(server + `/api/blog/${post.ID}`, {
             method: 'POST',
-            body: JSON.stringify({Text: text, Author: author, Id: post.Id ? post.Id : 0, Date: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
+            body: JSON.stringify({Content: text, Author: author, Id: post.ID ? post.ID : 0, PostDate: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
             showToast()
-            if (post.Id === 0)
+            if (post.ID === 0)
                 router.push('/blog');
             })
         .catch(err => {
@@ -52,9 +51,11 @@ function BlogDetail({ post }: BlogDetailProps) {
     }
 
     useEffect(() => {
-        setText(post.Text ? post.Text : '')
+        console.log({post})
+        //setText(post.Content ? post.Content : '')
+        setText(post.Content)
         setAuthor(post.Author ? post.Author : '')
-        setId(post.Id);
+        setId(post.ID);
     }, [])
 
     return (
@@ -67,7 +68,7 @@ function BlogDetail({ post }: BlogDetailProps) {
             </div>
             <div className="flex flex-col items-center w-4/5">
                 <div className="text-center mb-4">
-                    <h3>Post Id: {id}</h3>
+                    <h3>Post Id: {post?.ID}</h3>
                 </div>
                 <div className='block'>
                     <label className='italic'>Content</label>
@@ -108,16 +109,15 @@ function BlogDetail({ post }: BlogDetailProps) {
 
 export async function getServerSideProps(context: any) {
     console.log('I am in server side props loading SSR')
-    //const { data } = await axios.get(server + `/api/blog/${context.query.id}`)
-    const  data  = await fetch(server + `/api/blog/${context.query.id}`)
-    //const results: Post = await JSON.parse(res.json());
-    console.log('Data fetched in server side props api id blog SSR', data)
+    const data = await fetch(server + `/api/blog/${context.query.id}`)
+    //console.log('Data fetched in server side props api id blog SSR', data)
     const result: Post = await data.json();
     console.log('Data fetched json() in server side props api id blog SSR', result)
 
     return {
       props: {
-        post: JSON.parse(JSON.stringify(result))
+        //post: JSON.parse(JSON.stringify(result))
+        post: result
       }
     }
 }

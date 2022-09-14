@@ -53,10 +53,8 @@ export default function BlogIndex({posts}: BlogProps) {
         })
     }
     
-    const editPost = (id: number) => {
-        debugger;
-        router.push('/blog/' + id);
-    }    
+    const editPost = (id: number) => router.push('/blog/' + id);
+    
     //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
 
@@ -87,9 +85,9 @@ export default function BlogIndex({posts}: BlogProps) {
                   //const date = new Date()
                   return <ListItem key={index} className="px-5">
                   <ListItemText>
-                    {post.Text ? post.Text.substring(0, 100) + '...' : ''}
+                    {post.Content ? post.Content?.substring(0, 100) + '...' : ''}
                   </ListItemText>
-                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="justify-end">
+                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.ID)} className="justify-end">
                       <PostAddSharp />
                   </ListItemButton> 
                   {/*             
@@ -98,8 +96,7 @@ export default function BlogIndex({posts}: BlogProps) {
                       <Delete />
                     </IconButton>
                   </ListItemIcon> 
-                  */}
-                               
+                  */}                               
                 </ListItem>
               })}
             </div>
@@ -119,6 +116,7 @@ export async function getServerSideProps(context: any) {
   console.log('Sono in server side props')
   
   const res = await fetch(server + '/api/blog')
+  console.log('I have res', res)
   //const res = await fetch('api/blog')
   const results: Post[] = await res.json();
   console.log('I have post ', results)

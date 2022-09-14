@@ -25,14 +25,14 @@ export const categories: Category[] = [
       title: 'Experience',
       external: false
     },
-    // {
-    //   id: 4,
-    //   name: 'Blog',
-    //   url: '/blog',
-    //   description: 'Blog',
-    //   title: 'Blog',
-    //   external: false
-    // },
+    {
+      id: 4,
+      name: 'Blog',
+      url: '/blog',
+      description: 'Blog',
+      title: 'Blog',
+      external: false
+    },
     {
       id: 5,
       name: 'Pokemon',

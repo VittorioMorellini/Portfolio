@@ -1,4 +1,4 @@
-
+//Connection string for Sql Server
 export const configDB = {
     user: 'sa',
     password: 'sapwd',
@@ -10,3 +10,7 @@ export const configDB = {
         enableArithAbort: true
     }
 }
+
+//Connection string for Msaccess
+//export const connString = 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Development\\Personal\\Portfolio\\public\\data\\Portfolio.mdb';
+export const connString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='public/data/Portfolio.mdb'";
