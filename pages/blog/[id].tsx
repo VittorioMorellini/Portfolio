@@ -108,9 +108,8 @@ function BlogDetail({ post }: BlogDetailProps) {
 }
 
 export async function getServerSideProps(context: any) {
-    console.log('I am in server side props loading SSR')
+    //console.log('I am in server side props loading SSR')
     const data = await fetch(server + `/api/blog/${context.query.id}`)
-    //console.log('Data fetched in server side props api id blog SSR', data)
     const result: Post = await data.json();
     console.log('Data fetched json() in server side props api id blog SSR', result)
 
