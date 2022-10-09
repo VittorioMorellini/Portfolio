@@ -57,15 +57,13 @@ export default function BlogIndex({posts}: BlogProps) {
     
     //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
-    console.log('I am in api posts')
-    console.log({posts})
+    //console.log({posts})
     return (
         <div className="flex flex-col">
           <Container>
           <div className="flex flex-row items-center mb-4">
               <div>
                   <Button variant="outlined" className="w-32" onClick={() => {    
-                      //setTitle(category.title);
                       router.push('blog/0')
                   }}>
                       Add post
