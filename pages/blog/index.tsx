@@ -57,6 +57,7 @@ export default function BlogIndex({posts}: BlogProps) {
     
     //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
+    console.log('I am in api posts')
     console.log({posts})
     return (
         <div className="flex flex-col">

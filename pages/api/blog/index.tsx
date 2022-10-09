@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import sql, { ConnectionPool } from 'mssql';
 import { configDB, connString } from "../configDB";
 import { server } from "../../../config/config";
 
