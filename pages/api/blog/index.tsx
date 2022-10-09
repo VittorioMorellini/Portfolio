@@ -24,6 +24,7 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
         //let data = res.status(200).json(result[0]);
         //console.log('data found', data);
 
+        //return res.status(200).json(result);
         return res.status(200).json(result[0]);
 
     } catch (e) {
