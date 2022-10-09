@@ -11,5 +11,17 @@ export const configDB = {
     }
 }
 
+export const configDBNew = {
+    user: 'sa',
+    password: 'sapwd',
+    server: 'S-2020-000002\\SQLEXPRESS',
+    database: 'Portfolio',
+    // database: 'Sign_DEV',
+    options: {
+        encrypt: false,
+        enableArithAbort: true
+    }
+}
+
 //Connection string for Msaccess
 export const connString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='public/data/Portfolio.mdb'";

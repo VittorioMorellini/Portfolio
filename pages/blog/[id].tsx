@@ -32,14 +32,14 @@ function BlogDetail({ post }: BlogDetailProps) {
 
     const saveBlog = async (event: React.MouseEvent<HTMLButtonElement>) => {
         console.log('save post in my blog');
-        const response = fetch(server + `/api/blog/${post.ID}`, {
+        const response = fetch(server + `/api/blog/${post.Id}`, {
             method: 'POST',
-            body: JSON.stringify({Content: text, Author: author, Id: post.ID ? post.ID : 0, PostDate: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
+            body: JSON.stringify({Content: text, Author: author, Id: post.Id ? post.Id : 0, PostDate: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
             showToast()
-            if (post.ID === 0)
+            if (post.Id === 0)
                 router.push('/blog');
             })
         .catch(err => {
@@ -51,11 +51,13 @@ function BlogDetail({ post }: BlogDetailProps) {
     }
 
     useEffect(() => {
+        console.log('First load fill the data')
         console.log({post})
+        //if (post && post.)
         //setText(post.Content ? post.Content : '')
         setText(post.Content)
         setAuthor(post.Author ? post.Author : '')
-        setId(post.ID);
+        setId(post.Id);
     }, [])
 
     return (
@@ -68,7 +70,7 @@ function BlogDetail({ post }: BlogDetailProps) {
             </div>
             <div className="flex flex-col items-center w-4/5">
                 <div className="text-center mb-4">
-                    <h3>Post Id: {post?.ID}</h3>
+                    <h3>Post Id: {post?.Id}</h3>
                 </div>
                 <div className='block'>
                     <label className='italic'>Content</label>

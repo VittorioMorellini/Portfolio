@@ -57,7 +57,7 @@ export default function BlogIndex({posts}: BlogProps) {
     
     //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
-
+    console.log({posts})
     return (
         <div className="flex flex-col">
           <Container>
@@ -87,7 +87,7 @@ export default function BlogIndex({posts}: BlogProps) {
                   <ListItemText>
                     {post.Content ? post.Content?.substring(0, 100) + '...' : ''}
                   </ListItemText>
-                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.ID)} className="justify-end">
+                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="justify-end">
                       <PostAddSharp />
                   </ListItemButton> 
                   {/*             
