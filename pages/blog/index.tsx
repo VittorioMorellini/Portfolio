@@ -72,7 +72,7 @@ export default function BlogIndex({posts}: BlogProps) {
                   </Button>
               </div>
               <div className="text-center w-full">
-                <h1 className="text-3xl font-black text-center">Tell me what do think about my personal site</h1>
+                <h1 className="text-3xl font-black text-center">Tell me what do you think about my personal site</h1>
               </div>
           </div>
           {/*YYYY-MM-DDTHH:mm:ss.sssZ  post.Date.toString() */}
