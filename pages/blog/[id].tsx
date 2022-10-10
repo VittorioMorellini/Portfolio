@@ -51,11 +51,9 @@ function BlogDetail({ post }: BlogDetailProps) {
     }
 
     useEffect(() => {
-        console.log('First load fill the data')
-        console.log({post})
-        //if (post && post.)
-        //setText(post.Content ? post.Content : '')
-        setText(post.Content)
+        // console.log('First load fill the data')
+        // console.log({post})
+        setText(post.Content ? post.Content : '')
         setAuthor(post.Author ? post.Author : '')
         setId(post.Id);
     }, [])
