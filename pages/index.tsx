@@ -64,9 +64,17 @@ function Home<NextPage>({categories}: HomeProps) {
               I am a software engineer. I love web development.
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
-              Some technical director told me that I am still mid level on the web 
+              A technical director told me that I am still mid level on the web 
               (I started in vb6), but I have the ambition and the determination 
               to become a <b>SDE II</b> on the Web<br />
+              <br />
+              I started before the new millenium working as a developer in visual basic 6.
+              But I have always felt the need to move and to develop on the Web.<br />
+              If on the backend I've always been certain to select .Net ecosystem,
+              for the front end, after a road on more companies, I am convinced to develop 
+              in javascript with the best frameworks that are available in that world:
+              React, Angular, Vue...<br />
+              I am now a React developer that every day tries to grow in the front end world  
               <br />
               <br />
               I am currently working as a <b>Senior Software Engineer</b> at{" "}
