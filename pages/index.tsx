@@ -70,7 +70,7 @@ function Home<NextPage>({categories}: HomeProps) {
               <br />
               I started before the new millenium working as a developer in visual basic 6.
               But I have always felt the need to move and to develop on the Web.<br />
-              If on the backend I've always been certain to select .Net ecosystem,
+              If on the backend I&apos;ve always been certain to select .Net ecosystem,
               for the front end, after a road on more companies, I am convinced to develop 
               in javascript with the best frameworks that are available in that world:
               React, Angular, Vue...<br />
