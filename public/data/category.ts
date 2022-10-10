@@ -35,6 +35,14 @@ export const categories: Category[] = [
     },
     {
       id: 5,
+      name: 'Articles',
+      url: '/article',
+      description: 'Articles',
+      title: 'Articles',
+      external: false
+    },
+    {
+      id: 6,
       name: 'Pokemon',
       url: '/pokemons',
       description: 'Pokemon',
@@ -42,7 +50,7 @@ export const categories: Category[] = [
       external: false
     },
     {
-      id: 6,
+      id: 7,
       name: 'Resume',
       url: '/static/Resume.pdf',
       description: 'Resume',
@@ -50,7 +58,7 @@ export const categories: Category[] = [
       external: true
     },
     {
-      id: 7,
+      id: 8,
       name: 'Contacts',
       url: '/contacts',
       description: 'Contacts',
