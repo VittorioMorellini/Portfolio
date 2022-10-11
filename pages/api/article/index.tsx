@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { configDB, connString } from "../configDB";
 import { server } from "../../../config/config";
 import { MongoClient } from "mongodb";
+import { Article } from "../../../types/article";
 
 
 const newListing: any = {
@@ -40,12 +41,12 @@ async function findOneListingByName(client: MongoClient, nameOfListing: string) 
     }
 };
 
-async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
+
+async function ArticlesHandler(req: NextApiRequest, res: NextApiResponse) {
     try {
         
         //Open connection to Mongodb
         require('dotenv').config()
-        //let uri: string = 'mongodb+srv://vittorio:Malcomx70$@cluster0.g1o7zku.mongodb.net/?retryWrites=true&w=majority'
         const client: MongoClient = new MongoClient(process.env.MONGODB_URL!);
         
         try {
@@ -56,15 +57,18 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
             
             //createListing(client, newListing);
             //console.log('Inserted a new item on DB')
+            let result: Article[] = []
+            await client.db("portfolio").collection('articles').find().forEach(art => {
+                let article: Article = {Id: '', Name: '', Summary: '', ListingUrl: ''};
+                article.Id = art._id.toString();
+                article.Name = art.name;
+                article.Summary = art.summary;
 
-            const result = await findOneListingByName(client, 'Modern Spacious 1 Bedroom Loft')
-
-            //Open the query for the articles collection
-            //const result = await connection.promise().query('SELECT * FROM Post Order by PostDate');
-
-            //console.log('post found', result);
+                result.push(article)
+            });
+            console.log('articles found', result);
             //return res.status(200).json(result)
-            return res.status(200).json([])
+            return res.status(200).json(result)
         } catch (e) {
             console.error(e);
             throw e;
@@ -76,4 +80,4 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
     }
 }
 
-export default PostsHandler;
+export default ArticlesHandler;

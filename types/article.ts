@@ -1,6 +1,15 @@
 export interface Article {
-    Id: number,
-    Content: string,
-    ArticleDate: string,
-    Title: string,
+    // _id: string,
+    // listing_url: string,
+    // name: string,
+    // summary: string,
+    // property_type: string,
+    // bedrooms: object,
+    // bathrooms: object,
+    // amenities: string[]
+
+    Id: string;
+    ListingUrl: string;
+    Name: string;
+    Summary: string;
 }

@@ -57,7 +57,7 @@ export default function Index({articles}: ArticleProps) {
         })
     }
     
-    const editArticle = (id: number) => router.push('/article/' + id);
+    const viewArticle = (id: number) => router.push('/article/' + id);
     
     //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
@@ -86,13 +86,10 @@ export default function Index({articles}: ArticleProps) {
                     //To manage the timezone in formatting date
                     //const date = new Date()
                     return <ListItem key={index} className="px-5">
-                    <ListItemText>
-                      {article.Content ? article.Content?.substring(0, 100) + '...' : ''}
-                    </ListItemText>
-                    {/* <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editArticle(article.Id)} className="justify-end">
-                        <ArticleSharp />
-                    </ListItemButton>  */}
-                  </ListItem>
+                      <ListItemText>
+                        {article.Summary ? article.Summary?.substring(0, 100) + '...' : ''}
+                      </ListItemText>
+                    </ListItem>
                 })}
               </div>
             </Container>
