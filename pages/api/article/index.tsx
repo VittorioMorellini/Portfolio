@@ -53,22 +53,26 @@ async function ArticlesHandler(req: NextApiRequest, res: NextApiResponse) {
             await client.connect();
             console.log('Connected to Mongo DB!')
         
-            await listDatabases(client);
-            
+            //await listDatabases(client);            
             //createListing(client, newListing);
             //console.log('Inserted a new item on DB')
             let result: Article[] = []
-            await client.db("portfolio").collection('articles').find().forEach(art => {
-                let article: Article = {Id: '', Name: '', Summary: '', ListingUrl: ''};
-                article.Id = art._id.toString();
-                article.Name = art.name;
-                article.Summary = art.summary;
+            let db = await client.db("portfolio");
+            const collection = db.collection('articles') 
+            //Get the array from the cursor
+            const findResult = await collection.find({}).toArray();
+            //cicle
+            // await collection.find().forEach(art => {
+            //     console.log('Article from Mongodb', art)
+            //     let article: Article = {Id: '', Name: '', Summary: '', ListingUrl: ''};
+            //     article.Id = art._id.toString();
+            //     article.Name = art.name;
+            //     article.Summary = art.summary;
 
-                result.push(article)
-            });
-            console.log('articles found', result);
-            //return res.status(200).json(result)
-            return res.status(200).json(result)
+            //     result.push(article)
+            // });
+            console.log('articles found from mongodb', findResult);
+            return res.status(200).json(findResult)
         } catch (e) {
             console.error(e);
             throw e;

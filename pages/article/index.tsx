@@ -17,7 +17,6 @@ interface ArticleProps {
 
 export default function Index({articles}: ArticleProps) {
     const router = useRouter();
-    const { addToast } = useToasts()
     //for confirm delete
     const [open, setOpen] = useState(false);
     const onCancel = () => { setOpen(false) };
@@ -25,43 +24,10 @@ export default function Index({articles}: ArticleProps) {
     const message = useRef<string | JSX.Element | undefined>();
     const [searchValue, setSearchValue] = useState<string>("");
     const debounedSearchValue = useDebounce(searchValue, 300);
-    
-    // handler to assign the function on the confirm method
-    const confirmDelete = (id: string | number) => (e: React.MouseEvent<HTMLButtonElement>) => {
-        setOpen(true)
-        onConfirm.current = () => executeDelete(id);
-    }
-
-    //Function that execute fisically the Delete Operation
-    const executeDelete = (id: string | number) => {
-        console.log({id})
-        fetch(server + `/api/blog/${id}`, {
-            method: 'DELETE',
-            //body: Json
-            headers: {'Content-Type': 'application/json'}
-        })
-        .then(res => {
-            addToast("Successfully deleted", {
-              appearance: 'info',
-              autoDismiss: true,
-            })  
-            router.push('/blog');
-            setOpen(false);
-        })
-        .catch(err => {
-          addToast(err, {
-            appearance: 'error',
-            autoDismiss: true,
-          })          
-          setOpen(false);
-        })
-    }
-    
-    const viewArticle = (id: number) => router.push('/article/' + id);
-    
+        
+    const viewArticle = (id: number) => router.push('/article/' + id);    
     //Initialize the message that does not change in its lifetime
-    message.current = "Confermi cancellazione del post?"
-    //console.log({posts})
+    console.log({articles})
     return (
         <div className="flex flex-col">
           <Container>
@@ -87,7 +53,7 @@ export default function Index({articles}: ArticleProps) {
                     //const date = new Date()
                     return <ListItem key={index} className="px-5">
                       <ListItemText>
-                        {article.Summary ? article.Summary?.substring(0, 100) + '...' : ''}
+                        {article.summary ? article.summary?.substring(0, 100) + '...' : ''}
                       </ListItemText>
                     </ListItem>
                 })}
