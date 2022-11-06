@@ -25,7 +25,10 @@ export default function Index({articles}: ArticleProps) {
     const [searchValue, setSearchValue] = useState<string>("");
     const debounedSearchValue = useDebounce(searchValue, 300);
         
-    const viewArticle = (id: number) => router.push('/article/' + id);    
+    const viewArticle = (id: string) => (event: React.MouseEvent<HTMLLIElement>) => {
+      router.push('/article/' + id);    
+    }
+
     //Initialize the message that does not change in its lifetime
     console.log({articles})
     return (
@@ -50,10 +53,9 @@ export default function Index({articles}: ArticleProps) {
               <div className='bg-blue-200 text-center'>
                 {articles && articles.length > 0 && articles?.map((article: Article, index: number) => {
                     //To manage the timezone in formatting date
-                    //const date = new Date()
-                    return <ListItem key={index} className="px-5">
+                    return <ListItem key={index} className="px-5" onClick={viewArticle(article._id)} role="button">
                       <ListItemText>
-                        {article.summary ? article.summary?.substring(0, 100) + '...' : ''}
+                        {article.name ? article.name?.substring(0, 100) + '...' : ''}
                       </ListItemText>
                     </ListItem>
                 })}
