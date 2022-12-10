@@ -52,7 +52,7 @@ function Home<NextPage>({categories}: HomeProps) {
                   <br />(Modena, Italy)
                 </h1>
                 <h2 className="text-xl md:text-3xl mt-2">
-                  Software Developer .Net (C#) and React (typescript)
+                  Software Developer dotnet (C#) and React.js (typescript)
                 </h2>
               </div>
           </div>
@@ -61,7 +61,11 @@ function Home<NextPage>({categories}: HomeProps) {
       <Container size="xl">
           <div className="grid gap-10 grid-cols-1 md:grid-cols-2 mt-0 md:mt-12">
             <p>
-              I am a software engineer. I love web development.
+              <b style={{fontSize: '16px'}}>Who am I?</b><br/>
+              I am not a nerd, I&apos;ve never been. Maybe I am becoming<br />
+              I am not so young, unfortunately<br />
+              I am a software engineer and I love web development.<br />
+              I am a full stack developer because I am not able to leave nor backend nether front end<br />
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
               A technical director told me that I am still mid level on the web 
@@ -69,7 +73,7 @@ function Home<NextPage>({categories}: HomeProps) {
               to become a <b>SDE II</b> on the Web<br />
               <br />
               I started before the new millenium working as a developer in visual basic 6.
-              But I have always felt the need to move and to develop on the Web.<br />
+              But I have always felt the wish to develop on the Web.<br />
               If on the backend I&apos;ve always been certain to select .Net ecosystem,
               for the front end, after a road on more companies, I am convinced to develop 
               in javascript with the best frameworks that are available in that world:
@@ -79,8 +83,8 @@ function Home<NextPage>({categories}: HomeProps) {
               <br />
               I am currently working as a <b>Senior Software Engineer</b> at{" "}
               <b>Sixtema</b> in two main languages: <br/>
-              React on Frontend<br />
-              .Net (C#) on Backend <br />
+              React.js on Frontend<br />
+              dotnet (C#) on Backend <br />
               <br />
             </p>
             <div className="relative w-full h-48 md:h-full text-center">

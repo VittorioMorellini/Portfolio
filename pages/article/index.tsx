@@ -1,4 +1,4 @@
-import { Avatar, Button, IconButton, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Avatar, Button, Divider, IconButton, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import Link from "next/link";
 import { Container } from "../../components/container";
 import { Post } from "../../types/post";
@@ -29,6 +29,17 @@ export default function Index({articles}: ArticleProps) {
       router.push('/article/' + id);    
     }
 
+    const handleFilterPost = (key: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
+      switch (key) {
+        case '':
+          //Filter all
+          break;
+
+        default:
+          //filter all
+      }
+    }
+
     //Initialize the message that does not change in its lifetime
     console.log({articles})
     return (
@@ -48,12 +59,22 @@ export default function Index({articles}: ArticleProps) {
             </div>
             {/*YYYY-MM-DDTHH:mm:ss.sssZ  post.Date.toString() */}
           </Container>
+          <Divider className="border-1"/>
+          <div className='flex-auto text-center mt-4 gap-4'>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('')}>All Articles</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('react')}>React.js</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('next')}>Next.js</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('dotnet')}>dotnet</Button>
+          </div>
           <div>
             <Container>
-              <div className='bg-blue-200 text-center'>
+              <div className='bg-blue-200 text-center mt-4'>
                 {articles && articles.length > 0 && articles?.map((article: Article, index: number) => {
                     //To manage the timezone in formatting date
                     return <ListItem key={index} className="px-5" onClick={viewArticle(article._id)} role="button">
+                      <ListItemAvatar>
+                        <Avatar alt="Call center" src="/images/Callcenter.webp" />
+                      </ListItemAvatar>                      
                       <ListItemText>
                         {article.name ? article.name?.substring(0, 100) + '...' : ''}
                       </ListItemText>
