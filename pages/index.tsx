@@ -65,7 +65,7 @@ function Home<NextPage>({categories}: HomeProps) {
               I am not a nerd, I&apos;ve never been. Maybe I am becoming<br />
               I am not so young, unfortunately<br />
               I am a software engineer and I love web development.<br />
-              I am a full stack developer because I am not able to leave nor backend nether front end<br />
+              I am a full stack developer because I am not able to leave nor backend neither front end<br />
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
               A technical director told me that I am still mid level on the web 
