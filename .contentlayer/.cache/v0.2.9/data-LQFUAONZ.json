@@ -1,0 +1,35 @@
+{
+  "cacheItemsMap": {
+    "blogs/blog-one.mdx": {
+      "document": {
+        "title": "Blog One🚀",
+        "publishedAt": "February 4, 2022",
+        "description": "Learn how to build a Next.js blog with MDX and Contentlayer!",
+        "cover": "/optimized/articles/blog-one/hero.webp",
+        "body": {
+          "raw": "Hey There👋\r\nWelcome to Blog One✨ Let's learn together!",
+          "html": "<p>Hey There👋\r\nWelcome to Blog One✨ Let's learn together!</p>"
+        },
+        "_id": "blogs/blog-one.mdx",
+        "_raw": {
+          "sourceFilePath": "blogs/blog-one.mdx",
+          "sourceFileName": "blog-one.mdx",
+          "sourceFileDir": "blogs",
+          "contentType": "mdx",
+          "flattenedPath": "blogs/blog-one"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.045,
+          "time": 2700,
+          "words": 9
+        },
+        "slug": "blog-one"
+      },
+      "documentHash": "1671807901310",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    }
+  }
+}

@@ -10,14 +10,14 @@ import { server } from '../../config/config';
 import { Post } from '../../types/post';
 import Confirm from '../../utils/ui/confirm';
 
-interface BlogDetailProps {
+interface PostDetailProps {
     post: Post;
 }
 
-function BlogDetail({ post }: BlogDetailProps) {
+function PostDetail({ post }: PostDetailProps) {
     const router = useRouter()
     console.log('id', router.query.id)        
-    console.log('I am in detail page blog')
+    console.log('I am in detail page post')
     const [text, setText] = useState('');
     const [author, setAuthor] = useState('');
     const [id, setId] = useState(0)
@@ -30,9 +30,9 @@ function BlogDetail({ post }: BlogDetailProps) {
         })        
     }
 
-    const saveBlog = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    const savePost = async (event: React.MouseEvent<HTMLButtonElement>) => {
         console.log('save post in my blog');
-        const response = fetch(server + `/api/blog/${post.Id}`, {
+        const response = fetch(server + `/api/post/${post.Id}`, {
             method: 'POST',
             body: JSON.stringify({Content: text, Author: author, Id: post.Id ? post.Id : 0, PostDate: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
             headers: {'Content-Type': 'application/json'}
@@ -62,7 +62,7 @@ function BlogDetail({ post }: BlogDetailProps) {
         <>
         <div className='flex relative max-w-full'>
             <div className="w-1/5">
-                <Link href="/blog" passHref>
+                <Link href="/post" passHref>
                     <a className='text-black hover:text-blue-500'>Back</a>
                 </Link>
             </div>
@@ -96,7 +96,7 @@ function BlogDetail({ post }: BlogDetailProps) {
                 <div>
                     <Button
                         variant="outlined"
-                        onClick={saveBlog}
+                        onClick={savePost}
                     >
                         Save
                     </Button>
@@ -109,7 +109,7 @@ function BlogDetail({ post }: BlogDetailProps) {
 
 export async function getServerSideProps(context: any) {
     //console.log('I am in server side props loading SSR')
-    const data = await fetch(server + `/api/blog/${context.query.id}`)
+    const data = await fetch(server + `/api/post/${context.query.id}`)
     const result: Post = await data.json();
     console.log('Data fetched json() in server side props api id blog SSR', result)
 
@@ -121,4 +121,4 @@ export async function getServerSideProps(context: any) {
     }
 }
 
-export default BlogDetail;
+export default PostDetail;

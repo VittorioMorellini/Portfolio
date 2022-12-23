@@ -9,11 +9,11 @@ import { useToasts } from "react-toast-notifications";
 import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 
-interface BlogProps {
+interface PostProps {
   posts: Post[];
 }
 
-export default function BlogIndex({posts}: BlogProps) {
+export default function PostIndex({posts}: PostProps) {
     const router = useRouter();
     const { addToast } = useToasts()
     //for confirm delete
@@ -31,7 +31,7 @@ export default function BlogIndex({posts}: BlogProps) {
     //Function that execute fisically the Delete Operation
     const executeDelete = (id: string | number) => {
         console.log({id})
-        fetch(server + `/api/blog/${id}`, {
+        fetch(server + `/api/post/${id}`, {
             method: 'DELETE',
             //body: Json
             headers: {'Content-Type': 'application/json'}
@@ -41,7 +41,7 @@ export default function BlogIndex({posts}: BlogProps) {
               appearance: 'info',
               autoDismiss: true,
             })  
-            router.push('/blog');
+            router.push('/post');
             setOpen(false);
         })
         .catch(err => {
@@ -53,7 +53,7 @@ export default function BlogIndex({posts}: BlogProps) {
         })
     }
     
-    const editPost = (id: number) => router.push('/blog/' + id);
+    const editPost = (id: number) => router.push('/post/' + id);
     
     //Initialize the message that does not change in its lifetime
     message.current = "Confermi cancellazione del post?"
@@ -114,7 +114,7 @@ export default function BlogIndex({posts}: BlogProps) {
 export async function getServerSideProps(context: any) {
   console.log('Sono in server side props')
   
-  const res = await fetch(server + '/api/blog')
+  const res = await fetch(server + '/api/post')
   console.log('I have res', res)
   //const res = await fetch('api/blog')
   const results: Post[] = await res.json();
