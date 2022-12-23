@@ -1,5 +1,5 @@
 import { Blog } from '.contentlayer/generated'
-import { DriveEtaTwoTone } from '@mui/icons-material'
+import { Children } from 'react'
 
 export type BlogProps = Blog & {
     children?: any
@@ -21,9 +21,10 @@ export default function BlogCard(props: BlogProps) {
       <img alt={props.title} src={props.image} width="100%" loading="lazy" />
       <br />
       <div>
-        {props.body?.raw}
+        {/*props.body?.raw*/}
+        {props.children}
       </div>
-      <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: props?.body?.code }}></div>    
+      {/* <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: props?.body?.code }}></div>     */}
     </div>
     <br />
     <br />

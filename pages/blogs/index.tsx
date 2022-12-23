@@ -2,11 +2,19 @@ import Head from 'next/head'
 import BlogCard from '../../components/blogCard'
 import { allBlogs, Blog } from '.contentlayer/generated'
 import { select } from '../../utils/select';
+import { useRouter } from 'next/router';
 
 interface BlogIndexProps {
     blogs: Blog[];
 }
 export default function BlogIndex({blogs}: BlogIndexProps) {
+  const router = useRouter();
+
+  const handleClick = (slug: string) => (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(slug)
+    router.push('/blogs/' + slug);
+  }
+
   return (
     <div>
         <Head>
@@ -30,6 +38,7 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
                 image,
                 readingTime,
             }: Blog) => (
+                <div role="button" onClick={handleClick(slug)}>
                 <BlogCard
                     key={_id}
                     _id={_id}
@@ -46,7 +55,9 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
                     //dateTime={publishedAt}
                     //date={publishedAt}
                     readingTime={readingTime.text}
+                    
                 />
+                </div>
                 )
         )}
 
