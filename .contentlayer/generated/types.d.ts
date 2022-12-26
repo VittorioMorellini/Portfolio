@@ -20,7 +20,7 @@ export type Blog = {
   category: string
   seoDescription?: string | undefined
   author?: Author | undefined
-  image?: string | undefined
+  image: string
   /** MDX file body */
   body: MDX
   readingTime: json

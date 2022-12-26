@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource, defineNestedType } from 'contentlayer/source-files'
+import { TransformStreamDefaultController } from 'node:stream/web';
 import readingTime from 'reading-time'
 
 export const Author = defineNestedType(() => ({
@@ -25,7 +26,7 @@ export const Blog = defineDocumentType(() => ({
             type: 'nested',
             of: Author,
         },
-        image: { type: 'string', required: false },  
+        image: { type: 'string', required: TransformStreamDefaultController },  
     },
     computedFields: {
         readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },

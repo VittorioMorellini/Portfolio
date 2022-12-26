@@ -1,11 +1,7 @@
 import { Avatar, Button, Divider, IconButton, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import Link from "next/link";
 import { Container } from "../../components/container";
-import { Post } from "../../types/post";
-import { ArticleSharp, Delete } from '@mui/icons-material'
 import { server } from "../../config/config";
 import { useRouter } from "next/router";
-import { useToasts } from "react-toast-notifications";
 import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import { Article } from "../../types/article";
