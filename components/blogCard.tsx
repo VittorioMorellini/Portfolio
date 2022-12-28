@@ -9,10 +9,7 @@ export type BlogProps = Blog & {
 }
 
 export default function BlogCard(props: BlogProps) {
-  
-  console.log(props.body)
-  //console.log(props.title)
-  
+    
   return (
     <>
     <div className="flex flex-col items-center mx-auto">
@@ -33,13 +30,9 @@ export default function BlogCard(props: BlogProps) {
         />
       </div>
       <br />
-      <div>
-        {props.children}
-      </div>
       {/* <div>
-        {props.body?.raw}
+        {props.children}
       </div> */}
-      {/* <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: props?.body?.code }}></div>     */}
     </div>
     <br />
     <br />

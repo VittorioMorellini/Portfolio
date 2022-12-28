@@ -1,5 +1,4 @@
 import { defineDocumentType, makeSource, defineNestedType } from 'contentlayer/source-files'
-import { TransformStreamDefaultController } from 'node:stream/web';
 import readingTime from 'reading-time'
 
 export const Author = defineNestedType(() => ({
@@ -12,8 +11,8 @@ export const Author = defineNestedType(() => ({
 
 export const Blog = defineDocumentType(() => ({
     name: 'Blog',
-    filePathPattern: 'blogs/*.mdx',
-    //bodyType: '_raw',
+    filePathPattern: '**/*.mdx',
+    bodyType: 'mdx',
     contentType: 'mdx',
     fields: {
         title: { type: 'string', required: true },
@@ -26,13 +25,14 @@ export const Blog = defineDocumentType(() => ({
             type: 'nested',
             of: Author,
         },
-        image: { type: 'string', required: TransformStreamDefaultController },  
+        image: { type: 'string', required: true },  
     },
     computedFields: {
         readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
         slug: {
             type: 'string',
-            resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
+            //resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
+            resolve: (doc) => doc._raw.sourceFileName.replace('.mdx', ''),
             //resolve: (doc) => doc._raw.sourceFileName.replace(/\.md/, ""),        
         },
     },
@@ -41,8 +41,8 @@ export const Blog = defineDocumentType(() => ({
 export default makeSource({
     contentDirPath: 'data',
     documentTypes: [Blog],
-    // mdx: {
-    //     remarkPlugins: [],
-    //     rehypePlugins: [],
-    // },
+    mdx: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
 })

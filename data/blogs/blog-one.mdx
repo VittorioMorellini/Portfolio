@@ -7,9 +7,39 @@ seoDescription: 'This is the for Next.'
 category: 'React'
 image: '../images/proj3.jpg'
 ---
-# Heading1
-## heading2
-### heading3
-#### heading4
-<div># this is not a heading but *this* is emphasis</div>
-<p><b>My first react article</b></p>
+
+import MyTable from './MyTable.mdx'
+export const year = 2018
+
+## Last year’s snowfall
+
+In {year}, the snowfall was above average.
+It was followed by a warm spring which caused
+flood conditions in many of the nearby rivers.
+
+```bash
+find . -name '*svg' -exec sed -i -e 's/#00e7f0/#0B2E4F/' -e 's/#006df0/#0B2E4F/' {} \;
+```
+
+## Problematiche relative a SSL e certificati
+
+Il client utilizza i certificati che sono dichiarati in ___.env.development.local___: 
+
+```conf
+SSL_CRT_FILE=C:\Users\<username>\AppData\Roaming\ASP.NET\https\my-sixtema-ui.pem
+SSL_KEY_FILE=C:\Users\<username>\AppData\Roaming\ASP.NET\https\my-sixtema-ui.key
+```
+
+### New table imported
+
+<MyTable />
+
+## Repository MySixtemaSolution 
+
+L'applicazione è scritta con parte Client in REACT e parte Server ___dotnet 6.0___.
+
+## External link
+
+[eBay](https://ebay.com)
+
+
