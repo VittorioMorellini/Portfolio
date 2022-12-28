@@ -18,6 +18,7 @@ export const Blog = defineDocumentType(() => ({
         title: { type: 'string', required: true },
         publishedAt: { type: 'string', required: true },
         description: { type: 'string', required: true },
+        credit: { type: 'string', required: false },
         cover: { type: 'string', required: true },
         category: { type: 'string', required: true },
         seoDescription: { type: 'string', required: false },

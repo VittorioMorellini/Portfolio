@@ -16,6 +16,7 @@ export type Blog = {
   title: string
   publishedAt: string
   description: string
+  credit?: string | undefined
   cover: string
   category: string
   seoDescription?: string | undefined

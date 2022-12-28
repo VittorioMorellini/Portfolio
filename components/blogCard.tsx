@@ -12,30 +12,29 @@ export default function BlogCard(props: BlogProps) {
     
   return (
     <>
-    <div className="flex flex-col items-center mx-auto">
-      <h1 style={{fontSize: '22px', fontStyle: 'bold'}}>{props.title}</h1>
-      <h2>{props.description}</h2>
-      <p>
-        {props.publishedAt}
-      </p>
-      <div>
-        {/* <img alt={props.title} src={props.image} width="100%" loading="lazy" /> */}
-        <Image
-          loader={ImageLoader}
-          unoptimized
-          src={props.image && props.image !== '' ? props.image : '../images/proj1.jpg'}
-          alt={props.title}
-          width="300px"
-          height="300px"
-        />
+      <div className="flex flex-row justify-center mx-auto gap-x-16 py-16">
+        <div>
+          <Image
+            loader={ImageLoader}
+            unoptimized
+            src={props.image && props.image !== '' ? props.image : '../images/proj1.jpg'}
+            alt={props.title}
+            width="450px"
+            height="350px"
+          />
+        </div>
+        <div className="flex flex-col place-content-center">
+          <div>
+            <h1 style={{fontSize: '22px', fontStyle: 'bold'}}>{props.title}</h1>
+          </div>
+          <div>
+            <p>
+              Published at: {props.publishedAt}
+            </p>
+            <h4>{props.description}</h4>
+          </div>
+        </div>
       </div>
-      <br />
-      {/* <div>
-        {props.children}
-      </div> */}
-    </div>
-    <br />
-    <br />
     </>
   )
 }
