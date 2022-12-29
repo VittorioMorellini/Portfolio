@@ -10,6 +10,9 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
         //let result = await pool.request().query("SELECT * FROM Post Order by PostDate")
         //await pool.close();
         
+        //const mysql = require('mysql2')
+        //const connection = mysql.createConnection('mysql://nv4spotegrhybdko203r:pscale_pw_wbMd0rPxicTnk0nhhzIjRv8nr7kOkd05kCHckW6qDih@us-east.connect.psdb.cloud/portfolio?ssl={"rejectUnauthorized":true}')
+                
         //Open in mySql
         require('dotenv').config()
         const mysql = require('mysql2')
