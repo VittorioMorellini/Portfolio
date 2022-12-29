@@ -93,6 +93,7 @@ function PostDetail({ post }: PostDetailProps) {
                         onChange={(e) => setAuthor(e.target.value)}                         
                     />
                 </div>
+                {post.Id !== 1 &&
                 <div>
                     <Button
                         variant="outlined"
@@ -101,6 +102,7 @@ function PostDetail({ post }: PostDetailProps) {
                         Save
                     </Button>
                 </div>
+                }
             </div>
         </div>
         </>    
