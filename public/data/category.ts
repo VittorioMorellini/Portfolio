@@ -41,14 +41,14 @@ export const categories: Category[] = [
       title: 'Blogs',
       external: false
     },
-    {
-      id: 6,
-      name: 'Articles',
-      url: '/article',
-      description: 'Articles',
-      title: 'Articles',
-      external: false
-    },
+    // {
+    //   id: 6,
+    //   name: 'Articles',
+    //   url: '/article',
+    //   description: 'Articles',
+    //   title: 'Articles',
+    //   external: false
+    // },
     {
       id: 7,
       name: 'Pokemon',
