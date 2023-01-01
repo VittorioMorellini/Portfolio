@@ -26,7 +26,7 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
         <Container>
           <div className="flex flex-row items-center mb-4">
               <div className="text-center w-full">
-                <h1 className="text-3xl font-black text-center">All Blogs</h1>
+                <h1 className="text-3xl font-black text-center">My personal Blog</h1>
                 <input
                     className='border-solid border border-slate-300 rounded-2xl px-2'
                     type="text"
@@ -42,8 +42,10 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
           <div className='flex-auto text-center mt-4 gap-4'>
             <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('')}>All Articles</Button>
             <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('React')}>React.js</Button>
-            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('Next')}>Next.js</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('Next.js')}>Next.js</Button>
             <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('dotnet')}>dotnet</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('Docker')}>Docker</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterBlog('Angular')}>Angular</Button>
           </div>
           <div>
             <Container>

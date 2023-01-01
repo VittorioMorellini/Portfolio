@@ -1,43 +1,128 @@
 ---
-title: 'React generics🚀'
-publishedAt: 'February 4, 2022'
-description: 'Learn how to create react component with generics T'
+title: 'React and Redux🚀'
+publishedAt: 'January 1, 2023'
+description: 'Learn how to connect react component with Redux store'
 credit: 'Fabio Biondi'
 cover: '/optimized/articles/blog-one/hero.webp'
-seoDescription: 'This is the for React generic.'
+seoDescription: 'This is the for React redux.'
 category: 'React'
 image: '../images/proj3.jpg'
 ---
-export const year = 2020
-import MyTable from './MyTable.jsx'
+export const year = 2023
 
-## Last year’s snowfall
+## Redux to manage state in a React application
 
-In {year}, the snowfall was above average.
-It was followed by a warm spring which caused
-flood conditions in many of the nearby rivers.
+In {year}, Redux rapresents probably the better state management product in react world.
+How redux works? It is a unidirectional dataflow.
+A component dispatch an action to the reducer. 
+Before the introduction of Redux toolkit it was more difficult to manage actions.
+To manage action with side effects, as for example api calls, it was necessary to enhance the store with reduxThunk middleware.
+
+Now with Redux toolkit Query it is easier, it manages syncronous or asyncronous actions without any middleware
+It manages also the status of the async actions: Pending, success, error.<br/>
+It is also easier to generate the actions creator from the reducer
+
+The advantage of a state management what is? 
+A central store allows us to update the state of the components without becoming crazy with props drilling
+
+Without a state management the problem is that if the application is complex, an enterprise application has a big tree architecture, to share state between components could be difficult.
+A nightmare with props drilling
+
+When the state is trasversal to components, when it is shared in more components Redux comes to rescue us.
+
+## Enhance redux store
 
 ```bash
-find . -name '*svg' -exec sed -i -e 's/#00e7f0/#0B2E4F/' -e 's/#006df0/#0B2E4F/' {} \;
+import { configureStore } from '@reduxjs/toolkit'
+// Or from '@reduxjs/toolkit/query/react'
+import { setupListeners } from '@reduxjs/toolkit/query'
+import { pokemonApi } from './services/pokemon'
+
+export const store = configureStore({
+  reducer: {
+    // Add the generated reducer as a specific top-level slice
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
+  },
+  // Adding the api middleware enables caching, invalidation, polling,
+  // and other useful features of `rtk-query`.
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware),
+})
+// optional, but required for refetchOnFocus/refetchOnReconnect behaviors
+// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
+setupListeners(store.dispatch)
+```
+By enhancing the store with the middleware you can track the state of the store during the request, the state of data while the request is pending.
+
+It is an unidirectional flow.
+A component dispatch an action to the reducer to get data o set a modification
+The reducer executes the function related to the action and updates the state and the store of the app, also with side effects due to async calls.
+
+```bash
+    ReactDOM.render(
+        <Provider store={store}>
+            <App />
+        </Provider>, 
+    document.getElementById('root'));
 ```
 
-## Problematiche relative a SSL e certificati
+The action dispatched can be syncronous or asyncronous, before using Redux toolkit Query to dipatch an asyncronous action it was necessary a middleware to enable side effects.
+With the RTK (aka toolkit query) it is easier because it manages the async call and the state waiting the response of the action that can be:
+pending/fulfilled/rejected.
 
-Il client utilizza i certificati che sono dichiarati in ___.env.development.local___: 
+```js
+# NPM
+npm install @reduxjs/toolkit
+
+# Yarn
+yarn add @reduxjs/toolkit
+```
+
+After the state is updated in the store, all the component that are subscribed to the reducer and modified in the store, are updated.<br/>
+Changes of the store are reflected in the components subscribed to the reducer
+
+## Connect/Subscribe to the store from a functional component
+
+A component, if it uses the selector, is automatically updated after the reducer update the state? Yes, it is.
+A component dispathes an action to reducer.
+The reducer updates the store, with the Rtk query there is no more problem if the action function is syncronous or asyncronous, 
+it manages the pending/fulfilled/rejected response from the async calls.
+
+After it, the Ui is automatically updated from the selector of the store. The useSelector hook achieves this goal.
+
+In the class component, using connect, I get mapsStateToProps that updates the props from store.
+In functional component it is easier with useSelector hook and the component is subscribed to the store.
 
 ```conf
-SSL_CRT_FILE=C:\Users\<username>\AppData\Roaming\ASP.NET\https\my-sixtema-ui.pem
-SSL_KEY_FILE=C:\Users\<username>\AppData\Roaming\ASP.NET\https\my-sixtema-ui.key
+    const isBusy = useSelector((root: RootState) => root.dittaServizio.isBusy);
+    const currentItem = useSelector((state: RootState) => state.dittaServizio.currentItem!);
 ```
 
-## Table
-<MyTable />
+## Dispatch an action
 
-## Repository MySixtemaSolution 
-L'applicazione è scritta con parte Client in REACT e parte Server ___dotnet 6.0___.
+With the __dispatch__ statement, the component can dispatch an action to the reducer to execute the reducer function and change the state of the store 
+(the state is immutable, and it is possibile to change it only by an action dispatched to the reducer)
 
-## External link
+Dispatching an action is the only way to change the state and in functional components can be done by the hook __useDispatch__ that returns the method
 
-[eBay](https://ebay.com)
+```conf
+    const dispatch = useDispatch<any>();
+```
 
+## Redux documentation
 
+In this link you can find the Redux documentation where is well explained the pattern and the way to connect and to manage global state of an app  
+[Redux Documentation](https://redux.js.org/introduction/getting-started)
+
+```js
+    # NPM
+    npm install redux
+
+    # Yarn
+    yarn add redux
+```
+
+## Flow of Redux
+
+The image has to be updated...
+![Redux flow](https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/lNsHpN.jpg)
