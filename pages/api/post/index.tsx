@@ -16,14 +16,14 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
         //const result = await connection.promise().query('SELECT * FROM Post Order by PostDate');
         
         //Open in Airtable
-        console.log(process.env.AIRTABLE_API_KEY)
-        console.log('open airtable')
+        //console.log(process.env.AIRTABLE_API_KEY)
+        //console.log('open airtable')
         const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
         const result = await base('Post').select({
     
         }).all()
     
-        console.log('post found', result);
+        //console.log('post found', result);
         //return res.status(200).json(result);
         const posts = result.map(record => {
             return {Id: record.id, ...record.fields }

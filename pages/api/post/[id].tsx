@@ -17,7 +17,6 @@ export default async function postHandler(
     const date = new Date()
     const { query, method, body } = req
     const { id } = query
-    console.log('querystring ', query)
     require('dotenv').config()
     // Open mysql connection for planetscale
     // const mysql = require('mysql2')
@@ -25,10 +24,9 @@ export default async function postHandler(
     // console.log('Connected to PlanetScale!')
 
     // Open Airtable connection 
-    console.log(process.env.AIRTABLE_API_KEY)
-    console.log('open airtable')
+    // console.log(process.env.AIRTABLE_API_KEY)
+    // console.log('open airtable')
     const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
-    //var table = base.table('Post')
     
     if (method === 'GET') {
         console.log('sono in api requests GET')
