@@ -40,7 +40,7 @@ function PostDetail({ post }: PostDetailProps) {
         .then(res => {
             showToast()
             if (post.Id === 0)
-                router.push('/blog');
+                router.push('/post');
             })
         .catch(err => {
             addToast(err, {
@@ -93,7 +93,7 @@ function PostDetail({ post }: PostDetailProps) {
                         onChange={(e) => setAuthor(e.target.value)}                         
                     />
                 </div>
-                {post.Id !== 1 &&
+                {post.Id !== 2 &&
                 <div>
                     <Button
                         variant="outlined"

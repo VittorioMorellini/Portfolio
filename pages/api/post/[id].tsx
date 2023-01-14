@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Post } from '../../../types/post'
-import { configDB, connString } from '../configDB';
+//import { configDB, connString } from '../configDB';
 import format from 'date-fns/format';
 
 import Airtable from 'airtable'
@@ -19,7 +19,7 @@ export default async function postHandler(
     const { id } = query
     console.log('querystring ', query)
     require('dotenv').config()
-    // Open mysql connection 
+    // Open mysql connection for planetscale
     // const mysql = require('mysql2')
     // const connection = mysql.createConnection(process.env.DATABASE_URL)
     // console.log('Connected to PlanetScale!')
@@ -102,10 +102,10 @@ export default async function postHandler(
                 {
                     "Content": post.Content,
                     "Author": post.Author,
-                    "PostDate": format(new Date(), 'yyyy-MM-dd HH:mm:ss.ZZZ')
+                    "PostDate": format(new Date(), 'yyyy-MM-dd HH:mm:ss')
                 }
-            )            
-            return res.status(200).json(post)
+            )        
+            return res.status(200).json({Id: parseInt(result.fields["Id"]?.toString()!), Content: result.fields["Content"]?.toString() ?? '', Author: result.fields["Author"]?.toString() ?? '', PostDate: result.fields["Author"]?.toString() ?? ''})
         }
             
     } else if (method === 'DELETE') {
