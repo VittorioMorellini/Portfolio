@@ -32,7 +32,9 @@ export default function BlogDetail({ blog }: BlogProps) {
                     <p>
                         <h4 className='text-center'>{blog.description}</h4>
                     </p>
-                    <Component />
+                    <div className='grid'>
+                        <Component />
+                    </div>
                 </article>    
             </div>
         </>

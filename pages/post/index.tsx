@@ -61,7 +61,7 @@ export default function PostIndex({posts}: PostProps) {
     return (
         <div className="flex flex-col">
           <Container>
-          <div className="flex flex-row items-center mb-4">
+          <div className="flex flex-col items-center mb-4 md:flex-row">
               <div>
                   <Button variant="outlined" className="w-32" onClick={() => {    
                       router.push('post/0')

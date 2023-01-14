@@ -12,7 +12,7 @@ export default function BlogCard(props: BlogProps) {
     
   return (
     <>
-      <div className="flex flex-row justify-center mx-auto gap-x-16 py-16">
+      <div className="grid justify-center mx-auto gap-x-16 py-16 md:grid-cols-2">
         <div>
           <Image
             loader={ImageLoader}
