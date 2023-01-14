@@ -1,29 +1,34 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { configDB, connString } from "../configDB";
+//import { configDB, connString } from "../configDB";
 import { server } from "../../../config/config";
+import Airtable from 'airtable'
 
 async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
     try {
         console.log({server})
-        //Open in Sql server
-        //let pool = await new ConnectionPool(configDB).connect()
-        //let result = await pool.request().query("SELECT * FROM Post Order by PostDate")
-        //await pool.close();
-        
-        //const mysql = require('mysql2')
-        //const connection = mysql.createConnection('mysql://nv4spotegrhybdko203r:pscale_pw_wbMd0rPxicTnk0nhhzIjRv8nr7kOkd05kCHckW6qDih@us-east.connect.psdb.cloud/portfolio?ssl={"rejectUnauthorized":true}')
                 
-        //Open in mySql
         require('dotenv').config()
-        const mysql = require('mysql2')
-        const connection = mysql.createConnection(process.env.DATABASE_URL)
-        console.log('Connected to PlanetScale!')
+        //Open in mySql
+        // const mysql = require('mysql2')
+        // const connection = mysql.createConnection(process.env.DATABASE_URL)
+        // console.log('Connected to PlanetScale!')
         //Open the query
-        const result = await connection.promise().query('SELECT * FROM Post Order by PostDate');
-
+        //const result = await connection.promise().query('SELECT * FROM Post Order by PostDate');
+        
+        //Open in Airtable
+        console.log(process.env.AIRTABLE_API_KEY)
+        console.log('open airtable')
+        const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
+        const result = await base('Post').select({
+    
+        }).all()
+    
         console.log('post found', result);
         //return res.status(200).json(result);
-        return res.status(200).json(result[0]);
+        const posts = result.map(record => {
+            return {Id: record.id, ...record.fields }
+        })
+        return res.status(200).json(posts);
 
     } catch (e) {
         console.log('post error', e);
