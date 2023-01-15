@@ -61,24 +61,24 @@ function Home<NextPage>({categories}: HomeProps) {
       <Container size="xl">
           <div className="grid gap-10 grid-cols-1 md:grid-cols-2 mt-0 md:mt-12">
             <p>
+              <br/>
               <b style={{fontSize: '16px'}}>Who am I?</b><br/>
-              I am not a nerd, I&apos;ve never been. Maybe I am becoming<br />
+              I have never been a nerd.<br />
               I am not so young, unfortunately<br />
               I am a software engineer and I love web development.<br />
-              I am a full stack developer because I am not able to leave nor backend neither front end<br />
+              I am a full stack developer because I don't want to leave nor backend neither frontend<br />
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
-              A technical director told me that I am still mid level on the web 
-              (I started in vb6), but I have the ambition and the determination 
-              to become a <b>SDE II</b> on the Web<br />
+              A technical director told me that I am still mid level on the web, 
+              but I have the ambition and the determination to become a <b>SDE II</b> on the Web<br />
               <br />
               I started before the new millenium working as a developer in visual basic 6.
-              But I have always felt the wish to develop on the Web.<br />
+              But I have always felt the desire to develop on the Web.<br />
               If on the backend I&apos;ve always been certain to select .Net ecosystem,
               for the front end, after a road on more companies, I am convinced to develop 
-              in javascript with the best frameworks that are available in that world:
+              in javascript with the best frameworks that are available:
               React, Angular, Vue...<br />
-              I am now a React developer that every day tries to grow in the front end world  
+              I am a React developer since october 2020, every day I work to improve in the front end enviroment  
               <br />
               <br />
               I am currently working as a <b>Senior Software Engineer</b> at{" "}
