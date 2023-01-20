@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import SEO from '../components/SEO';
 import { useRouter } from 'next/router';
 import { ToastProvider, DefaultToast } from 'react-toast-notifications';
-import CustomToast from '../components/customToast';
+import CookieConsent from '@/components/banner/cookieConsent';
 
 
 function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
             <SEO />
             <Component {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false} />
+            <CookieConsent />
           </Layout>
         </RecoilRoot>
         </ToastProvider>

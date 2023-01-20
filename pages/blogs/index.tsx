@@ -66,7 +66,7 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
                         image,
                         readingTime,
                     }: Blog) => (
-                      <div key={_id} role="button" onClick={handleClick(slug)}>
+                      <div key={slug} role="button" onClick={handleClick(slug)}>
                         <BlogCard
                             key={_id}
                             _id={_id}
