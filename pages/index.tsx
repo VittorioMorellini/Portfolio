@@ -70,7 +70,7 @@ function Home<NextPage>({categories}: HomeProps) {
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
               A technical director told me that I am still mid level on the web, 
-              but I have the ambition and the determination to become a <b>SDE II</b> on the Web<br />
+              but I have the ambition and the determination to become a <b>Senior SDE</b> on the Web<br />
               <br />
               I started before the new millenium working as a developer in visual basic 6.
               But I have always felt the desire to develop on the Web.<br />
