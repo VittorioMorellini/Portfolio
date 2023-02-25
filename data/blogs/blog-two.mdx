@@ -96,3 +96,78 @@ With this pattern the page is generated server side dinamically, completely dina
 The data are fetched at run time when the page is requested.
 
 In the same application it is possible to miscellaneus different pattern and use the better related to the user necessity and to the real optimization for the application
+
+## Blog in portfolio
+One of the most popular feature in a personal portfolio is a blog, actually a collection of pages written by the portfolio's owner related to interesting concepts 
+the owner wants to share with guests
+
+The common easy pattern used to realize a blog is the mdx format for pages together with ContentLayer that renders the pages in the blog
+It is necessary to add to next the component: "contentlayer": "^0.2.9"
+
+```bash
+yarn add contentlayer next-contentlayer
+
+```
+Adding in the root directory of the project the contentlayer.config.js with the configuration needed:
+
+```bash
+export const Blog = defineDocumentType(() => ({
+    name: 'Blog',
+    filePathPattern: '**/*.mdx',
+    bodyType: 'mdx',
+    contentType: 'mdx',
+    fields: {
+        title: { type: 'string', required: true },
+        publishedAt: { type: 'string', required: true },
+        description: { type: 'string', required: true },
+        credit: { type: 'string', required: false },
+        cover: { type: 'string', required: true },
+        category: { type: 'string', required: true },
+        seoDescription: { type: 'string', required: false },
+        author: {
+            type: 'nested',
+            of: Author,
+        },
+        image: { type: 'string', required: true },  
+    },
+    computedFields: {
+        readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+        slug: {
+            type: 'string',
+            //resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
+            resolve: (doc) => doc._raw.sourceFileName.replace('.mdx', ''),
+            //resolve: (doc) => doc._raw.sourceFileName.replace(/\.md/, ""),        
+        },
+    },
+}))
+
+export default makeSource({
+    contentDirPath: 'data',
+    documentTypes: [Blog],
+    mdx: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
+})
+```
+
+Also the configuration file: next.config.mjs has to be changed:
+
+```bash
+import { withContentlayer } from 'next-contentlayer'
+const nextConfig = {
+  reactStrictMode: true,
+  disableImportAliasWarning: true,
+  images:{
+    domains: ['images.unsplash.com', 'media-exp1.licdn.com',"rickandmortyapi.com"],    
+    loader: "custom",
+    path: "/"
+  },
+  swcMinify: true,
+}
+export default withContentlayer(nextConfig)
+```
+
+After this configuration we are ready to write our articles in the data directory, 
+and to rendere the pages creating a list of content (index.tsx) and a generic detail page ([slug].tsx) to render the page called
+
