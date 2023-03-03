@@ -30,9 +30,9 @@ function Home<NextPage>({categories}: HomeProps) {
                 unoptimized
                 src={"/images/vittorio.png"}
                 alt="Vittorio Morellini"
-                //layout="fill"
-                //objectFit="cover"
-                //objectPosition="center"
+                // layout="fill"
+                // objectFit="cover"
+                // objectPosition="center"
                 width="200"
                 height="200"
               />

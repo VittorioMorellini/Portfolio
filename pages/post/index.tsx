@@ -53,10 +53,9 @@ export default function PostIndex({posts}: PostProps) {
         })
     }
     
-    const editPost = (id: number) => router.push('/post/' + id);
-    
+    const editPost = (id: number) => router.push('/post/' + id);    
     //Initialize the message that does not change in its lifetime
-    message.current = "Confermi cancellazione del post?"
+    message.current = "Do you confir deleting post?"
     //console.log({posts})
     return (
         <div className="flex flex-col">
@@ -70,7 +69,7 @@ export default function PostIndex({posts}: PostProps) {
                   </Button>
               </div>
               <div className="text-center w-full">
-                <h1 className="text-3xl font-black text-center">Tell me what do you think about my personal site</h1>
+                <h1 className="text-3xl font-black text-center">Tell me what do you think about my blog and articles</h1>
               </div>
           </div>
           {/*YYYY-MM-DDTHH:mm:ss.sssZ  post.Date.toString() */}

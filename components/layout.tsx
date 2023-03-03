@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from './header';
 import Footer from './footer';
-import Navigation from './navigation';
 import { Box} from '@mui/material';
-import { useRecoilState } from 'recoil';
-import { titleAtom } from '../recoil/title';
-import AppMenu from './navbar/desktop';
-import Navbar from './navbar/desktop';
 import { useRouter } from 'next/router';
 import { NavBar } from './navbar/index';
 
@@ -15,7 +9,6 @@ type Props = {
 }
 
 function Layout({ children }: Props) {
-    const [title,] = useRecoilState<string>(titleAtom)
     const router = useRouter();
     const [showMobileNav, setShowMobileNav] = useState(false);
   
