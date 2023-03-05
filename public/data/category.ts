@@ -37,8 +37,8 @@ export const categories: Category[] = [
       id: 5,
       name: 'Blog',
       url: '/blogs',
-      description: 'Blogs',
-      title: 'Blogs',
+      description: 'Blog',
+      title: 'Blog',
       external: false
     },
     // {
