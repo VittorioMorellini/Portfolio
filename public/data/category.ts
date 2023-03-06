@@ -35,10 +35,10 @@ export const categories: Category[] = [
     },
     {
       id: 5,
-      name: 'Blog',
+      name: 'Article',
       url: '/blogs',
-      description: 'Blog',
-      title: 'Blog',
+      description: 'Articles',
+      title: 'Article',
       external: false
     },
     // {
@@ -49,14 +49,14 @@ export const categories: Category[] = [
     //   title: 'Articles',
     //   external: false
     // },
-    {
-      id: 7,
-      name: 'Pokemon',
-      url: '/pokemons',
-      description: 'Pokemon',
-      title: 'Pokemon',
-      external: false
-    },
+    // {
+    //   id: 7,
+    //   name: 'Pokemon',
+    //   url: '/pokemons',
+    //   description: 'Pokemon',
+    //   title: 'Pokemon',
+    //   external: false
+    // },
     {
       id: 8,
       name: 'Resume',
@@ -73,18 +73,4 @@ export const categories: Category[] = [
       title: 'Contacts',
       external: false
     },
-    // {
-    //   id: 6,
-    //   name: 'Todo',
-    //   url: '/todos',
-    //   description: 'Todo',
-    //   title: 'Todo'
-    // },
-    // {
-    //   id: 7,
-    //   name: 'Meme',
-    //   url: '/memes',
-    //   description: 'Meme',
-    //   title: 'Meme'
-    // }
 ]
