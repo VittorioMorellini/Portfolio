@@ -83,7 +83,7 @@ function Home<NextPage>({categories}: HomeProps) {
               <br />
               I am currently working as a <b>Senior Software Engineer</b> at{" "}
               <b>Sixtema</b> in two main ecosystem: <br/>
-              React.js on Frontend<br />
+              React.js (Typescript) on Frontend<br />
               dotnet (C#) on Backend <br />
               <br />
             </p>
