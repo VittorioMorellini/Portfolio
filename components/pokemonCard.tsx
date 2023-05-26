@@ -18,8 +18,7 @@ function PokemonCard({
     return (
       <div className='flex relative'>
         <div className="w-1/5">
-            <Link href="/pokemons">
-                <a className='hover:text-blue-400'><h3>Back</h3></a>
+            <Link href="/pokemons" className='hover:text-blue-400'><h3>Back</h3>
             </Link>
         </div>
         <div className="w-4/5">

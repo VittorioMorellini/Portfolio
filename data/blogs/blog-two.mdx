@@ -249,9 +249,7 @@ export default function BlogDetail({ blog }: BlogProps) {
                             {new Date(blog.publishedAt).toLocaleDateString('en-CA')}
                         </time>
                     </p>
-                    <p>
-                        <h4 className='text-center'>{blog.description}</h4>
-                    </p>
+                    <h4 className='text-center'>{blog.description}</h4>
                     <div className='grid'>
                         <Component />
                     </div>

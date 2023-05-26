@@ -22,13 +22,12 @@ function Projects() {
                   unoptimized
                   src={project.image}
                   alt={project.name}
-                  width="300px"
-                  height="200px"
+                  width={300}
+                  height={200}
                 />
               </div>  
               <div> 
-                <Link href={`/projects/${project.id}`}>
-                  <a className="hover:text-blue-400 block"><h2 className="text-2xl">{project.name}</h2></a>
+                <Link href={`/projects/${project.id}`} className="hover:text-blue-400 block"><h2 className="text-2xl">{project.name}</h2>
                 </Link>                
               </div>
               <h1>{project.skills}</h1>

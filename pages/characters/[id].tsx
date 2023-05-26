@@ -13,7 +13,7 @@ function CharacterPage({character}: CharacterPageProps) {
         <Box className="flex flex-row relative">
             <section className="w-1/3">
                 <Link href="/characters">
-                    <a><h3 className="text-2xl hover:text-blue-400">Back to list</h3></a>
+                    <h3 className="text-2xl hover:text-blue-400">Back to list</h3>
                 </Link>
             </section>
             <Box className="w-2/3 text-center">
@@ -30,8 +30,8 @@ function CharacterPage({character}: CharacterPageProps) {
                         unoptimized
                         src={character.image}
                         alt={character.name}
-                        width="400px"
-                        height="400px"
+                        width={400}
+                        height={400}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

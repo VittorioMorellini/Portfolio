@@ -45,7 +45,7 @@ function Home<NextPage>({categories}: HomeProps) {
                     href="https://sixtema.it"
                     className="underline hover:text-blue-400"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noreferrer noopener"
                   >
                     Sixtema
                   </a>

@@ -14,20 +14,18 @@ function Drawer() {
       <div className="flex flex-col justify-center items-center w-full h-full pt-24">
         <div className="grid gap-6">
           {categories.map((data) => (
-            <Link href={data.url} key={data.url}>
-              <a
+            <Link href={data.url} key={data.url}
                 className="font-bold text-2xl"
                 target={data.external ? "_blank" : "_self"}
               >
                 {" "}
                 {data.description}{" "}
-              </a>
             </Link>
           ))}
         </div>
         <div className="mt-24">
           {social.map(({ name, url, Icon }) => (
-            <a
+            <Link
               key={name}
               href={url}
               className="inline-block mr-8"
@@ -35,7 +33,7 @@ function Drawer() {
               rel="noopener noreferrer"
             >
               <Icon className="h-6 w-6 hover:text-blue-400" />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
@@ -71,8 +69,7 @@ export function MobileNavBar({ show, onChangeVisibility }: MobileNavBarProps) {
         <div className="w-full pt-5">
           <div className="flex justify-between items-center">
             <div>
-              <Link href="/">
-                <a className="text-xl font-bold">Vittorio Morellini</a>
+              <Link href="/" className="text-xl font-bold">Vittorio Morellini
               </Link>
             </div>
             <button onClick={() => setOpen(!open)}>

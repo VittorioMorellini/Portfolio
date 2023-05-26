@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
             <SEO />
             <Component {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false} />
-            <CookieConsent />
+            {/* <CookieConsent /> */}
           </Layout>
         </RecoilRoot>
         </ToastProvider>

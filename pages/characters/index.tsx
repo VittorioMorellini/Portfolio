@@ -39,8 +39,8 @@ function CharacterIndex<NextPage>({characters}: CharacterProps) {
                         unoptimized
                         src={character.image}
                         alt={character.name}
-                        width="50px"
-                        height="50px"
+                        width={50}
+                        height={50}
                       />
                     </Avatar>
                   </TableCell>         

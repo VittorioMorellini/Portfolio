@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "../components/container";
 import social from "../public/data/social";
 
@@ -17,7 +18,7 @@ export default function Contacts() {
       </p>
       <div className="mt-6">
         {social.map(({ name, url, Icon }) => (
-          <a
+          <Link
             key={name}
             href={url}
             className="inline-block mr-4"
@@ -25,7 +26,7 @@ export default function Contacts() {
             rel="noopener noreferrer"
           >
             <Icon className="h-6 w-6 hover:text-gray-400" />
-          </a>
+          </Link>
         ))}
       </div>
     </Container>

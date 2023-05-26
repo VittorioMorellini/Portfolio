@@ -41,8 +41,7 @@ function ArticleDetail({ article }: ArticleDetailProps) {
         <>
         <div className='flex relative max-w-full'>
             <div className="w-1/5">
-                <Link href="/article" passHref>
-                    <a className='text-black hover:text-blue-500'>Back</a>
+                <Link href="/article" passHref className='text-black hover:text-blue-500'>Back
                 </Link>
             </div>
             <div className="flex flex-col items-center w-4/5">

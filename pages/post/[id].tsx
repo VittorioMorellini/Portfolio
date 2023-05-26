@@ -62,8 +62,7 @@ function PostDetail({ post }: PostDetailProps) {
         <>
         <div className='flex relative max-w-full'>
             <div className="w-1/5">
-                <Link href="/post" passHref>
-                    <a className='text-black hover:text-blue-500'>Back</a>
+                <Link href="/post" passHref className='text-black hover:text-blue-500'>Back
                 </Link>
             </div>
             <div className="flex flex-col items-center w-4/5">

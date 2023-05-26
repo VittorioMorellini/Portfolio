@@ -25,8 +25,8 @@ function ProjectItem({ item }: ProjectItemProps) {
           unoptimized
           src={image}
           alt={name}
-          width="400px"
-          height="300px"
+          width={400}
+          height={300}
         />
       </div>
       <div className="pt-4">

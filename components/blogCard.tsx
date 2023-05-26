@@ -2,7 +2,6 @@ import { Blog } from '.contentlayer/generated'
 import { Children } from 'react'
 import ImageLoader from "../utils/imageLoader";
 import Image from 'next/image';
-import Proj4 from "../public/images/proj3.jpg";
 
 export type BlogProps = Blog & {
     children?: any
@@ -19,8 +18,8 @@ export default function BlogCard(props: BlogProps) {
             unoptimized
             src={props.image && props.image !== '' ? props.image : '../images/proj1.jpg'}
             alt={props.title}
-            width="450px"
-            height="350px"
+            width={450}
+            height={350}
           />
         </div>
         <div className="flex flex-col place-content-center">
