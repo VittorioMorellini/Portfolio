@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import ImageLoader from 'utils/imageLoader';
 
 interface PokemonCardProps {
     name: string;
@@ -23,7 +25,7 @@ function PokemonCard({
         </div>
         <div className="w-4/5">
           <h1 className='capitalize'>{name}</h1>
-          <img src={image} alt={name} width="100px" />
+          <Image loader={ImageLoader} src={image} alt={name} width={100} height={80}/>
           <div className="grid grid-cols-2 bg-blue-100 bor</der-2 border-solid border-white text-left capitalize items-center">
             <p className="block text-black font-extrabold text-sm ml-4 uppercase justify-start">XP</p>
             <div>{xp}</div>

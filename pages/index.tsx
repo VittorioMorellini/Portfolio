@@ -23,7 +23,7 @@ function Home<NextPage>({categories}: HomeProps) {
     <div>
       <Container size="2xl">
         <Box className='grid gap-10 md:grid-cols-2'>
-          <div className="w-full h-full text-center">
+          <div className="flex w-full h-full items-center justify-center">
               {/* h-56 md:h-[500px] */}
               <Image
                 loader={ImageLoader}
@@ -107,10 +107,10 @@ function Home<NextPage>({categories}: HomeProps) {
 //Dynamic load categories does not work in component, only in page so I have to load from outside
 //Cannot use this function in component
 export async function getServerSideProps (context: any) {
-  console.log('Sono in server sides category')
+  //console.log('Sono in server sides category')
 
   const res = await fetch(server +'/api/category')
-  console.log('Res recuperate server sides category', res)
+  //console.log('Res recuperate server sides category', res)
   const results: Category[] = await res.json();
   
   return {

@@ -17,9 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],      
+      "@/pages/*": ["pages/*"],      
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".contentlayer/generated", "data/blogs/MyTable.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".contentlayer/generated", "data/blogs/MyTable.jsx", "./jest.setup.ts"],
   "exclude": ["node_modules"]
 }

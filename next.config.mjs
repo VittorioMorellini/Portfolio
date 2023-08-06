@@ -6,7 +6,7 @@ import { withContentlayer } from 'next-contentlayer'
 const nextConfig = {
   reactStrictMode: true,
   disableImportAliasWarning: true,
-  images:{
+  images: {
     domains: ['images.unsplash.com', 'media-exp1.licdn.com',"rickandmortyapi.com"],    
     loader: "custom",
     path: "/"

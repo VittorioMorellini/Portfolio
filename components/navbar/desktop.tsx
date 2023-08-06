@@ -7,6 +7,8 @@ import { titleAtom } from '../../recoil/title';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Icon } from '@mui/material';
+import Image from 'next/image';
+import ImageLoader from 'utils/imageLoader';
 
 function DesktopNavBar() {
     const [categories,] = useRecoilState<Category[]>(categoriesAtom)
@@ -19,7 +21,15 @@ function DesktopNavBar() {
                 <div className="w-full flex justify-between items-center">
                     <div className='flex w-auto items-center'>
                         <Link href="/">
-                            <img src='/images/portfolio.png' height={30} alt="Vittorio's portfolio"/>
+                            <Image 
+                                loader={ImageLoader} 
+                                unoptimized
+                                src='/images/portfolio.png' 
+                                height={30} 
+                                width={30} 
+                                alt="Vittorio's portfolio"
+                                //fill
+                            />
                         </Link>
                         <span className="font-bold text-4xl pl-4" style={{flex: '1 0 0%'}}>Vittorio Morellini</span>
                     </div>

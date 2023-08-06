@@ -111,13 +111,12 @@ export default function PostIndex({posts}: PostProps) {
 }
 
 export async function getServerSideProps(context: any) {
-  console.log('Sono in server side props')
   
   const res = await fetch(server + '/api/post')
-  console.log('I have res', res)
+  // console.log('I have res', res)
   //const res = await fetch('api/blog')
   const results: Post[] = await res.json();
-  console.log('I have post ', results)
+  // console.log('I have post ', results)
 
   return {
     props: {

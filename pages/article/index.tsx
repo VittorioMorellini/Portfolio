@@ -90,12 +90,12 @@ export default function Index({articles}: ArticleProps) {
 }
 
 export async function getServerSideProps(context: any) {
-  console.log('Sono in server side props')
+  //console.log('Sono in server side props')
   
   const res = await fetch(server + '/api/article')
-  console.log('I have res', res)
+  //console.log('I have res', res)
   const results: Article[] = await res.json();
-  console.log('I have articles ', results)
+  //console.log('I have articles ', results)
 
   return {
     props: {
