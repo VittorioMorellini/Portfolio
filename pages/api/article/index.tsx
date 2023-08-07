@@ -1,9 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { configDB, connString } from "../configDB";
-import { server } from "../../../config/config";
 import { MongoClient } from "mongodb";
 import { Article } from "../../../types/article";
-
 
 const newListing: any = {
     "_id": "10057447",
@@ -21,14 +18,14 @@ async function listDatabases(client: MongoClient){
  
     console.log("Databases:");
     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
+}
 
 async function createListing(client: MongoClient, newArticle: any) {
     
     const result = await client.db("portfolio").collection("articles").insertOne(newArticle);
 
     console.log(`New listing created with the following id: ${result.insertedId}`);
-};
+}
 
 async function findOneListingByName(client: MongoClient, nameOfListing: string) {
     const result = await client.db("portfolio").collection("articles").findOne({ name: nameOfListing });
@@ -39,7 +36,7 @@ async function findOneListingByName(client: MongoClient, nameOfListing: string) 
     } else {
         console.log(`No listings found with the name '${nameOfListing}'`);
     }
-};
+}
 
 
 async function ArticlesHandler(req: NextApiRequest, res: NextApiResponse) {

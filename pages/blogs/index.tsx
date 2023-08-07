@@ -1,6 +1,6 @@
 import BlogCard from '../../components/blogCard'
 import { allBlogs, Blog } from '.contentlayer/generated'
-import { select } from '../../utils/select';
+import { select } from '../../utils/function';
 import { useRouter } from 'next/router';
 import { Button, Divider } from '@mui/material';
 import { Container } from "../../components/container";

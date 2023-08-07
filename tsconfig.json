@@ -21,6 +21,6 @@
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".contentlayer/generated", "data/blogs/MyTable.jsx", "./jest.setup.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".contentlayer/generated", "data/blogs/MyTable.jsx", "./jest.setup.ts", "jest.config.js"],
   "exclude": ["node_modules"]
 }

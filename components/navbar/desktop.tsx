@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Icon } from '@mui/material';
 import Image from 'next/image';
-import ImageLoader from 'utils/imageLoader';
+import ImageLoader from 'utils/function';
 
 function DesktopNavBar() {
     const [categories,] = useRecoilState<Category[]>(categoriesAtom)

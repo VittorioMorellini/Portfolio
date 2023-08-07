@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { Project } from "types/project";
-import ImageLoader from "utils/imageLoader";
+import ImageLoader from "utils/function";
 import { ProjectList } from "../../public/data/projects";
 import Image from 'next/image';
 
@@ -55,4 +55,4 @@ export async function getServerSideProps(context: any) {
         item
       }
   };
-};
+}

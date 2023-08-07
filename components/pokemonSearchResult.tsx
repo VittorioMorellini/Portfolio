@@ -16,6 +16,6 @@ function PokemonsSearchResult({ pokemons }: { pokemons: string[] }) {
     ) : (
         <Box>No pokemons found</Box>
     );
-};
+}
 
 export default PokemonsSearchResult;

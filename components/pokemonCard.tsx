@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import ImageLoader from 'utils/imageLoader';
+import ImageLoader from 'utils/function';
 
 interface PokemonCardProps {
     name: string;

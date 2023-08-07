@@ -6,7 +6,7 @@ import { Container } from '../components/container'
 import { server } from '../config/config'
 import { categoriesAtom } from '../recoil/categoryState'
 import { Category } from '../types/category'
-import ImageLoader from '../utils/imageLoader'
+import ImageLoader from '../utils/function'
 
 interface HomeProps {
   categories: Category[];

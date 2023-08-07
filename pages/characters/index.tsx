@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Character, GetCharacterResults } from '../../types/types'
-import ImageLoader from '../../utils/imageLoader'
+import ImageLoader from '../../utils/function'
 import EditIcon from '@mui/icons-material/Edit'
 interface CharacterProps {
   characters: Character[]

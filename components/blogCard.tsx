@@ -1,6 +1,6 @@
 import { Blog } from '.contentlayer/generated'
 import { Children } from 'react'
-import ImageLoader from "../utils/imageLoader";
+import ImageLoader from "../utils/function";
 import Image from 'next/image';
 
 export type BlogProps = Blog & {

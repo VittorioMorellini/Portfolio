@@ -36,4 +36,4 @@ export async function getServerSideProps(context: any) {
             pokemon: data !== undefined ? data : {}
         }
     };
-};
+}

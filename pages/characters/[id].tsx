@@ -1,5 +1,5 @@
 import { Character, GetCharacterResults } from "../../types/types"
-import ImageLoader from "../../utils/imageLoader";
+import ImageLoader from "../../utils/function";
 import Image from 'next/image'
 import Link from "next/link";
 import { Box, Button, Card, CardActions, CardContent, Paper, Typography } from "@mui/material";
