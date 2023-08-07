@@ -18,14 +18,14 @@ function ProjectItem({ item }: ProjectItemProps) {
       className="text-center h-full w-full"
     >
       <h1>Personal project #{id} - <b>{name}</b></h1>
-      <div className="bg-transparent w-full h-96 pt-4 mx-auto">
+      <div className="bg-transparent w-full h-96 pt-4 mx-auto md:flex md:justify-center">
         <Image
           loader={ImageLoader}
           unoptimized
           src={image}
-          alt={name}
+          alt={name}          
           width={400}
-          height={300}
+          //height=""
         />
       </div>
       <div className="pt-4">

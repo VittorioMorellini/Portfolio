@@ -202,7 +202,7 @@ function Experience() {
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography variant="h6" component="span">
-            .Net and React developer
+            Full stack developer in dotnet, React.js, Next.js 
             </Typography>
             <Typography>Web application for Digital signature and enterprise documental</Typography>
           </TimelineContent>

@@ -23,7 +23,7 @@ function Home<NextPage>({categories}: HomeProps) {
     <div>
       <Container size="2xl">
         <Box className='grid gap-10 md:grid-cols-2'>
-          <div className="flex w-full h-full items-center justify-center">
+          <div className="w-full h-full md:flex items-center md:justify-center">
               {/* h-56 md:h-[500px] */}
               <Image
                 loader={ImageLoader}

@@ -25,8 +25,8 @@ function DesktopNavBar() {
                                 loader={ImageLoader} 
                                 unoptimized
                                 src='/images/portfolio.png' 
-                                height={30} 
-                                width={30} 
+                                height={48} 
+                                width={48} 
                                 alt="Vittorio's portfolio"
                                 //fill
                             />
