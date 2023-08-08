@@ -23,7 +23,7 @@ function Home<NextPage>({categories}: HomeProps) {
     <div>
       <Container size="2xl">
         <Box className='grid gap-10 md:grid-cols-2'>
-          <div className="w-full h-full md:flex items-center md:justify-center">
+          <div className="w-full h-full flex items-center justify-center">
               {/* h-56 md:h-[500px] */}
               <Image
                 loader={ImageLoader}
@@ -33,8 +33,8 @@ function Home<NextPage>({categories}: HomeProps) {
                 // layout="fill"
                 // objectFit="cover"
                 // objectPosition="center"
-                width="200"
-                height="200"
+                width="300"
+                height="300"
               />
           </div>
           <div className="h-full w-full md:m-0">
@@ -63,27 +63,24 @@ function Home<NextPage>({categories}: HomeProps) {
             <p>
               <br/>
               <b style={{fontSize: '16px'}}>Who am I?</b><br/>
-              I have never been a nerd.<br />
-              I am not so young, unfortunately<br />
               I am a software engineer and I love web development.<br />
-              I am a full stack developer because I don&apos;t want to leave nor backend neither frontend<br />
+              I am not so young, unfortunately, I am a full stack developer because I don&apos;t want to leave nor backend neither frontend<br />
               I have worked as a software engineer for more than
               twenty years in product and consultancy companies.<br />
               A technical director told me that I am still mid level on the web, 
               but I have the ambition and the determination to become a <b>Senior SDE</b> on the Web<br />
               <br />
-              I started before the new millenium working as a developer in visual basic 6.
+              I started at the new millenium working as a developer in Visual Basic 6.
               But I have always felt the desire to develop on the Web.<br />
-              If on the backend I&apos;ve always been certain to select .Net ecosystem,
+              If on the backend I&apos;ve always been certain to select dotnet ecosystem,
               for the front end, after a road on more companies, I am convinced to develop 
               in javascript with the best frameworks that are available:
               React, Angular, Vue...<br />
-              I am a React developer since october 2020, every day I work to improve in the front end enviroment  
-              <br />
-              <br />
-              I am currently working as a <b>Senior Software Engineer</b> at{" "}
+              I am a React.js developer since october 2020, every day I work to improve in the front end enviroment  
+              <br /><br />
+              I am currently working as a <b>Software Engineer</b> at{" "}
               <b>Sixtema</b> in two main ecosystem: <br/>
-              React.js (Typescript) on Frontend<br />
+              React.js / Next.js (Typescript) on Frontend<br />
               dotnet (C#) on Backend <br />
               <br />
             </p>
