@@ -22,8 +22,9 @@ function Drawer() {
       >
         <div className="flex flex-col justify-center items-center w-full h-full pt-24">
           <div className="grid gap-6">
-            {categories.map((data) => (
+            {categories.map((data, index) => (
               <motion.div
+                key={index}
                 //whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}              
               >
@@ -40,6 +41,7 @@ function Drawer() {
           <div className="mt-24">
             {social.map(({ name, url, Icon }) => (
               <motion.div
+                key={url}
                 //whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}              
               >
