@@ -8,12 +8,13 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import SEO from '../components/SEO';
 import { useRouter } from 'next/router';
 import { ToastProvider, DefaultToast } from 'react-toast-notifications';
-import CookieConsent from '@/components/banner/cookieConsent';
+import { AnimatePresence } from 'framer-motion'
 
-
-function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
+function App({ Component, pageProps/*, categories*/ }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
-  
+  const router = useRouter()
+	const pageKey = router.asPath
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -24,12 +25,14 @@ function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
                       //components={{ Toast: CustomToast }}
                       >       
         <RecoilRoot>
+        <AnimatePresence initial={false} mode="popLayout">
           <Layout>
             <SEO />
-            <Component {...pageProps} />
+            <Component key={pageKey} {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false} />
             {/* <CookieConsent /> */}
           </Layout>
+        </AnimatePresence>
         </RecoilRoot>
         </ToastProvider>
         </Hydrate>
@@ -54,4 +57,4 @@ function MyApp({ Component, pageProps/*, categories*/ }: AppProps) {
 
 // }
 
-export default MyApp
+export default App

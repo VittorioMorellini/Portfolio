@@ -1,20 +1,21 @@
-import { Button, TextareaAutosize, TextField } from '@mui/material';
-import axios from 'axios';
+import { Button, TextareaAutosize } from '@mui/material';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 import { server } from '../../config/config';
 import { Post } from '../../types/post';
-import Confirm from '../../utils/ui/confirm';
+import { motion } from 'framer-motion';
+import { IndexPageRef } from 'types/types';
+import PageTransition from '@/components/pageTransition';
 
 interface PostDetailProps {
-    post: Post;
+    post: Post,
+    ref: IndexPageRef
 }
-
-function PostDetail({ post }: PostDetailProps) {
+function PostDetail({ post, ref }: PostDetailProps) {
     const router = useRouter()
     console.log('id', router.query.id)        
     console.log('I am in detail page post')
@@ -59,52 +60,62 @@ function PostDetail({ post }: PostDetailProps) {
     }, [])
 
     return (
+        <PageTransition ref={ref}>
         <>
-        <div className='flex relative max-w-full'>
-            <div className="w-1/5">
-                <Link href="/post" passHref className='text-black hover:text-blue-500'>Back
-                </Link>
-            </div>
-            <div className="flex flex-col items-center w-4/5">
-                <div className="text-center mb-4">
-                    <h3>Post Id: {post?.Id}</h3>
-                </div>
-                <div className='block'>
-                    <label className='italic'>Content</label>
-                    <TextareaAutosize
-                        className='w-full border-gray-400 border-solid bg-gray-200'
-                        cols={250}  
-                        minRows={15}                      
-                        maxRows={50}                         
-                        value={text}                        
-                        onChange={(e) => setText(e.target.value)} 
-                        placeholder="Text"                         
-                    />                
-                </div>
-                <div className='mt-8 block'>
-                    <label className='italic'>Author</label>
-                    <TextareaAutosize
-                        className='bg-gray-200 w-full border-gray-400 border-solid'
-                        cols={250}
-                        placeholder="Author" 
-                        maxRows={1}                         
-                        value={author} 
-                        onChange={(e) => setAuthor(e.target.value)}                         
-                    />
-                </div>
-                {post.Id !== 2 &&
-                <div>
-                    <Button
-                        variant="outlined"
-                        onClick={savePost}
+            <div className='flex relative max-w-full'>
+                <div className="w-1/5">
+                    <motion.div 
+                        //whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}              
                     >
-                        Save
-                    </Button>
+                        <Link href="/post" passHref className='text-black hover:text-blue-500'>Back
+                        </Link>
+                    </motion.div>
                 </div>
-                }
+                <div className="flex flex-col items-center w-4/5">
+                    <div className="text-center mb-4">
+                        <h3>Post Id: {post?.Id}</h3>
+                    </div>
+                    <div className='block'>
+                        <label className='italic'>Content</label>
+                        <TextareaAutosize
+                            className='w-full border-gray-400 border-solid bg-gray-200'
+                            cols={250}  
+                            minRows={15}                      
+                            maxRows={50}                         
+                            value={text}                        
+                            onChange={(e) => setText(e.target.value)} 
+                            placeholder="Text"                         
+                        />                
+                    </div>
+                    <div className='mt-8 block'>
+                        <label className='italic'>Author</label>
+                        <TextareaAutosize
+                            className='bg-gray-200 w-full border-gray-400 border-solid'
+                            cols={250}
+                            placeholder="Author" 
+                            maxRows={1}                         
+                            value={author} 
+                            onChange={(e) => setAuthor(e.target.value)}                         
+                        />
+                    </div>
+                    {post.Id !== 2 &&
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}              
+                        >
+                            <Button
+                                variant="outlined"
+                                onClick={savePost}
+                            >
+                                Save
+                            </Button>
+                        </motion.div>
+                    }
+                </div>
             </div>
-        </div>
         </>    
+        </PageTransition>    
     )
 }
 

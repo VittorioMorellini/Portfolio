@@ -16,10 +16,16 @@ import EducationIcon from '@mui/icons-material/BookOnlineOutlined';
 import ArmyIcon from '@mui/icons-material/WarningOutlined';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import { Container } from '../../components/container';
+import { IndexPageRef } from 'types/types';
+import PageTransition from '@/components/pageTransition';
+import { motion } from 'framer-motion';
 
-function Experience() {
+interface ExperienceProps {
+  ref: IndexPageRef
+}
+function Experience({ref}: ExperienceProps) {
   return (
+    <PageTransition ref={ref}>
     <div>
       <h1 className="text-3xl text-center font-bold"> My professional experience</h1>
       <Timeline position="alternate" className='mx-auto'>
@@ -35,7 +41,11 @@ function Experience() {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
-              <EducationIcon />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
+                <EducationIcon />
+              </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -209,6 +219,7 @@ function Experience() {
         </TimelineItem>
       </Timeline>
     </div>
+    </PageTransition>
   );
 }
 

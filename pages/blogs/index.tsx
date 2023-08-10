@@ -5,11 +5,14 @@ import { useRouter } from 'next/router';
 import { Button, Divider } from '@mui/material';
 import { Container } from "../../components/container";
 import { useState } from 'react';
+import PageTransition from '@/components/pageTransition';
+import { IndexPageRef } from 'types/types';
 
 interface BlogIndexProps {
-    blogs: Blog[];
+    blogs: Blog[],
+    ref: IndexPageRef
 }
-export default function BlogIndex({blogs}: BlogIndexProps) {
+export default function BlogIndex({blogs, ref}: BlogIndexProps) {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState<string>("");
 
@@ -22,6 +25,7 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
     setSearchValue(value)
   }
   return (
+    <PageTransition ref={ref}>
     <div>
         <Container>
           <div className="flex flex-row items-center mb-4">
@@ -91,7 +95,8 @@ export default function BlogIndex({blogs}: BlogIndexProps) {
             </Container>
           </div>
     </div>
-    )
+    </PageTransition>    
+  )
 }
 
 export function getStaticProps() {

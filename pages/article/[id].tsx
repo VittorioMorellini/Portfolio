@@ -8,12 +8,15 @@ import { useEffect, useRef, useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 import { server } from '../../config/config';
 import { Article } from '../../types/article';
+import { IndexPageRef } from 'types/types';
+import PageTransition from '@/components/pageTransition';
 
 interface ArticleDetailProps {
-    article: Article;
+    article: Article,
+    ref: IndexPageRef
 }
 
-function ArticleDetail({ article }: ArticleDetailProps) {
+function ArticleDetail({ article, ref }: ArticleDetailProps) {
     const router = useRouter()
     console.log('id', router.query.id)        
     console.log('I am in detail page blog')
@@ -38,7 +41,7 @@ function ArticleDetail({ article }: ArticleDetailProps) {
     }, [])
 
     return (
-        <>
+        <PageTransition ref={ref}>
         <div className='flex relative max-w-full'>
             <div className="w-1/5">
                 <Link href="/article" passHref className='text-black hover:text-blue-500'>Back
@@ -53,7 +56,7 @@ function ArticleDetail({ article }: ArticleDetailProps) {
                 </div>
             </div>
         </div>
-        </>    
+        </PageTransition>    
     )
 }
 

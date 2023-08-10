@@ -1,10 +1,12 @@
 import Contacts from '@/pages/contacts'
 import { render, screen } from '@testing-library/react'
 
+type IndexPageRef = React.ForwardedRef<HTMLDivElement>
+
 describe('Describe our contacts page', () => {
 
     beforeEach(() => {
-        render(<Contacts />)
+        render(<Contacts ref={null}/>)
     })
 
     it('Should render properly', () => {

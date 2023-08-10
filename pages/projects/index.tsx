@@ -3,10 +3,16 @@ import { ProjectList } from "../../public/data/projects";
 import ImageLoader from "../../utils/function";
 import Image from 'next/image';
 import Link from "next/link";
+import { IndexPageRef } from "types/types";
+import PageTransition from "@/components/pageTransition";
 
-function Projects() {
+interface ProjectsProps {
+  ref: IndexPageRef
+}
+function Projects({ref}: ProjectsProps) {
   return (
     //* className="w-full h-auto flex justify-center items-center flex-col"
+    <PageTransition ref={ref}>
     <div>
       <h1 className="text-3xl text-center font-bold">My Personal Projects</h1>
       <div className="grid md:grid-cols-2 place-items-center">
@@ -35,6 +41,7 @@ function Projects() {
         })}
       </div>
     </div>
+    </PageTransition>
   );
 }
 

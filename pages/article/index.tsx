@@ -6,12 +6,14 @@ import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import { Article } from "../../types/article";
 import { useDebounce } from "usehooks-ts";
+import { IndexPageRef } from "types/types";
+import PageTransition from "@/components/pageTransition";
 
 interface ArticleProps {
-  articles: Article[];
+  articles: Article[],
+  ref: IndexPageRef
 }
-
-export default function Index({articles}: ArticleProps) {
+export default function Index({articles, ref}: ArticleProps) {
     const router = useRouter();
     //for confirm delete
     const [open, setOpen] = useState(false);
@@ -39,6 +41,7 @@ export default function Index({articles}: ArticleProps) {
     //Initialize the message that does not change in its lifetime
     console.log({articles})
     return (
+      <PageTransition ref={ref}>
         <div className="flex flex-col">
           <Container>
             <div className="flex flex-row items-center mb-4">
@@ -86,6 +89,7 @@ export default function Index({articles}: ArticleProps) {
               message={message.current}
           />
         </div>  
+      </PageTransition>    
     );
 }
 

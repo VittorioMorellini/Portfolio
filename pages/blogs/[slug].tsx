@@ -2,12 +2,15 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import {allBlogs, Blog } from '.contentlayer/generated'
 import BlogLayout from '../../components/blogCard'
 import Head from 'next/head'
+import PageTransition from '@/components/pageTransition'
+import { IndexPageRef } from 'types/types'
 
 type BlogProps = {
-  blog: Blog
+  blog: Blog,
+  ref: IndexPageRef
 }
 
-export default function BlogDetail({ blog }: BlogProps) {
+export default function BlogDetail({ blog, ref }: BlogProps) {
     const Component = useMDXComponent(blog.body?.code)
 
     // <BlogLayout {...blog}>
@@ -16,6 +19,7 @@ export default function BlogDetail({ blog }: BlogProps) {
     //     </div> */}
     // </BlogLayout>
     return (
+        <PageTransition ref={ref}>
         <>
             <Head>
                 <title>{blog.title}</title>
@@ -36,7 +40,8 @@ export default function BlogDetail({ blog }: BlogProps) {
                 </article>    
             </div>
         </>
-      )
+        </PageTransition>      
+    )
 }
 
 export async function getStaticPaths() {

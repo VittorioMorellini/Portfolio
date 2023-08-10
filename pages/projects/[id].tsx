@@ -4,19 +4,21 @@ import { Project } from "types/project";
 import ImageLoader from "utils/function";
 import { ProjectList } from "../../public/data/projects";
 import Image from 'next/image';
+import { IndexPageRef } from "types/types";
+import PageTransition from "@/components/pageTransition";
 
 interface ProjectItemProps {
-    item: Project;
+    item: Project,
+    ref: IndexPageRef
 }
 
-function ProjectItem({ item }: ProjectItemProps) {
+function ProjectItem({ item, ref }: ProjectItemProps) {
   const router = useRouter();
   const {id, skills, image, name, description } = item
 
   return (
-    <div
-      className="text-center h-full w-full"
-    >
+    <PageTransition ref={ref}>
+    <div className="text-center h-full w-full">
       <h1>Personal project #{id} - <b>{name}</b></h1>
       <div className="bg-transparent w-full h-96 pt-4 mx-auto md:flex md:justify-center">
         <Image
@@ -24,7 +26,7 @@ function ProjectItem({ item }: ProjectItemProps) {
           unoptimized
           src={image}
           alt={name}          
-          width={400}
+          width={550}
           //height=""
         />
       </div>
@@ -38,6 +40,7 @@ function ProjectItem({ item }: ProjectItemProps) {
         {description}
       </div>
     </div>
+    </PageTransition>  
   );
 }
 

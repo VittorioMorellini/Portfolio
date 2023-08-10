@@ -48,3 +48,5 @@ export enum Status {
     Dead = "Dead",
     Unknown = "unknown",
 }
+
+export type IndexPageRef = React.ForwardedRef<HTMLDivElement>

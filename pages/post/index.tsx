@@ -8,12 +8,16 @@ import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
 import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
+import PageTransition from "@/components/pageTransition";
+import { IndexPageRef } from "types/types";
+import { motion } from "framer-motion";
 
 interface PostProps {
   posts: Post[];
+  ref: IndexPageRef;
 }
 
-export default function PostIndex({posts}: PostProps) {
+export default function PostIndex({posts, ref}: PostProps) {
     const router = useRouter();
     const { addToast } = useToasts()
     //for confirm delete
@@ -58,16 +62,20 @@ export default function PostIndex({posts}: PostProps) {
     message.current = "Do you confir deleting post?"
     //console.log({posts})
     return (
+      <PageTransition ref={ref}>
         <div className="flex flex-col">
           <Container>
           <div className="flex flex-col items-center mb-4 md:flex-row">
-              <div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}              
+              >
                   <Button variant="outlined" className="w-32" onClick={() => {    
                       router.push('post/0')
                   }}>
                       Add post
                   </Button>
-              </div>
+              </motion.div>
               <div className="text-center w-full">
                 <h1 className="text-3xl font-black text-center">Tell me what do you think about my blog and articles</h1>
               </div>
@@ -86,7 +94,12 @@ export default function PostIndex({posts}: PostProps) {
                     {post.Content ? post.Content?.substring(0, 100) + '...' : ''}
                   </ListItemText>
                   <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="justify-end">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}              
+                    >
                       <PostAddSharp />
+                    </motion.div>
                   </ListItemButton> 
                   {/*             
                   <ListItemIcon>
@@ -107,6 +120,7 @@ export default function PostIndex({posts}: PostProps) {
               message={message.current}
           />
         </div>  
+      </PageTransition>
     );
 }
 
