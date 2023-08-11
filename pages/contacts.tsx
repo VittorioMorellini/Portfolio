@@ -3,6 +3,7 @@ import { Container } from "../components/container";
 import social from "../public/data/social";
 import PageTransition from "@/components/pageTransition";
 import { IndexPageRef } from "types/types";
+import { motion } from "framer-motion";
 
 interface ContactsProps {
   ref: IndexPageRef
@@ -32,7 +33,12 @@ export default function Contacts({ref}: ContactsProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icon className="h-6 w-6 hover:text-gray-400" />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}              
+              > 
+                <Icon className="h-6 w-6 hover:text-gray-400" />
+              </motion.div>
             </Link>
           ))}
         </div>

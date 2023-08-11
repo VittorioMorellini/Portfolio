@@ -21,16 +21,19 @@ function Home<NextPage>({categories, ref}: HomeProps) {
   
   const svgVariants = {
     initial: {
-        rotate: -360
+        //rotate: -360
+        opacity: 0
     },
     animate: {
-        rotate: 0,
+        //rotate: 0,
+        opacity: 1,
         transition: {
-            duration: 1
+            duration: 2.5,
+            ease: 'easeInOut'
         }
     },
     exit: {
-        rotate: -180
+        opacity: 0.5
     }
   }
 
@@ -70,52 +73,52 @@ function Home<NextPage>({categories, ref}: HomeProps) {
   }, [])
 
   return (
-    <PageTransition ref={ref}>
+    <PageTransition ref={ref} allowScroll={false}>
       <div>
         <Container size="2xl">
           <Box className='grid gap-10 md:grid-cols-2'>
+            <motion.div className="w-full h-full flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
+            >
+                {/* h-56 md:h-[500px] */}
+                <Image
+                  loader={ImageLoader}
+                  unoptimized
+                  src={"/images/vittorio.png"}
+                  alt="Vittorio Morellini"
+                  // layout="fill"
+                  // objectFit="cover"
+                  // objectPosition="center"
+                  width="300"
+                  height="300"
+                />
+            </motion.div>
             <AnimatePresence>
-              <motion.div className="w-full h-full flex items-center justify-center"
-                whileHover={{ scale: 1.1 }}
-              >
-                  {/* h-56 md:h-[500px] */}
-                  <Image
-                    loader={ImageLoader}
-                    unoptimized
-                    src={"/images/vittorio.png"}
-                    alt="Vittorio Morellini"
-                    // layout="fill"
-                    // objectFit="cover"
-                    // objectPosition="center"
-                    width="300"
-                    height="300"
-                  />
-              </motion.div>
-              <motion.div className="h-full w-full md:m-0"
-                  variants={svgVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"            
-              >
-                  <div className="bg-blue-200">
-                    <h1 className="font-black text-2xl md:text-5xl">
-                      Software engineer at{" "}
-                      <a
-                        href="https://sixtema.it"
-                        className="underline hover:text-blue-400"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        Sixtema
-                      </a>
-                      <br />(Modena, Italy)
-                    </h1>
-                    <h2 className="text-xl md:text-3xl mt-2">
-                      Software Developer dotnet (C#) and React.js (typescript)
-                    </h2>
-                  </div>
-              </motion.div>
-            </AnimatePresence>
+            <motion.div className="h-full w-full md:m-0"
+                variants={svgVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"            
+            >
+                <div className="bg-blue-200">
+                  <h1 className="font-black text-2xl md:text-5xl">
+                    Software engineer at{" "}
+                    <a
+                      href="https://sixtema.it"
+                      className="underline hover:text-blue-400"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      Sixtema
+                    </a>
+                    <br />(Modena, Italy)
+                  </h1>
+                  <h2 className="text-xl md:text-3xl mt-2">
+                    Software Developer dotnet (C#) and React.js (typescript)
+                  </h2>
+                </div>
+            </motion.div>
+            </AnimatePresence>          
           </Box>
         </Container>
         <Container size="xl">

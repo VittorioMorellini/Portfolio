@@ -27,7 +27,7 @@ function Experience({ref}: ExperienceProps) {
   return (
     <PageTransition ref={ref}>
     <div>
-      <h1 className="text-3xl text-center font-bold"> My professional experience</h1>
+      <h1 className="text-3xl text-center font-bold pb-4"> My professional experience</h1>
       <Timeline position="alternate" className='mx-auto'>
         <TimelineItem>
           <TimelineOppositeContent
@@ -68,7 +68,11 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <ArmyIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -91,7 +95,11 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <SystemIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -114,7 +122,11 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <ComputerIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -137,7 +149,11 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <DeveloperIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -160,7 +176,11 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <LaptopMacIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -183,13 +203,17 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <DesktopIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography variant="h6" component="span">
-              .Net web and winform developer
+              .NET web and winform developer
             </Typography>
             <Typography>Web services and applications for health sector</Typography>
           </TimelineContent>
@@ -206,7 +230,11 @@ function Experience({ref}: ExperienceProps) {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot color="primary" variant="outlined">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+              >
               <WebIcon />
+            </motion.div>
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -214,7 +242,7 @@ function Experience({ref}: ExperienceProps) {
             <Typography variant="h6" component="span">
             Full stack developer in dotnet, React.js, Next.js 
             </Typography>
-            <Typography>Web application for Digital signature and enterprise documental</Typography>
+            <Typography>Web application deployed as Saas</Typography>
           </TimelineContent>
         </TimelineItem>
       </Timeline>

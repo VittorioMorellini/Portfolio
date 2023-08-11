@@ -15,7 +15,7 @@ interface BlogIndexProps {
 export default function BlogIndex({blogs, ref}: BlogIndexProps) {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState<string>("");
-
+  
   const handleClick = (slug: string) => (event: React.MouseEvent<HTMLDivElement>) => {
     //console.log(slug)
     router.push('/blogs/' + slug);
@@ -25,8 +25,7 @@ export default function BlogIndex({blogs, ref}: BlogIndexProps) {
     setSearchValue(value)
   }
   return (
-    <PageTransition ref={ref}>
-    <div>
+    <PageTransition ref={ref} allowScroll={true}>
         <Container>
           <div className="flex flex-row items-center mb-4">
               <div className="text-center w-full">
@@ -94,7 +93,6 @@ export default function BlogIndex({blogs, ref}: BlogIndexProps) {
               </div>
             </Container>
           </div>
-    </div>
     </PageTransition>    
   )
 }

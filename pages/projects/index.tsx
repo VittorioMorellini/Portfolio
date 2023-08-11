@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from "next/link";
 import { IndexPageRef } from "types/types";
 import PageTransition from "@/components/pageTransition";
+import { motion } from "framer-motion";
 
 interface ProjectsProps {
   ref: IndexPageRef
@@ -21,7 +22,10 @@ function Projects({ref}: ProjectsProps) {
             <div key={idx}
               className="text-center shadow-lg m-10 h-60 w-60 rounded-2xl"
             >
-              <div style={{/* backgroundImage: `url(${project.image})` */}} className="w-full h-52 bg-center bg-no-repeat bg-cover rounded-t-2xl">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}              
+                className="w-full h-52 bg-center bg-no-repeat bg-cover rounded-t-2xl">
                 <Image
                   loader={ImageLoader}
                   unoptimized
@@ -30,7 +34,7 @@ function Projects({ref}: ProjectsProps) {
                   width={300}
                   height={200}
                 />
-              </div>  
+              </motion.div>  
               <div> 
                 <Link href={`/projects/${project.id}`} className="hover:text-blue-400 block"><h2 className="text-2xl">{project.name}</h2>
                 </Link>                

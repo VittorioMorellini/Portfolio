@@ -77,7 +77,7 @@ export default function PostIndex({posts, ref}: PostProps) {
                   </Button>
               </motion.div>
               <div className="text-center w-full">
-                <h1 className="text-3xl font-black text-center">Tell me what do you think about my blog and articles</h1>
+                <h1 className="text-3xl font-black text-center">Tell me what do you think about my portfolio</h1>
               </div>
           </div>
           {/*YYYY-MM-DDTHH:mm:ss.sssZ  post.Date.toString() */}
@@ -95,7 +95,7 @@ export default function PostIndex({posts, ref}: PostProps) {
                   </ListItemText>
                   <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="justify-end">
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}              
                     >
                       <PostAddSharp />

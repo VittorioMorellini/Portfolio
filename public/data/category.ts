@@ -35,10 +35,10 @@ export const categories: Category[] = [
     },
     {
       id: 5,
-      name: 'Article',
+      name: 'Blog',
       url: '/blogs',
-      description: 'Articles',
-      title: 'Article',
+      description: 'Blog',
+      title: 'Blog',
       external: false
     },
     // {
