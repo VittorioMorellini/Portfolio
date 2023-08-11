@@ -94,7 +94,7 @@ function Home<NextPage>({categories, ref}: HomeProps) {
                 />
             </motion.div>
             <AnimatePresence>
-            <motion.div className="h-full w-full md:m-0"
+            <motion.div className="h-full w-full lg:m-0"
                 variants={svgVariants}
                 initial="initial"
                 animate="animate"

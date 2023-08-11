@@ -9,10 +9,10 @@ interface NavBarProps {
 export function NavBar({ show, onChangeVisibility }: NavBarProps) {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <DesktopNavBar />
       </div>
-      <div className="block sm:hidden">
+      <div className="block lg:hidden">
         <MobileNavBar show={show} onChangeVisibility={onChangeVisibility} />
       </div>
     </>
