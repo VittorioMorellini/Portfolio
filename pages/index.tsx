@@ -130,8 +130,7 @@ function Home<NextPage>({categories, ref}: HomeProps) {
                 I am not so young, unfortunately, I am a full stack developer because I don&apos;t want to leave nor backend neither frontend<br />
                 I have worked as a software engineer for more than
                 twenty years in product and consultancy companies.<br />
-                A technical director told me that I am still mid level on the web, 
-                but I have the ambition and the determination to become a <b>Senior SDE</b> on the Web<br />
+                I have the determination to be a reference as a <b>Senior SDE</b> on the Web<br />
                 <br />
                 I started at the new millenium working as a developer in Visual Basic 6.
                 But I have always felt the desire to develop on the Web.<br />
@@ -143,7 +142,7 @@ function Home<NextPage>({categories, ref}: HomeProps) {
                 <br /><br />
                 I am currently working as a <b>Software Engineer</b> at{" "}
                 <b>Sixtema</b> in two main ecosystem: <br/>
-                React.js / Next.js (Typescript) on Frontend<br />
+                React.js & Next.js (Typescript) on Frontend<br />
                 dotnet (C#) on Backend <br />
                 <br />
               </p>
