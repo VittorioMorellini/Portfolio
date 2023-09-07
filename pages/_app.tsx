@@ -40,21 +40,4 @@ function App({ Component, pageProps/*, categories*/ }: AppProps) {
     </>
   )
 }
-
-//Dynamic load categories does not work in component, only in page so I have to load from outside
-// export async function getServerSideProps (context: any) {
-//   console.log('Sono in server sides category')
-
-//   const res = await fetch('http://localhost:3000/api/category')
-//   console.log('Res recuperate server sides category', res.json())
-//   const results: Category[] = await res.json();
-
-//   return {
-//     props: {
-//       categories: results
-//     }
-//   }
-
-// }
-
 export default App
