@@ -2,7 +2,7 @@ import { Avatar, Button, Divider, IconButton, ListItem, ListItemAvatar, ListItem
 import { Container } from "../../components/container";
 import { server } from "../../config/config";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import { Article } from "../../types/article";
 import { useDebounce } from "usehooks-ts";
@@ -11,9 +11,9 @@ import PageTransition from "@/components/pageTransition";
 
 interface ArticleProps {
   articles: Article[],
-  ref: IndexPageRef
+  //ref: IndexPageRef
 }
-export default function Index({articles, ref}: ArticleProps) {
+function ArticleIndex({articles}: ArticleProps) {
     const router = useRouter();
     //for confirm delete
     const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ export default function Index({articles, ref}: ArticleProps) {
     const message = useRef<string | JSX.Element | undefined>();
     const [searchValue, setSearchValue] = useState<string>("");
     const debounedSearchValue = useDebounce(searchValue, 300);
-        
+    const ref = useRef(null)
     const viewArticle = (id: string) => (event: React.MouseEvent<HTMLLIElement>) => {
       router.push('/article/' + id);    
     }
@@ -32,14 +32,13 @@ export default function Index({articles, ref}: ArticleProps) {
         case '':
           //Filter all
           break;
-
         default:
           //filter all
       }
     }
 
     //Initialize the message that does not change in its lifetime
-    console.log({articles})
+    //console.log({articles})
     return (
       <PageTransition ref={ref}>
         <div className="flex flex-col">
@@ -92,6 +91,7 @@ export default function Index({articles, ref}: ArticleProps) {
       </PageTransition>    
     );
 }
+export default ArticleIndex
 
 export async function getServerSideProps(context: any) {
   //console.log('Sono in server side props')
@@ -107,3 +107,4 @@ export async function getServerSideProps(context: any) {
     }
   }
 }
+

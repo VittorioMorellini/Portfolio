@@ -2,14 +2,14 @@ import Link from "next/link";
 import { Container } from "../components/container";
 import social from "../public/data/social";
 import PageTransition from "@/components/pageTransition";
-import { IndexPageRef } from "types/types";
 import { motion } from "framer-motion";
+import { forwardRef, useRef } from "react";
 
-interface ContactsProps {
-  ref: IndexPageRef
-}
-
-export default function Contacts({ref}: ContactsProps) {
+// interface ContactsProps {
+//   ref: IndexPageRef
+// }
+function Contacts(/*, ref: IndexPageRef*/) {
+  const ref = useRef<HTMLDivElement>(null)
   return (
     <PageTransition ref={ref}>
       <Container>
@@ -46,3 +46,5 @@ export default function Contacts({ref}: ContactsProps) {
     </PageTransition>
   );
 }
+
+export default Contacts

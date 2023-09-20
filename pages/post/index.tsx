@@ -6,7 +6,7 @@ import { PostAddSharp, Delete } from '@mui/icons-material'
 import { server } from "../../config/config";
 import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
-import { useRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import PageTransition from "@/components/pageTransition";
 import { IndexPageRef } from "types/types";
@@ -14,10 +14,10 @@ import { motion } from "framer-motion";
 
 interface PostProps {
   posts: Post[];
-  ref: IndexPageRef;
+  //ref: IndexPageRef;
 }
 
-export default function PostIndex({posts, ref}: PostProps) {
+function PostIndex({posts}: PostProps) {
     const router = useRouter();
     const { addToast } = useToasts()
     //for confirm delete
@@ -25,7 +25,8 @@ export default function PostIndex({posts, ref}: PostProps) {
     const onCancel = () => { setOpen(false) };
     const onConfirm = useRef<() => void>();
     const message = useRef<string | JSX.Element | undefined>();
-    
+    const ref = useRef(null)
+
     // handler to assign the function on the confirm method
     const confirmDelete = (id: string | number) => (e: React.MouseEvent<HTMLButtonElement>) => {
         setOpen(true)
@@ -123,9 +124,9 @@ export default function PostIndex({posts, ref}: PostProps) {
       </PageTransition>
     );
 }
+export default PostIndex
 
 export async function getServerSideProps(context: any) {
-  
   const res = await fetch(server + '/api/post')
   // console.log('I have res', res)
   //const res = await fetch('api/blog')

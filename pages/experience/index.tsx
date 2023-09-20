@@ -20,10 +20,12 @@ import { IndexPageRef } from 'types/types';
 import PageTransition from '@/components/pageTransition';
 import { motion } from 'framer-motion';
 
-interface ExperienceProps {
-  ref: IndexPageRef
-}
-function Experience({ref}: ExperienceProps) {
+// interface ExperienceProps {
+//   ref: IndexPageRef
+// }
+function Experience() {
+  const ref = React.useRef<HTMLDivElement>(null)
+
   return (
     <PageTransition ref={ref}>
     <div>
@@ -251,4 +253,4 @@ function Experience({ref}: ExperienceProps) {
   );
 }
 
-export default Experience;
+export default React.forwardRef(Experience);

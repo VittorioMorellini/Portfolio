@@ -4,18 +4,19 @@ import { select } from '../../utils/function';
 import { useRouter } from 'next/router';
 import { Button, Divider } from '@mui/material';
 import { Container } from "../../components/container";
-import { useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import PageTransition from '@/components/pageTransition';
 import { IndexPageRef } from 'types/types';
 
 interface BlogIndexProps {
     blogs: Blog[],
-    ref: IndexPageRef
+    //ref: IndexPageRef
 }
-export default function BlogIndex({blogs, ref}: BlogIndexProps) {
+function BlogIndex({blogs}: BlogIndexProps) {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState<string>("");
-  
+  const ref = useRef(null)
+
   const handleClick = (slug: string) => (event: React.MouseEvent<HTMLDivElement>) => {
     //console.log(slug)
     router.push('/blogs/' + slug);
@@ -117,3 +118,5 @@ export function getStaticProps() {
 
     return { props: { blogs } };
 }
+
+export default BlogIndex

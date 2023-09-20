@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { forwardRef, useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
 import { Container } from '../components/container'
 import { server } from '../config/config'
@@ -14,10 +14,11 @@ import * as S from "../components/banner/banner";
 
 interface HomeProps {
   categories: Category[];
-  ref: IndexPageRef
+  //ref: IndexPageRef
 }
-function Home<NextPage>({categories, ref}: HomeProps) {
+function Home<NextPage>({categories}: HomeProps/*, ref: IndexPageRef*/) {
   const [, setCategories] = useRecoilState<Category[]>(categoriesAtom)
+  const ref = useRef<HTMLDivElement>(null)
   
   const svgVariants = {
     initial: {

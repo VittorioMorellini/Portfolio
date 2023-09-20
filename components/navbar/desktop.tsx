@@ -46,7 +46,7 @@ function DesktopNavBar() {
                                             whileHover={{ scale: 1.2 }}
                                             whileTap={{ scale: 0.9 }}              
                                         >                                    
-                                            <Link href={category.url} passHref
+                                            <Link href={category.url} 
                                                     target={"_blank"}
                                                     rel={category.external && "noreferrer"}
                                                 >

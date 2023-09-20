@@ -14,7 +14,7 @@ function Layout({ children }: Props) {
   
     useEffect(() => {
       router.events.on("routeChangeStart", () => {
-        console.log("CGANGE");
+        //console.log("CGANGE");
         setShowMobileNav(false);
       });
   
@@ -32,7 +32,7 @@ function Layout({ children }: Props) {
                 <div className="w-full mx-4"> 
                     {children}
                 </div>
-                {/* <div className="w-1/5"> 
+                {/* <div className="w-1/5">
                 Banner for advertising 
                 </div>*/}
             </div>

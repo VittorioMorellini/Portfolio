@@ -20,10 +20,10 @@ function App({ Component, pageProps/*, categories*/ }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
         <ToastProvider autoDismiss={true} 
-                      autoDismissTimeout={6000} 
-                      placement="top-center"
-                      //components={{ Toast: CustomToast }}
-                      >       
+          autoDismissTimeout={6000} 
+          placement="top-center"
+          //components={{ Toast: CustomToast }}
+        >       
         <RecoilRoot>
         <AnimatePresence initial={false} mode="popLayout">
           <Layout>

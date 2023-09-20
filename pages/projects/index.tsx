@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useRef } from "react";
 import { ProjectList } from "../../public/data/projects";
 import ImageLoader from "../../utils/function";
 import Image from 'next/image';
@@ -7,10 +7,11 @@ import { IndexPageRef } from "types/types";
 import PageTransition from "@/components/pageTransition";
 import { motion } from "framer-motion";
 
-interface ProjectsProps {
-  ref: IndexPageRef
-}
-function Projects({ref}: ProjectsProps) {
+// interface ProjectsProps {
+//   //ref: IndexPageRef
+// }
+function Projects() {
+  const ref = useRef(null)
   return (
     //* className="w-full h-auto flex justify-center items-center flex-col"
     <PageTransition ref={ref}>
