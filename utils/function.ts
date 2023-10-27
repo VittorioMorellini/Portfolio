@@ -1,3 +1,5 @@
+type Resolve<T> = { [K in keyof T]: Resolve<T[K]> } & unknown
+
 export function sum(a: number, b: number) {
     return a+b
 }
