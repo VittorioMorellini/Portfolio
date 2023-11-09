@@ -7,7 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   disableImportAliasWarning: true,
   images: {
-    domains: ['images.unsplash.com', 'media-exp1.licdn.com',"rickandmortyapi.com"],    
+    domains: ['images.unsplash.com', 'media-exp1.licdn.com', "rickandmortyapi.com"],    
     loader: "custom",
     path: "/"
   },

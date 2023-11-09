@@ -8,15 +8,12 @@ import { categoriesAtom } from '../recoil/categoryState'
 import { Category } from '../types/category'
 import ImageLoader from '../utils/function'
 import PageTransition from '@/components/pageTransition'
-import { IndexPageRef } from 'types/types'
 import { AnimatePresence, motion } from 'framer-motion'
-import * as S from "../components/banner/banner";
 
 interface HomeProps {
   categories: Category[];
-  //ref: IndexPageRef
 }
-function Home<NextPage>({categories}: HomeProps/*, ref: IndexPageRef*/) {
+function Home<NextPage>({categories}: HomeProps) {
   const [, setCategories] = useRecoilState<Category[]>(categoriesAtom)
   const ref = useRef<HTMLDivElement>(null)
   
@@ -133,7 +130,7 @@ function Home<NextPage>({categories}: HomeProps/*, ref: IndexPageRef*/) {
                 twenty years in product and consultancy companies.<br />
                 I have the determination to be a reference as a <b>Senior SDE</b> on the Web<br />
                 <br />
-                I started at the new millenium working as a developer in Visual Basic 6.
+                I started at the beginning of new millenium working as a developer in Visual Basic 6.
                 But I have always felt the desire to develop on the Web.<br />
                 If on the backend I&apos;ve always been certain to select dotnet ecosystem,
                 for the front end, after a road on more companies, I am convinced to develop 

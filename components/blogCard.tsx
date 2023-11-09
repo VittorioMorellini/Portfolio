@@ -1,5 +1,4 @@
 import { Blog } from '.contentlayer/generated'
-import { Children } from 'react'
 import ImageLoader from "../utils/function";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
