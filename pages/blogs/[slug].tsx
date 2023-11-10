@@ -1,16 +1,14 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import {allBlogs, Blog } from '.contentlayer/generated'
-import BlogLayout from '../../components/blogCard'
 import Head from 'next/head'
 import PageTransition from '@/components/pageTransition'
 import { IndexPageRef } from 'types/types'
 
 type BlogProps = {
   blog: Blog,
-  ref: IndexPageRef
 }
 
-export default function BlogDetail({ blog, ref }: BlogProps) {
+export default function BlogDetail({ blog }: BlogProps) {
     const Component = useMDXComponent(blog.body?.code)
 
     // <BlogLayout {...blog}>
@@ -19,7 +17,7 @@ export default function BlogDetail({ blog, ref }: BlogProps) {
     //     </div> */}
     // </BlogLayout>
     return (
-        <PageTransition ref={ref}>
+        <PageTransition>
         <>
             <Head>
                 <title>{blog.title}</title>

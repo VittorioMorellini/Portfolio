@@ -14,7 +14,7 @@ const nextConfig = {
   swcMinify: true,
 }
 
-// const withMDX = require('@next/mdx')({
+// const withMDX = ({
 //   extension: /\.(md|mdx)/,
 //   options: {
 //     // If you use remark-gfm, you'll need to use next.config.mjs
