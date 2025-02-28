@@ -11,12 +11,12 @@ import Confirm from "../../utils/ui/confirm";
 import PageTransition from "@/components/pageTransition";
 import { IndexPageRef } from "types/types";
 import { motion } from "framer-motion";
+import Airtable from "airtable";
 
 interface PostProps {
   posts: Post[];
   //ref: IndexPageRef;
 }
-
 function PostIndex({posts}: PostProps) {
     const router = useRouter();
     const { addToast } = useToasts()
@@ -127,15 +127,36 @@ function PostIndex({posts}: PostProps) {
 export default PostIndex
 
 export async function getServerSideProps(context: any) {
-  const res = await fetch(server + '/api/post')
-  // console.log('I have res', res)
-  //const res = await fetch('api/blog')
-  const results: Post[] = await res.json();
-  // console.log('I have post ', results)
-
+  //non si chiamano api in questa fase
+  // const res = await fetch(server + '/api/post')
+  // // console.log('I have res', res)
+  // const results: Post[] = await res.json();
+  
+  //const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
+  const base = new Airtable({apiKey: process.env.AIRTABLE_TOKEN}).base('app5UjZ5ccq0THcIi')
+  let results: Post[] = []
+  let response = await base('Post').select({
+  }).all()
+  console.log('Total response:', response);
+  response.forEach(record => { 
+    //results.push(record.fields as Post)));
+    console.log('record fields', record.fields)
+    console.log('record fields Id', record.fields.Id)
+    let post: Post = {
+      Id: record.fields.Id as number,
+      PostDate: record.fields.PostDate as string,
+      Content: record.fields.Content as string, 
+      Author: record.fields.Author as string
+    }
+    console.log(post)
+    results.push(post);
+  });
+  console.log('posts found', results);
+  
   return {
     props: {
       posts: results ? results : []
     }
-  }
+  }  
+
 }

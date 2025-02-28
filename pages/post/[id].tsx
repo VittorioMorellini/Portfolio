@@ -10,6 +10,7 @@ import { Post } from '../../types/post';
 import { motion } from 'framer-motion';
 import { IndexPageRef } from 'types/types';
 import PageTransition from '@/components/pageTransition';
+import Airtable from 'airtable';
 
 interface PostDetailProps {
     post: Post,
@@ -17,8 +18,8 @@ interface PostDetailProps {
 }
 function PostDetail({ post, ref }: PostDetailProps) {
     const router = useRouter()
-    console.log('id', router.query.id)        
-    console.log('I am in detail page post')
+    // console.log('id', router.query.id)        
+    // console.log('I am in detail page post')
     const [text, setText] = useState('');
     const [author, setAuthor] = useState('');
     const [id, setId] = useState(0)
@@ -30,7 +31,6 @@ function PostDetail({ post, ref }: PostDetailProps) {
             autoDismiss: true,
         })        
     }
-
     const savePost = async (event: React.MouseEvent<HTMLButtonElement>) => {
         console.log('save post in my blog');
         const response = fetch(server + `/api/post/${post.Id}`, {
@@ -52,13 +52,10 @@ function PostDetail({ post, ref }: PostDetailProps) {
     }
 
     useEffect(() => {
-        // console.log('First load fill the data')
-        // console.log({post})
         setText(post.Content ? post.Content : '')
         setAuthor(post.Author ? post.Author : '')
         setId(post.Id);
     }, [])
-
     return (
         <PageTransition ref={ref}>
         <>
@@ -121,15 +118,30 @@ function PostDetail({ post, ref }: PostDetailProps) {
 
 export async function getServerSideProps(context: any) {
     //console.log('I am in server side props loading SSR')
-    const data = await fetch(server + `/api/post/${context.query.id}`)
-    const result: Post = await data.json();
-    console.log('Data fetched json() in server side props api id blog SSR', result)
+    
+    const id = context.params.id;
+    if (id !== '0') {
 
-    return {
-      props: {
-        //post: JSON.parse(JSON.stringify(result))
-        post: result
-      }
+        const base = new Airtable({apiKey: process.env.AIRTABLE_TOKEN}).base('app5UjZ5ccq0THcIi')
+        let result = await base('Post').select({
+            filterByFormula: '{Id} = ' + id
+        }).all();
+        const post = {Id: parseInt(result[0].id), ...result[0].fields}
+        console.log('Data fetched json() in server side props api id blog SSR', result)
+
+        return {
+            props: {
+                //post: JSON.parse(JSON.stringify(result))
+                post: post
+            }
+        }
+    } else {
+        let post: Post = {Id: 0, Content: '', Author: '', PostDate: ''}
+        return {
+            props: {
+                post: post
+            }
+        }
     }
 }
 

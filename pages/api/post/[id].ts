@@ -24,17 +24,13 @@ export default async function postHandler(
     // console.log('Connected to PlanetScale!')
 
     // Open Airtable connection 
-    // console.log(process.env.AIRTABLE_API_KEY)
+    // console.log(process.env.AIRTABLE_TOKEN)
     // console.log('open airtable')
-    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
+    const base = new Airtable({apiKey: process.env.AIRTABLE_TOKEN}).base('app5UjZ5ccq0THcIi')
     
     if (method === 'GET') {
         console.log('sono in api requests GET')
         if (id !== '0') {
-            //let result = await connection.promise().query("select * from Post where Id = " + id);
-            // return result && result[0]
-            // ? res.status(200).json(result[0][0])
-            // : res.status(404).json({ message: `Post with id: ${id} not found.` })
             
             let result = await base('Post').select({
                 filterByFormula: '{Id} = ' + id

@@ -93,13 +93,10 @@ function ArticleIndex({articles}: ArticleProps) {
 }
 export default ArticleIndex
 
-export async function getServerSideProps(context: any) {
-  //console.log('Sono in server side props')
-  
+export async function getServerSideProps(context: any) {  
   const res = await fetch(server + '/api/article')
   //console.log('I have res', res)
   const results: Article[] = await res.json();
-  //console.log('I have articles ', results)
 
   return {
     props: {

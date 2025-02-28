@@ -2,7 +2,6 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import {allBlogs, Blog } from '.contentlayer/generated'
 import Head from 'next/head'
 import PageTransition from '@/components/pageTransition'
-import { IndexPageRef } from 'types/types'
 
 type BlogProps = {
   blog: Blog,

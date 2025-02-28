@@ -18,7 +18,8 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
         //Open in Airtable
         //console.log(process.env.AIRTABLE_API_KEY)
         //console.log('open airtable')
-        const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
+        //const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
+        const base = new Airtable({apiKey: `Bearer ${process.env.AIRTABLE_TOKEN}`}).base('app5UjZ5ccq0THcIi')
         const result = await base('Post').select({
     
         }).all()
@@ -35,5 +36,4 @@ async function PostsHandler(req: NextApiRequest, res: NextApiResponse) {
         res.status(400).json({ error: (e as Error).message });
     }
 }
-
 export default PostsHandler;

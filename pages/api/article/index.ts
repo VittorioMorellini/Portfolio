@@ -80,5 +80,4 @@ async function ArticlesHandler(req: NextApiRequest, res: NextApiResponse) {
         res.status(400).json({ error: (e as Error).message });
     }
 }
-
 export default ArticlesHandler;

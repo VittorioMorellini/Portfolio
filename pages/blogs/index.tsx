@@ -4,7 +4,7 @@ import { select } from '../../utils/function';
 import { useRouter } from 'next/router';
 import { Button, Divider } from '@mui/material';
 import { Container } from "../../components/container";
-import { forwardRef, useRef, useState } from 'react';
+import { useState } from 'react';
 import PageTransition from '@/components/pageTransition';
 
 interface BlogIndexProps {
