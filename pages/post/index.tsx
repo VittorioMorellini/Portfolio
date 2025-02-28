@@ -133,7 +133,7 @@ export async function getServerSideProps(context: any) {
   // const results: Post[] = await res.json();
   
   //const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
-  const base = new Airtable({apiKey: process.env.AIRTABLE_TOKEN}).base('app5UjZ5ccq0THcIi')
+  const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
   let results: Post[] = []
   let response = await base('Post').select({
   }).all()

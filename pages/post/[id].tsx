@@ -122,7 +122,7 @@ export async function getServerSideProps(context: any) {
     const id = context.params.id;
     if (id !== '0') {
 
-        const base = new Airtable({apiKey: process.env.AIRTABLE_TOKEN}).base('app5UjZ5ccq0THcIi')
+        const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
         let result = await base('Post').select({
             filterByFormula: '{Id} = ' + id
         }).all();
