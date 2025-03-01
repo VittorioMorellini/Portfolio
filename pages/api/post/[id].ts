@@ -101,17 +101,18 @@ export default async function postHandler(
         }
             
     } else if (method === 'DELETE') {
-        //console.log('sono in api requests DELETE')
-        let rv: Post = {Content: '', Id: parseInt(id as string), Author: '', PostDate: format(new Date(new Date().valueOf() + date.getTimezoneOffset()), 'yyyy-MM-dd HH:mm:ss')}; 
+        console.log('sono in api Post DELETE')
         // let result = await connection.promise().execute("DELETE FROM Post where Id = " + id);
         // await connection.close();
+        let rv: Post = {Content: '', Id: parseInt(id as string), Author: '', PostDate: format(new Date(new Date().valueOf() + date.getTimezoneOffset()), 'yyyy-MM-dd HH:mm:ss')}; 
         let result = await base('Post').select({
             filterByFormula: '{Id} = ' + id
         }).all();
         
-        await base.table('Post')._destroyRecord(result[0].id, () => {
-            //TODO, waht???
-        });
+        base.table('Post')._destroyRecord(result[0].id, () => {
+            //TODO, what???
+            console.log('Record deleted');
+        })
         return res.status(200).json(rv)
     }
 }
