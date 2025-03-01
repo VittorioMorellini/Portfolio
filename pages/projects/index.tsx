@@ -3,13 +3,9 @@ import { ProjectList } from "../../public/data/projects";
 import ImageLoader from "../../utils/function";
 import Image from 'next/image';
 import Link from "next/link";
-import { IndexPageRef } from "types/types";
 import PageTransition from "@/components/pageTransition";
 import { motion } from "framer-motion";
 
-// interface ProjectsProps {
-//   //ref: IndexPageRef
-// }
 function Projects() {
   const ref = useRef(null)
   return (

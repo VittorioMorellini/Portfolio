@@ -23,7 +23,7 @@ export const ProjectList = [
     name: "Personal portfolio",
     image: Proj3,
     skills: "Next.js, Node.js, Tailwindcss",
-    description: 'Finally I\'ve got my portfolio to introduce myself on the world'
+    description: 'Finally I\'ve got my portfolio to introduce my side projects'
   },
   {
     id: 4,

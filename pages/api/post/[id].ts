@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Post } from '../../../types/post'
-//import { configDB, connString } from '../configDB';
 import format from 'date-fns/format';
-
 import Airtable from 'airtable'
 
 type ResponseError = {
