@@ -90,11 +90,11 @@ function PostIndex({posts}: PostProps) {
               {posts && posts?.map((post: Post, index: number) => {
                   //To manage the timezone in formatting date
                   //const date = new Date()
-                  return <ListItem key={index} className="px-5">
+                  return <ListItem key={index} className="px-5 w-[90%]">
                   <ListItemText>
                     {post.Content ? post.Content?.substring(0, 100) + '...' : ''}
                   </ListItemText>
-                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="justify-end">
+                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="w-[10%] justify-end">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}              
