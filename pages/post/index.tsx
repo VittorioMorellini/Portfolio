@@ -1,15 +1,13 @@
-import { Avatar, Button, IconButton, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import Link from "next/link";
+import { Avatar, Button, IconButton, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Container } from "../../components/container";
 import { Post } from "../../types/post";
-import { PostAddSharp, Delete } from '@mui/icons-material'
+import { PostAddSharp, Delete, Edit } from '@mui/icons-material'
 import { server } from "../../config/config";
 import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
-import { forwardRef, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import PageTransition from "@/components/pageTransition";
-import { IndexPageRef } from "types/types";
 import { motion } from "framer-motion";
 import Airtable from "airtable";
 
@@ -26,6 +24,7 @@ function PostIndex({posts}: PostProps) {
     const onConfirm = useRef<() => void>();
     const message = useRef<string | JSX.Element | undefined>();
     const ref = useRef(null)
+    message.current = "Do you confir deleting post?"
 
     // handler to assign the function on the confirm method
     const confirmDelete = (id: string | number) => (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -59,8 +58,6 @@ function PostIndex({posts}: PostProps) {
     }
     
     const editPost = (id: number) => router.push('/post/' + id);    
-    //Initialize the message that does not change in its lifetime
-    message.current = "Do you confir deleting post?"
     //console.log({posts})
     return (
       <PageTransition ref={ref}>
@@ -88,27 +85,27 @@ function PostIndex({posts}: PostProps) {
           <Container>
             <div className='bg-blue-200 text-center'>
               {posts && posts?.map((post: Post, index: number) => {
-                  //To manage the timezone in formatting date
-                  //const date = new Date()
-                  return <ListItem key={index} className="px-5 w-[90%]">
+                //To manage the timezone in formatting date
+                //const date = new Date()
+                return <ListItem key={index} className="px-5 w-[90%]">
                   <ListItemText>
                     {post.Content ? post.Content?.substring(0, 100) + '...' : ''}
                   </ListItemText>
-                  <ListItemButton onClick={(e: React.MouseEvent<HTMLDivElement>) => editPost(post.Id)} className="w-[10%] justify-end">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}              
-                    >
-                      <PostAddSharp />
-                    </motion.div>
-                  </ListItemButton> 
-                  {/*             
+                  <ListItemIcon>
+                    <IconButton onClick={(e: React.MouseEvent<HTMLButtonElement>) => editPost(post.Id)} >
+                      {/* <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}              
+                      >
+                      </motion.div> */}
+                      <Edit />
+                    </IconButton> 
+                  </ListItemIcon> 
                   <ListItemIcon>
                     <IconButton onClick={confirmDelete(post.Id)}>                    
                       <Delete />
                     </IconButton>
                   </ListItemIcon> 
-                  */}                               
                 </ListItem>
               })}
             </div>
