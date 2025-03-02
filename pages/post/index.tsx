@@ -101,11 +101,13 @@ function PostIndex({posts}: PostProps) {
                       <Edit />
                     </IconButton> 
                   </ListItemIcon> 
-                  <ListItemIcon>
-                    <IconButton onClick={confirmDelete(post.Id)}>                    
-                      <Delete />
-                    </IconButton>
-                  </ListItemIcon> 
+                  {post.Id !== 2 &&
+                    <ListItemIcon>
+                      <IconButton onClick={confirmDelete(post.Id)}>                    
+                        <Delete />
+                      </IconButton>
+                    </ListItemIcon> 
+                  }
                 </ListItem>
               })}
             </div>
