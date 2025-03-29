@@ -2,10 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This is my personal portfolio to introduce myself as a Full stack developer
 
 Next release 13.5.6
+
 TailwindCSS
+
 Airtable as the databse used for posts
+
 Mdx articles used for my blog
+
 Framer-motion used for minimal animation
+
 Deployed on Vercel at the url: http://portfolio-vittoriomorellini.vercel.com
 
 ## Getting Started
