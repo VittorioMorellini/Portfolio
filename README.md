@@ -11,7 +11,8 @@ Mdx articles used for my blog
 
 Framer-motion used for minimal animation
 
-Deployed on Vercel at the url: http://portfolio-vittoriomorellini.vercel.com
+Deployed on Vercel at the url:
+http://portfolio-vittoriomorellini.vercel.app
 
 ## Getting Started
 This project is built using yarn package manager.
