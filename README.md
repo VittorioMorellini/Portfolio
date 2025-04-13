@@ -14,7 +14,8 @@ Framer-motion used for minimal animation
 Deployed on Vercel at the url: http://portfolio-vittoriomorellini.vercel.com
 
 ## Getting Started
-First, run the development server:
+First you have to clone the repository,
+after run the development server:
 
 ```bash
 yarn dev
