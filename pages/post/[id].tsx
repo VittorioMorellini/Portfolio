@@ -117,8 +117,7 @@ function PostDetail({ post, ref }: PostDetailProps) {
 }
 
 export async function getServerSideProps(context: any) {
-    //console.log('I am in server side props loading SSR')
-    
+    //console.log('I am in server side props loading SSR')    
     const id = context.params.id;
     if (id !== '0') {
 

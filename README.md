@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 This is my personal portfolio to introduce myself as a Full stack developer
 
-Next release 13.5.6
+Next release 13.5.6, Node 18.18.2
 
 TailwindCSS
 
