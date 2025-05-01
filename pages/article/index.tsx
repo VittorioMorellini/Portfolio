@@ -21,9 +21,10 @@ function ArticleIndex({articles}: ArticleProps) {
     const onConfirm = useRef<() => void>();
     const message = useRef<string | JSX.Element | undefined>();
     const [searchValue, setSearchValue] = useState<string>("");
-    const debounedSearchValue = useDebounce(searchValue, 300);
-    const ref = useRef(null)
+    //const debounedSearchValue = useDebounce(searchValue, 300);
+    //const ref = useRef(null)
     const viewArticle = (id: string) => (event: React.MouseEvent<HTMLLIElement>) => {
+      console.log({id})
       router.push('/article/' + id);    
     }
 
@@ -40,7 +41,7 @@ function ArticleIndex({articles}: ArticleProps) {
     //Initialize the message that does not change in its lifetime
     //console.log({articles})
     return (
-      <PageTransition ref={ref}>
+      <PageTransition>
         <div className="flex flex-col">
           <Container>
             <div className="flex flex-row items-center mb-4">
@@ -60,9 +61,9 @@ function ArticleIndex({articles}: ArticleProps) {
           <Divider className="border-1"/>
           <div className='flex-auto text-center mt-4 gap-4'>
             <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('')}>All Articles</Button>
-            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('react')}>React.js</Button>
+            {/* <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('react')}>React.js</Button>
             <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('next')}>Next.js</Button>
-            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('dotnet')}>dotnet</Button>
+            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('dotnet')}>dotnet</Button> */}
           </div>
           <div>
             <Container>
@@ -97,7 +98,7 @@ export async function getServerSideProps(context: any) {
   const res = await fetch(server + '/api/article')
   //console.log('I have res', res)
   const results: Article[] = await res.json();
-
+  console.log({results})
   return {
     props: {
       articles: results ? results : []

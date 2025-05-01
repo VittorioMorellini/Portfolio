@@ -45,5 +45,4 @@ function Projects() {
     </PageTransition>
   );
 }
-
 export default Projects;

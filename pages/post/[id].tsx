@@ -10,7 +10,8 @@ import { Post } from '../../types/post';
 import { motion } from 'framer-motion';
 import { IndexPageRef } from 'types/types';
 import PageTransition from '@/components/pageTransition';
-import Airtable from 'airtable';
+import { GetStaticPaths } from 'next/types';
+import { getPost, getPosts } from 'lib/postSupport';
 
 interface PostDetailProps {
     post: Post,
@@ -115,33 +116,40 @@ function PostDetail({ post, ref }: PostDetailProps) {
         </PageTransition>    
     )
 }
+export default PostDetail;
 
-export async function getServerSideProps(context: any) {
+export const getStaticPaths: GetStaticPaths = async () => {
+    // const areas = MenuAreas
+    let posts: Post[] = await getPosts()
+
+    const paths: string[] = posts.map((post: Post) => `/post/${post.Id}`)
+    return {
+        paths,
+        fallback: "blocking",
+    }
+}
+export async function getStaticProps({ params }: { params: { id: string } }) {
     //console.log('I am in server side props loading SSR')    
-    const id = context.params.id;
+    const id = params.id;
     if (id !== '0') {
-
-        const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
-        let result = await base('Post').select({
-            filterByFormula: '{Id} = ' + id
-        }).all();
-        const post = {Id: parseInt(result[0].id), ...result[0].fields}
-        console.log('Data fetched json() in server side props api id blog SSR', result)
-
+        //Update the post
+        const post = await getPost(parseInt(id as string))
+        //console.log('Data fetched json() in static props api id blog SSG', post)
         return {
             props: {
                 //post: JSON.parse(JSON.stringify(result))
                 post: post
-            }
+            },
+            revalidate: 3600 // 1 hour,
         }
     } else {
+        //Create a new post
         let post: Post = {Id: 0, Content: '', Author: '', PostDate: ''}
         return {
             props: {
                 post: post
-            }
+            },
+            revalidate: 3600 // 1 hour,
         }
     }
 }
-
-export default PostDetail;

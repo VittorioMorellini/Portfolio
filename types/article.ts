@@ -8,8 +8,8 @@ export interface Article {
     bathrooms: object,
     amenities: string[],
     extrafield1: string,
-    extrafield2: string
-
+    extrafield2: string,
+    description: string,
     // Id: string;
     // ListingUrl: string;
     // Name: string;

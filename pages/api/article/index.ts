@@ -40,22 +40,22 @@ async function findOneListingByName(client: MongoClient, nameOfListing: string) 
 
 
 async function ArticlesHandler(req: NextApiRequest, res: NextApiResponse) {
-    try {
-        
+    try {        
         //Open connection to Mongodb
         require('dotenv').config()
         const client: MongoClient = new MongoClient(process.env.MONGODB_URL!);
-        
+        //console.log('mondo connection string', process.env.MONGODB_URL)
         try {
+            // console.log('I have created Mongo client DB!')
             await client.connect();
-            console.log('Connected to Mongo DB!')
+            // console.log('Connected to Mongo DB!')
         
             //await listDatabases(client);            
             //createListing(client, newListing);
             //console.log('Inserted a new item on DB')
             let result: Article[] = []
-            let db = await client.db("portfolio");
-            const collection = db.collection('articles') 
+            let db = await client.db("Portfolio");
+            const collection = db.collection('Articles') 
             //Get the array from the cursor
             const findResult = await collection.find({}).toArray();
             //cicle
@@ -74,7 +74,6 @@ async function ArticlesHandler(req: NextApiRequest, res: NextApiResponse) {
             console.error(e);
             throw e;
         }        
-
     } catch (e) {
         console.log('post error', e);
         res.status(400).json({ error: (e as Error).message });

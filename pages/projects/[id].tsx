@@ -6,6 +6,7 @@ import { ProjectList } from "../../public/data/projects";
 import Image from 'next/image';
 import { IndexPageRef } from "types/types";
 import PageTransition from "@/components/pageTransition";
+import { GetStaticPaths } from "next";
 
 interface ProjectItemProps {
     item: Project,
@@ -43,19 +44,40 @@ function ProjectItem({ item, ref }: ProjectItemProps) {
     </PageTransition>  
   );
 }
-
 export default ProjectItem;
 
-export async function getServerSideProps(context: any) {
-  const id = context.params?.id as string;
-  console.log('projects id', id)
-  //const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-  let item: Project | undefined = ProjectList.find(x => x.id.toString() === id)
-  //const res = data.results;
-  console.log('results data', item)
-  return {
-      props: {
-        item
-      }
-  };
+export async function getStaticPaths() {
+    const paths: string[] = ProjectList.map((project: Project) => `/projects/${project.id}`)
+    return {
+        paths,
+        fallback: "blocking",
+    }
 }
+export async function getStaticProps({ params }: { params: { id: string } }) {
+    //console.log('I am in static side generation')    
+    const id = params.id;
+    if (id !== '0') {
+        const project = await ProjectList.find(x => x.id.toString() === id)
+        return {
+            props: {
+                //post: JSON.parse(JSON.stringify(result))
+                item: project
+            },
+            revalidate: 3600 // 1 hour,
+        }
+    } 
+}
+
+// export async function getServerSideProps(context: any) {
+//   const id = context.params?.id as string;
+//   console.log('projects id', id)
+//   //const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+//   let item: Project | undefined = ProjectList.find(x => x.id.toString() === id)
+//   //const res = data.results;
+//   console.log('results data', item)
+//   return {
+//       props: {
+//         item
+//       }
+//   };
+// }

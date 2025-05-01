@@ -2,6 +2,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import {allBlogs, Blog } from '.contentlayer/generated'
 import Head from 'next/head'
 import PageTransition from '@/components/pageTransition'
+import { revalidatePath } from 'next/cache'
 
 type BlogProps = {
   blog: Blog,
@@ -47,8 +48,13 @@ export async function getStaticPaths() {
         fallback: false,
     }
 }
-
 export async function getStaticProps({ params }: any) {
     const blog = allBlogs.find((blog: Blog) => blog.slug === params.slug)
-    return { props: { blog } }
+    return { 
+        props: 
+        { 
+            blog 
+        },
+        revalidate: 3600, // In seconds 
+    }
 }

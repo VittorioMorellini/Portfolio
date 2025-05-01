@@ -125,17 +125,10 @@ function PostIndex({posts}: PostProps) {
 }
 export default PostIndex
 
-export async function getServerSideProps(context: any) {
-  //non si chiamano api in questa fase
-  // const res = await fetch(server + '/api/post')
-  // // console.log('I have res', res)
-  // const results: Post[] = await res.json();
-  
-  //const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
+export async function getStaticProps(context: any) {  
   const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
   let results: Post[] = []
-  let response = await base('Post').select({
-  }).all()
+  let response = await base('Post').select({}).all()
   console.log('Total response:', response);
   response.forEach(record => { 
     //results.push(record.fields as Post)));
@@ -155,7 +148,7 @@ export async function getServerSideProps(context: any) {
   return {
     props: {
       posts: results ? results : []
-    }
+    },
+    revalidate: 3600, // In seconds
   }  
-
 }

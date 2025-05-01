@@ -95,6 +95,7 @@ function BlogIndex({blogs}: BlogIndexProps) {
     </PageTransition>    
   )
 }
+export default BlogIndex
 
 export function getStaticProps() {
     const blogs = allBlogs.map((blog: Blog) =>
@@ -113,8 +114,5 @@ export function getStaticProps() {
     //   (a: any, b: any) =>
     //     Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
     // );
-
     return { props: { blogs } };
 }
-
-export default BlogIndex

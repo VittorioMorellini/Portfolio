@@ -32,5 +32,4 @@ function PageTransition({ children, allowScroll, ...rest }: PageTransitionProps,
 		</>
 	)
 }
-
 export default forwardRef(PageTransition)
