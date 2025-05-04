@@ -1,3 +1,4 @@
+export {}
 // import { NextApiRequest, NextApiResponse } from "next";
 // import { MongoClient } from "mongodb";
 // import { Article } from "../../../types/article";
