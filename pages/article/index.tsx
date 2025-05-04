@@ -8,6 +8,7 @@ import { Article } from "../../types/article";
 import { useDebounce } from "usehooks-ts";
 import { IndexPageRef } from "types/types";
 import PageTransition from "@/components/pageTransition";
+import { getArticles } from "lib/articleSupport";
 
 interface ArticleProps {
   articles: Article[],
@@ -95,10 +96,8 @@ function ArticleIndex({articles}: ArticleProps) {
 export default ArticleIndex
 
 export async function getServerSideProps(context: any) {  
-  const res = await fetch(server + '/api/article')
-  //console.log('I have res', res)
-  const results: Article[] = await res.json();
-  console.log({results})
+  const results: Article[] = await getArticles();
+  //console.log({results})  
   return {
     props: {
       articles: results ? results : []

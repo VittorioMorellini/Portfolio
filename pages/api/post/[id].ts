@@ -18,11 +18,7 @@ export default async function postHandler(
     const { id } = query
     require('dotenv').config()
     
-    // Open mysql connection for planetscale
-    // const mysql = require('mysql2')
-    // const connection = mysql.createConnection(process.env.DATABASE_URL)
-    // console.log('Connected to PlanetScale!')
-    
+    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')    
     if (method === 'GET') {
         console.log('sono in api requests GET')
         if (id !== '0') {
@@ -30,7 +26,7 @@ export default async function postHandler(
             const post = await getPost(parseInt(id as string))
             console.log('result fetched airtable: ', post)
             
-            return result 
+            return post 
             ? res.status(200).json(post as Post)
             : res.status(404).json({ message: `Post with id: ${id} not found.` })
         }
@@ -47,14 +43,12 @@ export default async function postHandler(
         if (id !== undefined && id !== '0') {
             //to Update get vdata from airtable
             console.log('update post: ' + id)
-            let record = await base('Post').select({
-                filterByFormula: '{Id} = ' + id
-            }).all();
-            console.log('record found', record[0])
+            let record = await getPost(parseInt(id as string))
+            console.log('record found', record)
             // await connection.close();
             
             let result = await base.table('Post').update( 
-                record[0].id, 
+                record.Id.toString(), 
                 {
                     "Content": post.Content,
                     "Author": post.Author,
@@ -84,11 +78,9 @@ export default async function postHandler(
         // let result = await connection.promise().execute("DELETE FROM Post where Id = " + id);
         // await connection.close();
         let rv: Post = {Content: '', Id: parseInt(id as string), Author: '', PostDate: format(new Date(new Date().valueOf() + date.getTimezoneOffset()), 'yyyy-MM-dd HH:mm:ss')}; 
-        let result = await base('Post').select({
-            filterByFormula: '{Id} = ' + id
-        }).all();
+        let result = await getPost(parseInt(id as string))
         
-        base.table('Post')._destroyRecord(result[0].id, () => {
+        base.table('Post')._destroyRecord(result.Id.toString(), () => {
             //TODO, what???
             console.log('Record deleted');
         })

@@ -10,20 +10,16 @@ export default async function postHandler(
 ) {
     const { query, method, body } = req
     const { id } = query
-    // console.log('querystring ', query)
-    var mongo = require('mongodb');
-    require('dotenv').config()
     const client: MongoClient = new MongoClient(process.env.MONGODB_URL!);
 
     if (method === 'GET') {
         console.log('Sono in api requests GET from MongoDB')
         if (id !== '0') {
             await client.connect();
-            //console.log('Apro una connection verso access con id ', id)
             let db = await client.db("Portfolio");
             const collection = db.collection('Articles')
             // console.log('collection', collection)
-            // console.log('id article to filter', id)
+            var mongo = require('mongodb');
             const nid = new mongo.ObjectId(id)
             const result = await collection.findOne({ _id: nid });
             // console.log('result mongoDB detail', result)

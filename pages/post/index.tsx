@@ -1,7 +1,7 @@
 import { Avatar, Button, IconButton, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Container } from "../../components/container";
 import { Post } from "../../types/post";
-import { PostAddSharp, Delete, Edit } from '@mui/icons-material'
+import { Delete, Edit } from '@mui/icons-material'
 import { server } from "../../config/config";
 import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
@@ -9,11 +9,10 @@ import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import PageTransition from "@/components/pageTransition";
 import { motion } from "framer-motion";
-import Airtable from "airtable";
+import { getPosts } from "lib/postSupport";
 
 interface PostProps {
   posts: Post[];
-  //ref: IndexPageRef;
 }
 function PostIndex({posts}: PostProps) {
     const router = useRouter();
@@ -126,28 +125,12 @@ function PostIndex({posts}: PostProps) {
 export default PostIndex
 
 export async function getStaticProps(context: any) {  
-  const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
-  let results: Post[] = []
-  let response = await base('Post').select({}).all()
-  console.log('Total response:', response);
-  response.forEach(record => { 
-    //results.push(record.fields as Post)));
-    console.log('record fields', record.fields)
-    console.log('record fields Id', record.fields.Id)
-    let post: Post = {
-      Id: record.fields.Id as number,
-      PostDate: record.fields.PostDate as string,
-      Content: record.fields.Content as string, 
-      Author: record.fields.Author as string
-    }
-    console.log(post)
-    results.push(post);
-  });
-  console.log('posts found', results);
+  let posts = await getPosts()
+  console.log('posts found', posts);
   
   return {
     props: {
-      posts: results ? results : []
+      posts: posts ?? []
     },
     revalidate: 3600, // In seconds
   }  

@@ -19,7 +19,6 @@ interface PostDetailProps {
 }
 function PostDetail({ post, ref }: PostDetailProps) {
     const router = useRouter()
-    // console.log('id', router.query.id)        
     // console.log('I am in detail page post')
     const [text, setText] = useState('');
     const [author, setAuthor] = useState('');
@@ -119,9 +118,7 @@ function PostDetail({ post, ref }: PostDetailProps) {
 export default PostDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    // const areas = MenuAreas
     let posts: Post[] = await getPosts()
-
     const paths: string[] = posts.map((post: Post) => `/post/${post.Id}`)
     return {
         paths,
@@ -129,21 +126,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 export async function getStaticProps({ params }: { params: { id: string } }) {
-    //console.log('I am in server side props loading SSR')    
     const id = params.id;
     if (id !== '0') {
-        //Update the post
         const post = await getPost(parseInt(id as string))
         //console.log('Data fetched json() in static props api id blog SSG', post)
         return {
             props: {
-                //post: JSON.parse(JSON.stringify(result))
                 post: post
             },
             revalidate: 3600 // 1 hour,
         }
     } else {
-        //Create a new post
+        //Return a new post
         let post: Post = {Id: 0, Content: '', Author: '', PostDate: ''}
         return {
             props: {
