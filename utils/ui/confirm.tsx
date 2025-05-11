@@ -7,7 +7,6 @@ type ConfirmDialogProps = {
     onCancel: () => void;
     onConfirm: () => void;
 }
-
 export default function Confirm({
     open,
     message,

@@ -1,34 +1,37 @@
-import { Avatar, Button, Divider, IconButton, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Avatar, Button, Divider, IconButton, ListItem, ListItemAvatar, ListItemIcon, ListItemText } from "@mui/material";
 import { Container } from "../../components/container";
 import { server } from "../../config/config";
 import { useRouter } from "next/navigation";
-import { forwardRef, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import { Article } from "../../types/article";
 import { useDebounce } from "usehooks-ts";
-import { IndexPageRef } from "types/types";
 import PageTransition from "@/components/pageTransition";
 import { getArticles } from "lib/articleSupport";
+import { motion } from "framer-motion";
+import { Delete } from "@mui/icons-material";
+import { useToasts } from "react-toast-notifications";
 
 interface ArticleProps {
   articles: Article[],
-  //ref: IndexPageRef
 }
 function ArticleIndex({articles}: ArticleProps) {
     const router = useRouter();
     //for confirm delete
+    const { addToast } = useToasts()
     const [open, setOpen] = useState(false);
     const onCancel = () => { setOpen(false) };
     const onConfirm = useRef<() => void>();
     const message = useRef<string | JSX.Element | undefined>();
     const [searchValue, setSearchValue] = useState<string>("");
     //const debounedSearchValue = useDebounce(searchValue, 300);
-    //const ref = useRef(null)
+    const ref = useRef(null)
+    message.current = "Do you confir deleting article?"
+    
     const viewArticle = (id: string) => (event: React.MouseEvent<HTMLLIElement>) => {
-      console.log({id})
+      //console.log({id})
       router.push('/article/' + id);    
     }
-
     const handleFilterPost = (key: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
       switch (key) {
         case '':
@@ -39,23 +42,60 @@ function ArticleIndex({articles}: ArticleProps) {
       }
     }
 
-    //Initialize the message that does not change in its lifetime
-    //console.log({articles})
+    const confirmDelete = (id: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
+      console.log('confirm delete article', id)
+      setOpen(true)
+      onConfirm.current = () => executeDelete(id);
+    }
+    //Function that execute fisically the Delete Operation
+    const executeDelete = (id: string) => {
+        console.log('executing delete article', id)
+        fetch(server + `/api/article/${id}`, {
+            method: 'DELETE',
+            //body: Json
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => {
+            addToast("Successfully deleted", {
+              appearance: 'info',
+              autoDismiss: true,
+            })  
+            router.push('/article');
+            setOpen(false);
+        })
+        .catch(err => {
+          addToast(err, {
+            appearance: 'error',
+            autoDismiss: true,
+          })          
+          setOpen(false);
+        })
+    }
     return (
-      <PageTransition>
+      <PageTransition ref={ref}>
         <div className="flex flex-col">
           <Container>
             <div className="flex flex-row items-center mb-4">
-                <div className="text-center w-full">
-                  <h1 className="text-3xl font-black text-center">All Articles</h1>
-                  <input
-                      className='border-solid border border-slate-300 rounded-2xl px-2'
-                      type="text"
-                      placeholder="Filter your search"
-                      onChange={({ target: { value } }) => setSearchValue(value)}
-                      value={searchValue}
-                  />
-                </div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}              
+              >
+                  <Button variant="outlined" className="w-32" onClick={() => {    
+                      router.push('article/0')
+                  }}>
+                      Add article
+                  </Button>
+              </motion.div>
+              <div className="text-center w-full">
+                <h1 className="text-3xl font-black text-center">All Articles</h1>
+                <input
+                    className='border-solid border border-slate-300 rounded-2xl px-2'
+                    type="text"
+                    placeholder="Filter your search"
+                    onChange={({ target: { value } }) => setSearchValue(value)}
+                    value={searchValue}
+                />
+              </div>
             </div>
             {/*YYYY-MM-DDTHH:mm:ss.sssZ  post.Date.toString() */}
           </Container>
@@ -78,6 +118,11 @@ function ArticleIndex({articles}: ArticleProps) {
                       <ListItemText>
                         {article.name ? article.name?.substring(0, 100) + '...' : ''}
                       </ListItemText>
+                      <ListItemIcon>
+                        <IconButton onClick={confirmDelete(article._id)}>                    
+                          <Delete />
+                        </IconButton>
+                      </ListItemIcon> 
                     </ListItem>
                 })}
               </div>

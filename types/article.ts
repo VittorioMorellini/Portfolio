@@ -7,11 +7,5 @@ export interface Article {
     bedrooms: object,
     bathrooms: object,
     amenities: string[],
-    //extrafield1: string,
-    //extrafield2: string,
     description: string,
-    // Id: string;
-    // ListingUrl: string;
-    // Name: string;
-    // Summary: string;
 }
