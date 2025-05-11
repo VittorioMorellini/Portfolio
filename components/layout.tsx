@@ -7,7 +7,6 @@ import { NavBar } from './navbar/index';
 type Props = {
     children: any;
 }
-
 function Layout({ children }: Props) {
     const router = useRouter();
     const [showMobileNav, setShowMobileNav] = useState(false);

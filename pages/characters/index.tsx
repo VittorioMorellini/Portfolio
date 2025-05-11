@@ -1,7 +1,7 @@
 import { Avatar, IconButton, List, ListItem, ListItemAvatar, ListItemText, Table, TableBody, TableCell, TableHead, TableRow, Tooltip} from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { Character, GetCharacterResults } from '../../types/types'
 import ImageLoader from '../../utils/function'
 import EditIcon from '@mui/icons-material/Edit'

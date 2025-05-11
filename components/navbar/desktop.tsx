@@ -4,7 +4,7 @@ import { Category } from '../../types/category';
 import { categoriesAtom } from '../../recoil/categoryState';
 import { BsTwitter, BsGithub, BsLinkedin } from "react-icons/bs";
 import { titleAtom } from '../../recoil/title';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Icon } from '@mui/material';
 import Image from 'next/image';

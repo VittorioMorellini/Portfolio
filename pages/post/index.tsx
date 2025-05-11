@@ -3,7 +3,7 @@ import { Container } from "../../components/container";
 import { Post } from "../../types/post";
 import { Delete, Edit } from '@mui/icons-material'
 import { server } from "../../config/config";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useToasts } from "react-toast-notifications";
 import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";

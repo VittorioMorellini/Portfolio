@@ -6,7 +6,7 @@ import { Category } from '../types/category';
 import { useRecoilState } from 'recoil';
 import { categoriesAtom } from '../recoil/categoryState';
 import { titleAtom } from '../recoil/title';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 interface NavigationProps {
 }

@@ -2,7 +2,7 @@ import { Button, TextareaAutosize } from '@mui/material';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 import { server } from '../../config/config';

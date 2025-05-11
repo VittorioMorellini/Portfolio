@@ -6,14 +6,13 @@ import { RecoilRoot } from "recoil";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import SEO from '../components/SEO';
-import { useRouter } from 'next/router';
-import { ToastProvider, DefaultToast } from 'react-toast-notifications';
+import { useRouter, usePathname } from 'next/navigation';
+import { ToastProvider } from 'react-toast-notifications';
 import { AnimatePresence } from 'framer-motion'
 
 function App({ Component, pageProps/*, categories*/ }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
-  const router = useRouter()
-	const pageKey = router.asPath
+	const pageKey = usePathname();
 
   return (
     <>

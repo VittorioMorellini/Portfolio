@@ -1,7 +1,7 @@
 import { Avatar, Button, Divider, IconButton, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Container } from "../../components/container";
 import { server } from "../../config/config";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { forwardRef, useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import { Article } from "../../types/article";

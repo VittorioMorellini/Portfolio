@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 import { server } from '../../config/config';
@@ -13,7 +13,7 @@ interface ArticleDetailProps {
 }
 function ArticleDetail({ article }: ArticleDetailProps) {
     const router = useRouter()
-    console.log('id', router.query.id)        
+    //console.log('id', router.query.id)        
     console.log('I am in detail page blog')
     //const [summary, setSummary] = useState('');
     const [name, setName] = useState('');

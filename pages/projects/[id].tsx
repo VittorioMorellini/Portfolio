@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { Project } from "types/project";
 import ImageLoader from "utils/function";

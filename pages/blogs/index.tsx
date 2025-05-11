@@ -1,7 +1,7 @@
 import BlogCard from '../../components/blogCard'
 import { allBlogs, Blog } from '.contentlayer/generated'
 import { select } from '../../utils/function';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { Button, Divider } from '@mui/material';
 import { Container } from "../../components/container";
 import { useState } from 'react';
