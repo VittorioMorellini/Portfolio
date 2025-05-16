@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import Confirm from "../../utils/ui/confirm";
 import { Article } from "../../types/article";
-import { useDebounce } from "usehooks-ts";
 import PageTransition from "@/components/pageTransition";
 import { getArticles } from "lib/articleSupport";
 import { motion } from "framer-motion";
