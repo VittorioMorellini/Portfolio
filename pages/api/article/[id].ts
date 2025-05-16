@@ -12,6 +12,7 @@ export default async function postHandler(
     const { query, method, body } = req
     const { id } = query
     const client: MongoClient = new MongoClient(process.env.MONGODB_URL!);
+    const mongo = require('mongodb');
 
     if (method === 'GET') {
         console.log('Sono in api requests GET from MongoDB')
@@ -20,7 +21,6 @@ export default async function postHandler(
             let db = await client.db("Portfolio");
             const collection = db.collection('Articles')
             // console.log('collection', collection)
-            var mongo = require('mongodb');
             const nid = new mongo.ObjectId(id)
             const result = await collection.findOne({ _id: nid });
             // console.log('result mongoDB detail', result)
@@ -44,7 +44,7 @@ export default async function postHandler(
             let db = await client.db("Portfolio");
             const collection = db.collection('Articles')
             // console.log('collection', collection)
-            var mongo = require('mongodb');
+            //var mongo = require('mongodb');
             const nid = new mongo.ObjectId(id)
             const filter = { _id: nid };
             // update the value of the 'quantity' field to 5
@@ -68,8 +68,6 @@ export default async function postHandler(
             await client.connect();
             let db = await client.db("Portfolio");
             const collection = db.collection('Articles')
-            // console.log('collection', collection)
-            var mongo = require('mongodb');
             // update the value of the 'quantity' field to 5
             let articleNew = {
                 _id: new mongo.ObjectId(null), 
@@ -88,7 +86,6 @@ export default async function postHandler(
             const movies = database.collection("Articles");
             /* Delete the first document in the "movies" collection that matches
             the specified query document */
-            var mongo = require('mongodb');
             const query = { _id: new mongo.ObjectId(id) };
             const result = await movies.deleteOne(query);
             
