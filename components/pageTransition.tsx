@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from 'react'
 import { motion, HTMLMotionProps, useScroll } from 'framer-motion'
 
 type PageTransitionProps = HTMLMotionProps<'div'> & { allowScroll?: boolean}
-//type PageTransitionRef = React.ForwardedRef<HTMLDivElement>
+//type PageTransitionRef = React.ForwardedRef<HTMLDivElement> & { allowScroll?: boolean}
 
 function PageTransition({ children, allowScroll, ...rest }: PageTransitionProps, ref: React.ForwardedRef<HTMLDivElement>) {
 	const onTheRight = { x: '1920px' }

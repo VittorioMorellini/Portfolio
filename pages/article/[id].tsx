@@ -45,7 +45,7 @@ function ArticleDetail({ article }: { article: Article }) {
         .then(res => {
             showToast()
             if (article?._id === '0')
-                router.push('/post');
+                router.push('/article');
             })
         .catch(err => {
             addToast(err, {

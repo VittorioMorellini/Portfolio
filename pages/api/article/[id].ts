@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { MongoClient, WithId } from 'mongodb';
 import { Article } from 'types/article';
+import { revalidatePath } from 'next/cache';
 
 type ResponseError = {
     message: string
@@ -75,12 +76,13 @@ export default async function postHandler(
             };
             const result = await collection.insertOne(articleNew);
             await client.close();
+            //revalidatePath('/article');
             
             return res.status(200).json(articleNew)
         }
             
     } else if (method === 'DELETE') {
-        console.log('Delete Article with Id ' + id)
+        console.log('Delete Article on Mongo by Server Action with Id ' + id)
         try {
             const database = client.db("Portfolio");
             const movies = database.collection("Articles");
@@ -97,6 +99,7 @@ export default async function postHandler(
             }
         } finally {
             // Close the connection after the operation completes
+            revalidatePath('/article');
             await client.close();
         }        
     }

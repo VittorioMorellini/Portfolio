@@ -25,7 +25,7 @@ function ArticleIndex({articles}: ArticleProps) {
     const [searchValue, setSearchValue] = useState<string>("");
     //const debounedSearchValue = useDebounce(searchValue, 300);
     const ref = useRef(null)
-    message.current = "Do you confir deleting article?"
+    message.current = "Do you confirm deleting article?"
     
     const viewArticle = (id: string) => (event: React.MouseEvent<HTMLLIElement>) => {
       //console.log({id})
@@ -42,13 +42,17 @@ function ArticleIndex({articles}: ArticleProps) {
     }
 
     const confirmDelete = (id: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
-      console.log('confirm delete article', id)
+      console.log('Sono in confirm delete nella index di article con id:', id)
+      //e.preventDefault();
+      e.stopPropagation();
       setOpen(true)
+      console.log('set open true eseguito')
       onConfirm.current = () => executeDelete(id);
+      console.log('Assegnato a confirm la function di executeDelete')
     }
     //Function that execute fisically the Delete Operation
     const executeDelete = (id: string) => {
-        console.log('executing delete article', id)
+        console.log('executing delete article on MongoDB', id)
         fetch(server + `/api/article/${id}`, {
             method: 'DELETE',
             //body: Json
@@ -101,9 +105,6 @@ function ArticleIndex({articles}: ArticleProps) {
           <Divider className="border-1"/>
           <div className='flex-auto text-center mt-4 gap-4'>
             <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('')}>All Articles</Button>
-            {/* <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('react')}>React.js</Button>
-            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('next')}>Next.js</Button>
-            <Button variant="outlined" className="rounded-xl br-1" onClick={handleFilterPost('dotnet')}>dotnet</Button> */}
           </div>
           <div>
             <Container>
@@ -118,7 +119,7 @@ function ArticleIndex({articles}: ArticleProps) {
                         {article.name ? article.name?.substring(0, 100) + '...' : ''}
                       </ListItemText>
                       <ListItemIcon>
-                        <IconButton onClick={confirmDelete(article._id)}>                    
+                        <IconButton onClick={confirmDelete(article?._id)} >                    
                           <Delete />
                         </IconButton>
                       </ListItemIcon> 

@@ -42,7 +42,7 @@ function PostDetail({ post, ref }: PostDetailProps) {
             showToast()
             if (post.Id === 0)
                 router.push('/post');
-            })
+        })
         .catch(err => {
             addToast(err, {
                 appearance: 'error',
