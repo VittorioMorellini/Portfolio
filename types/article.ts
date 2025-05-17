@@ -8,4 +8,5 @@ export interface Article {
     bathrooms: object,
     amenities: string[],
     description: string,
+    creationDate: string,
 }

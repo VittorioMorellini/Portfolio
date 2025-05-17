@@ -59,7 +59,11 @@ export default async function postHandler(
             await client.close();
 
             return result 
-            ? res.status(200).json({_id: new mongo.ObjectId(id), name: '', description: article.description, summary: '', listing_url: '', property_type: '', bedrooms: {}, bathrooms: {}, amenities: []})
+            ? res.status(200).json({_id: new mongo.ObjectId(id), name: '', description: article.description, 
+                    summary: '', listing_url: '', property_type: '', 
+                    bedrooms: {}, bathrooms: {}, amenities: [],
+                    creationDate: ''
+                })
             : res.status(404).json({ message: `Post with id: ${id} not updated.` })
         }
         else {
@@ -72,7 +76,14 @@ export default async function postHandler(
             // update the value of the 'quantity' field to 5
             let articleNew = {
                 _id: new mongo.ObjectId(null), 
-                name: article.name, description: article.description, summary: '', listing_url: '', property_type: '', bedrooms: {}, bathrooms: {}, amenities: []
+                name: article.name, description: article.description, 
+                summary: article.summary, 
+                listing_url: '', 
+                property_type: '', 
+                bedrooms: {}, 
+                bathrooms: {}, 
+                amenities: [],
+                creationDate: new Date().toISOString()
             };
             const result = await collection.insertOne(articleNew);
             await client.close();

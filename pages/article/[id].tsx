@@ -15,6 +15,7 @@ function ArticleDetail({ article }: { article: Article }) {
     //console.log('I am in detail page blog')
     const [description, setDescription] = useState('');
     const [name, setName] = useState('');
+    const [summary, setSummary] = useState('');
     const [id, setId] = useState<string | null>(null)
     const { addToast } = useToasts()
 
@@ -28,6 +29,7 @@ function ArticleDetail({ article }: { article: Article }) {
         // console.log('First load fill the data')
         setDescription(article.description ? article.description : '')
         setName(article.name ? article.name : '')
+        setSummary(article.summary ? article.summary : '')
         // setId(post.Id);
     }, [])
     const saveArticle = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -36,9 +38,12 @@ function ArticleDetail({ article }: { article: Article }) {
             body: JSON.stringify({
                 _id: article._id, 
                 name: name, description: description,
-                summary: article.summary, listing_url: article.listing_url, 
-                property_type: article.property_type, bedrooms: article.bedrooms,
-                bathrooms: article.bathrooms, amenities: article.amenities
+                summary: summary, 
+                listing_url: article.listing_url, 
+                property_type: article.property_type, 
+                bedrooms: article.bedrooms,
+                bathrooms: article.bathrooms, 
+                amenities: article.amenities
             }),
             headers: {'Content-Type': 'application/json'}
         })
@@ -83,11 +88,23 @@ function ArticleDetail({ article }: { article: Article }) {
                         <TextareaAutosize
                             className='bg-gray-200 w-full border-gray-400 border-solid'
                             cols={250}
-                            placeholder="Dscription" 
-                            minRows={15}                      
-                            maxRows={50}                         
+                            placeholder="Description" 
+                            minRows={10}                      
+                            maxRows={30}                         
                             value={description} 
                             onChange={(e) => setDescription(e.target.value)}                         
+                        />
+                    </div>
+                    <div className='mt-8 block'>
+                        <label className='italic'>Summary</label>
+                        <TextareaAutosize
+                            className='bg-gray-200 w-full border-gray-400 border-solid'
+                            cols={250}
+                            placeholder="Summary" 
+                            minRows={3}                      
+                            maxRows={10}                         
+                            value={summary} 
+                            onChange={(e) => setSummary(e.target.value)}                         
                         />
                     </div>
                     <motion.div
@@ -119,8 +136,10 @@ export async function getServerSideProps(context: any) {
     return {
       props: { article: result ?? 
         {_id: new mongo.ObjectId('0'), 
-            name: '', description: '', 
-            summary: '', listing_url: '', property_type: '', 
+            name: '', 
+            description: '', 
+            summary: '', 
+            listing_url: '', property_type: '', 
             bedrooms: 0, bathrooms: 0, amenities: [] 
         } 
       }, // will be passed to the page component as props

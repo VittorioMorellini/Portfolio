@@ -27,13 +27,14 @@ function PostIndex({posts}: PostProps) {
 
     // handler to assign the function on the confirm method
     const confirmDelete = (id: string | number) => (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
         setOpen(true)
         onConfirm.current = () => executeDelete(id);
     }
 
     //Function that execute fisically the Delete Operation
     const executeDelete = (id: string | number) => {
-        console.log({id})
+        console.log('Sto per chiamare Api Delete post with Id', {id})
         fetch(server + `/api/post/${id}`, {
             method: 'DELETE',
             //body: Json
@@ -44,8 +45,8 @@ function PostIndex({posts}: PostProps) {
               appearance: 'info',
               autoDismiss: true,
             })  
-            router.push('/post');
             setOpen(false);
+            router.push('/post');
         })
         .catch(err => {
           addToast(err, {
@@ -126,7 +127,6 @@ export default PostIndex
 
 export async function getStaticProps(context: any) {  
   let posts = await getPosts()
-  console.log('posts found', posts);
   
   return {
     props: {

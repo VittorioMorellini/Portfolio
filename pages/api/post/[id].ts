@@ -21,8 +21,7 @@ export default async function postHandler(
     const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')    
     if (method === 'GET') {
         console.log('sono in api requests GET')
-        if (id !== '0') {
-            
+        if (id !== '0') {            
             const post = await getPost(parseInt(id as string))
             console.log('result fetched airtable: ', post)
             
@@ -38,15 +37,15 @@ export default async function postHandler(
         //debugger;
         let post: Post = body as Post;
         console.log('query requests id', id)
-        console.log('query requests POST', query)
+        //console.log('query requests POST', query)
         console.log('body in api requests POST', body)
+        console.log('body converted in post in api requests POST', post)
         if (id !== undefined && id !== '0') {
             //to Update get vdata from airtable
             console.log('update post: ' + id)
             let record = await getPost(parseInt(id as string))
             console.log('record found', record)
-            // await connection.close();
-            
+            //Update Airtable
             let result = await base.table('Post').update( 
                 record.Id.toString(), 
                 {
@@ -56,13 +55,12 @@ export default async function postHandler(
                 }
             )
             return result 
-            ? res.status(200).json({Id: parseInt(id as string), PostDate: format(new Date(), 'yyyy-MM-dd HH:mm:ss'), Content: post.Content, Author: post.Author })
+            ? res.status(200).json({Id: parseInt(id as string), PostDate: result.fields["PostDate"]?.toString() ?? '', Content: post.Content, Author: post.Author })
             : res.status(404).json({ message: `Post with id: ${id} not updated.` })
         }
         else {
             //Insert
-            console.log('INSERT post')
-            
+            console.log('INSERT new post')            
             let result = await base.table('Post').create( 
                 {
                     "Content": post.Content,
@@ -70,17 +68,15 @@ export default async function postHandler(
                     "PostDate": format(new Date(), 'yyyy-MM-dd HH:mm:ss')
                 }
             )        
-            return res.status(200).json({Id: parseInt(result.fields["Id"]?.toString()!), Content: result.fields["Content"]?.toString() ?? '', Author: result.fields["Author"]?.toString() ?? '', PostDate: result.fields["Author"]?.toString() ?? ''})
+            return res.status(200).json({Id: parseInt(result.fields["Id"]?.toString()!), Content: result.fields["Content"]?.toString() ?? '', Author: result.fields["Author"]?.toString() ?? '', PostDate: result.fields["PostDate"]?.toString() ?? ''})
         }
             
     } else if (method === 'DELETE') {
-        console.log('sono in api Post DELETE')
-        // let result = await connection.promise().execute("DELETE FROM Post where Id = " + id);
-        // await connection.close();
+        console.log('sono in Api Post DELETE with id: ', id)
         let rv: Post = {Content: '', Id: parseInt(id as string), Author: '', PostDate: format(new Date(new Date().valueOf() + date.getTimezoneOffset()), 'yyyy-MM-dd HH:mm:ss')}; 
-        let result = await getPost(parseInt(id as string))
+        //let result = await getPost(parseInt(id as string))
         
-        base.table('Post')._destroyRecord(result.Id.toString(), () => {
+        base.table('Post').destroy(id as string, () => {
             //TODO, what???
             console.log('Record deleted');
         })

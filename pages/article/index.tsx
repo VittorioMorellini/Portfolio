@@ -10,6 +10,7 @@ import { getArticles } from "lib/articleSupport";
 import { motion } from "framer-motion";
 import { Delete } from "@mui/icons-material";
 import { useToasts } from "react-toast-notifications";
+import { format } from "date-fns";
 
 interface ArticleProps {
   articles: Article[],
@@ -109,14 +110,29 @@ function ArticleIndex({articles}: ArticleProps) {
           <div>
             <Container>
               <div className='bg-blue-200 text-center mt-4'>
+                <div className="flex flex-row items-center gap-4">
+                <ListItemText className="text-left ml-4">
+                  <span className="w-2">Avatar</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="w-2">Name</span>
+                </ListItemText>
+                <ListItemText>
+                  Creation date
+                </ListItemText>
+                <ListItemText className="text-right mr-8">
+                  Delete
+                </ListItemText>
+                </div>
                 {articles && articles.length > 0 && articles?.map((article: Article, index: number) => {
                     //To manage the timezone in formatting date
-                    return <ListItem key={index} className="px-5" onClick={viewArticle(article._id)} role="button">
+                    return ( 
+                    <ListItem key={index} className="px-5" onClick={viewArticle(article._id)} role="button">
                       <ListItemAvatar>
                         <Avatar alt="Call center" src="/images/Callcenter.webp" />
                       </ListItemAvatar>                      
                       <ListItemText>
-                        {article.name ? article.name?.substring(0, 100) + '...' : ''}
+                        {article.name}
+                      </ListItemText>
+                      <ListItemText>
+                        {article.creationDate ? format(new Date(article.creationDate), 'dd/MM/yyyy') : ''}
                       </ListItemText>
                       <ListItemIcon>
                         <IconButton onClick={confirmDelete(article?._id)} >                    
@@ -124,6 +140,7 @@ function ArticleIndex({articles}: ArticleProps) {
                         </IconButton>
                       </ListItemIcon> 
                     </ListItem>
+                    )
                 })}
               </div>
             </Container>
@@ -142,7 +159,6 @@ export default ArticleIndex
 
 export async function getServerSideProps(context: any) {  
   const results: Article[] = await getArticles();
-  //console.log({results})  
   return {
     props: {
       articles: results ? results : []

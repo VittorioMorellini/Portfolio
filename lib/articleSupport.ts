@@ -17,12 +17,13 @@ export async function getArticles() {
         let article: Article = {_id: result["_id"].toString(), 
             name: result["name"].toString(), 
             description: result["description"].toString(),
-            summary: '', //result["summary"]?.toString(), 
+            summary: result["summary"] ? result["summary"].toString() : '', 
             listing_url: '', //result["listing_url"]?.toString(),
             property_type: '', //result["property_type"]?.toString(),
             bedrooms: {}, //result["bedrooms"],
             bathrooms: {}, //result["bathrooms"],
             amenities: [], //result["amenities"],
+            creationDate: result["creationDate"] ? result["creationDate"].toString() : '',
         };
         //cicle
         // await collection.find().forEach(art => {
@@ -55,12 +56,13 @@ export async function getArticle(id: string): Promise<Article> {
             let article: Article = {_id: result["_id"].toString(), 
                 name: result["name"].toString(), 
                 description: result["description"].toString(),
-                summary: '', //result["summary"]?.toString(), 
+                summary: result["summary"] ? result["summary"].toString() : '', 
                 listing_url: '', //result["listing_url"]?.toString(),
                 property_type: '', //result["property_type"]?.toString(),
                 bedrooms: {}, //result["bedrooms"],
                 bathrooms: {}, //result["bathrooms"],
                 amenities: [], //result["amenities"],
+                creationDate: result["creationDate"] ? result["creationDate"].toString() : '',
             };
             return article;
         }
@@ -73,6 +75,7 @@ export async function getArticle(id: string): Promise<Article> {
             bedrooms: {}, //result["bedrooms"],
             bathrooms: {}, //result["bathrooms"],
             amenities: [], //result["amenities"],
+            creationDate: '', //result["creationDate"] ? result["creationDate"].toString() : '',
         };
         return article;
     } else {
@@ -85,6 +88,7 @@ export async function getArticle(id: string): Promise<Article> {
             bedrooms: {}, //result["bedrooms"],
             bathrooms: {}, //result["bathrooms"],
             amenities: [], //result["amenities"],
+            creationDate: '', //result["creationDate"] ? result["creationDate"].toString() : '',
         };
         return article;
     }
