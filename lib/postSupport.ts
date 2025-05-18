@@ -31,7 +31,7 @@ export async function getPost(id: number): Promise<Post> {
 }
 
 //Ritorno il record di AirTable
-export async function getPostRecordFields(id: number): Promise<any> {
+export async function getRecordAir(id: number): Promise<any> {
     const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('app5UjZ5ccq0THcIi')
     let result = await base('Post').select({
         filterByFormula: '{Id} = ' + id

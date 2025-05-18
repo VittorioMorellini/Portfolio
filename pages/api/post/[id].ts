@@ -49,11 +49,11 @@ export default async function postHandler(
             let resultAir = await getRecordAir(parseInt(id as string))
             //console.log('record found', record)
             console.log('resultAir found', resultAir)
-            console.log('resultAir found id', resultAir._rawJson.id)
+            //console.log('resultAir found id', resultAir._rawJson.id)
             //Update Airtable
             try {
                 //let idRecord = record.Id.toString()
-                console.log('idRecord', id)
+                //console.log('idRecord', id)
                 let result = await base.table('Post').update(
                 resultAir._rawJson.id, 
                 {
@@ -64,8 +64,7 @@ export default async function postHandler(
             } catch(err) {
                 console.error('Error updating record:', err);
                 throw err;
-            };
-
+            }
             return result 
             ? res.status(200).json({Id: parseInt(id as string), PostDate: format(new Date(), 'yyyy-MM-dd HH:mm:ss'), Content: post.Content, Author: post.Author })
             : res.status(404).json({ message: `Post with id: ${id} not updated.` })
@@ -94,8 +93,7 @@ export default async function postHandler(
         } catch(error) {
             console.error('Error deleting record:', error);
             throw error;
-        };
-        
+        }        
         return res.status(200).json(recordAirtable.fields as Post)
     }
 }
