@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { Post } from '../../../types/post'
 import format from 'date-fns/format';
 import Airtable, { FieldSet } from 'airtable'
-import { getPost, getPostRecordFields, getPosts } from 'lib/postSupport';
+import { getPost, getRecordAir } from 'lib/postSupport';
 
 type ResponseError = {
     message: string
@@ -46,7 +46,7 @@ export default async function postHandler(
             //to Update get vdata from airtable
             console.log('update post: ' + id)
             //let record = await getPost(parseInt(id as string))
-            let resultAir = await getPostRecordFields(parseInt(id as string))
+            let resultAir = await getRecordAir(parseInt(id as string))
             //console.log('record found', record)
             console.log('resultAir found', resultAir)
             console.log('resultAir found id', resultAir._rawJson.id)
@@ -85,7 +85,7 @@ export default async function postHandler(
             
     } else if (method === 'DELETE') {
         console.log('sono in Api Post DELETE with id: ', id)
-        let recordAirtable = await getPostRecordFields(parseInt(id as string))        
+        let recordAirtable = await getRecordAir(parseInt(id as string))        
         try {
             const idRecord = id as string
             console.log('idRecord', idRecord)
