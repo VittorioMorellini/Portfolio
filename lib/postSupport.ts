@@ -11,7 +11,7 @@ export async function getPosts() {
     console.log('Total response:', response);
     response.forEach((result, index) => { 
         //results.push(record.fields as Post)));
-        console.log('record fields', result.fields)
+        //console.log('record fields', result.fields)
         console.log('record fields Id', result.fields.Id)
         let post = {Id: parseInt(result.fields.Id as string), ...result.fields}
         
