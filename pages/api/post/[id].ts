@@ -43,7 +43,8 @@ export default async function postHandler(
         //console.log('body in api requests POST', body)
         console.log('body converted in post in api requests POST', post)
         if (id !== undefined && id !== '0') {
-            //to Update get vdata from airtable
+            //Update 
+            //get vdata from airtable
             console.log('update post: ' + id)
             //let record = await getPost(parseInt(id as string))
             let resultAir = await getRecordAir(parseInt(id as string))

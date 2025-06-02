@@ -16,7 +16,6 @@ function ArticleDetail({ article }: { article: Article }) {
     const [description, setDescription] = useState('');
     const [name, setName] = useState('');
     const [summary, setSummary] = useState('');
-    const [id, setId] = useState<string | null>(null)
     const { addToast } = useToasts()
 
     const showToast = () => {
@@ -30,7 +29,6 @@ function ArticleDetail({ article }: { article: Article }) {
         setDescription(article.description ? article.description : '')
         setName(article.name ? article.name : '')
         setSummary(article.summary ? article.summary : '')
-        // setId(post.Id);
     }, [])
     const saveArticle = async (event: React.MouseEvent<HTMLButtonElement>) => {
         const response = fetch(server + `/api/article/${article?._id}`, {
