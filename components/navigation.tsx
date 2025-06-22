@@ -40,6 +40,5 @@ function Navigation(props: NavigationProps) {
             </ul>
         </Box>  
     )
-}
-  
+}  
 export default Navigation;

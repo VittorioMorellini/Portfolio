@@ -34,7 +34,7 @@ function PostIndex({posts}: PostProps) {
 
     //Function that execute fisically the Delete Operation
     const executeDelete = (id: string | number) => {
-        console.log('Sto per chiamare Api Delete post with Id', {id})
+        //console.log('Sto per chiamare Api Delete post with Id', {id})
         fetch(server + `/api/post/${id}`, {
             method: 'DELETE',
             //body: Json
