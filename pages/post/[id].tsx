@@ -33,7 +33,8 @@ function PostDetail({ post, ref }: PostDetailProps) {
     }
     const savePost = async (event: React.MouseEvent<HTMLButtonElement>) => {
         //console.log('save post in my blog');
-        const response = fetch(server + `/api/post/${post.Id}`, {
+        //const response = fetch(server + `/api/post/${post.Id}`, {
+        const response = fetch(`/api/post/${post.Id}`, {
             method: 'POST',
             body: JSON.stringify({Content: text, Author: author, Id: post.Id ? post.Id : 0, PostDate: parseISO(format(new Date(), 'yyyy-MM-dd HH:mm:ss'))}),
             headers: {'Content-Type': 'application/json'}

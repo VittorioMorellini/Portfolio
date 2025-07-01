@@ -1,7 +1,7 @@
 import { Avatar, Button, IconButton, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Container } from "../../components/container";
 import { Post } from "../../types/post";
-import { Delete, Edit } from '@mui/icons-material'
+import { Delete, Edit, Add } from '@mui/icons-material'
 import { server } from "../../config/config";
 import { useRouter } from "next/navigation";
 import { useToasts } from "react-toast-notifications";
@@ -10,6 +10,7 @@ import Confirm from "../../utils/ui/confirm";
 import PageTransition from "@/components/pageTransition";
 import { motion } from "framer-motion";
 import { getPosts } from "lib/postSupport";
+import Link from "next/link";
 
 interface PostProps {
   posts: Post[];
@@ -68,11 +69,12 @@ function PostIndex({posts}: PostProps) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}              
               >
-                  <Button variant="outlined" className="w-32" onClick={() => {    
-                      router.push('post/0')
-                  }}>
-                      Add post
+                  <Button variant="outlined" className="w-32">
+                    <Link href='/post/0' className='font-black hover:text-blue-500' title="New">Add post</Link>
                   </Button>
+                  {/* <Link href='/post/0' className='font-black hover:text-blue-500' title="New">
+                      <Add />
+                  </Link> */}
               </motion.div>
               <div className="text-center w-full">
                 <h1 className="text-3xl font-black text-center">Tell me what do you think about my portfolio</h1>

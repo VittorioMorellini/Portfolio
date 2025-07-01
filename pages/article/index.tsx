@@ -54,7 +54,7 @@ function ArticleIndex({articles}: ArticleProps) {
     //Function that execute fisically the Delete Operation
     const executeDelete = (id: string) => {
         console.log('executing delete article on MongoDB', id)
-        fetch(server + `/api/article/${id}`, {
+        fetch(`/api/article/${id}`, {
             method: 'DELETE',
             //body: Json
             headers: {'Content-Type': 'application/json'}
@@ -84,9 +84,7 @@ function ArticleIndex({articles}: ArticleProps) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}              
               >
-                  <Button variant="outlined" className="w-32" onClick={() => {    
-                      router.push('article/0')
-                  }}>
+                  <Button variant="outlined" className="w-32" onClick={() => {router.push('article/0')}}>
                       Add article
                   </Button>
               </motion.div>

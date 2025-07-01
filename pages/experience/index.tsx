@@ -252,5 +252,4 @@ function Experience() {
     </PageTransition>
   );
 }
-
 export default React.forwardRef(Experience);

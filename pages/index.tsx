@@ -163,10 +163,11 @@ function Home<NextPage>({categories}: HomeProps) {
     </PageTransition>
   )
 }
+export default Home
 
-//Dynamic load categories does not work in component, only in page so I have to load from outside
+//Static load categories does not work in component, only in page so I have to load from outside
 //Cannot use this function in component
-export async function getServerSideProps (context: any) {
+export async function getStaticProps (context: any) {
   //console.log('Sono in server sides category')
 
   const res = await fetch(server +'/api/category')
@@ -179,5 +180,3 @@ export async function getServerSideProps (context: any) {
     }
   }
 }
-
-export default Home

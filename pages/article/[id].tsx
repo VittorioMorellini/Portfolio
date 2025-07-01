@@ -31,7 +31,7 @@ function ArticleDetail({ article }: { article: Article }) {
         setSummary(article.summary ? article.summary : '')
     }, [])
     const saveArticle = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        const response = fetch(server + `/api/article/${article?._id}`, {
+        const response = fetch(`/api/article/${article?._id}`, {
             method: 'POST',
             body: JSON.stringify({
                 _id: article._id, 
@@ -62,8 +62,7 @@ function ArticleDetail({ article }: { article: Article }) {
         <PageTransition>
             <div className='flex relative max-w-full'>
                 <div className="w-1/5">
-                    <Link href="/article" passHref className='text-black hover:text-blue-500'>Back
-                    </Link>
+                    <Link href="/article" passHref className='text-black hover:text-blue-500'>Back</Link>
                 </div>
                 <div className="flex flex-col items-center w-4/5 gap-2">
                     <div className="text-center mb-4">
