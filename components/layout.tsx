@@ -16,7 +16,8 @@ function Layout({ children }: Props) {
         //console.log("CGANGE");
         setShowMobileNav(false);
       });
-  
+      window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
+
       return () => {
         router.events.off("routeChangeStart", () => {});
       };

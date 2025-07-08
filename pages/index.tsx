@@ -67,18 +67,25 @@ function Home<NextPage>({categories}: HomeProps) {
   }  
   
   useEffect(() => {
-    setCategories(categories);
+    //setCategories(categories);
+    window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
   }, [])
 
   return (
-    <PageTransition ref={ref} allowScroll={false}>
+    <div>
+      Site no longer available, goto: https://portfolioapp-vittoriomorellini.vercel.app 
+    </div>
+  )
+}
+export default Home
+      {/* 
+      <PageTransition ref={ref} allowScroll={false}>
       <div>
         <Container size="2xl">
           <Box className='grid gap-10 md:grid-cols-2'>
             <motion.div className="w-full h-full flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
             >
-                {/* h-56 md:h-[500px] */}
                 <Image
                   loader={ImageLoader}
                   unoptimized
@@ -161,9 +168,7 @@ function Home<NextPage>({categories}: HomeProps) {
         </Container>  
       </div>
     </PageTransition>
-  )
-}
-export default Home
+    */}
 
 //Static load categories does not work in component, only in page so I have to load from outside
 //Cannot use this function in component
