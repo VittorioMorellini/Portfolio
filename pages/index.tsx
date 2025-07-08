@@ -1,14 +1,11 @@
 import { Box } from '@mui/material'
 import Image from 'next/image'
-import { forwardRef, useEffect, useRef } from 'react'
+import {  useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
-import { Container } from '../components/container'
 import { server } from '../config/config'
 import { categoriesAtom } from '../recoil/categoryState'
 import { Category } from '../types/category'
-import ImageLoader from '../utils/function'
-import PageTransition from '@/components/pageTransition'
-import { AnimatePresence, motion } from 'framer-motion'
+import { redirect, RedirectType } from 'next/navigation';
 
 interface HomeProps {
   categories: Category[];
@@ -68,7 +65,8 @@ function Home<NextPage>({categories}: HomeProps) {
   
   useEffect(() => {
     //setCategories(categories);
-    window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
+    //window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
+    redirect('https://portfolioapp-vittoriomorellini.vercel.app', RedirectType.replace)
   }, [])
 
   return (
