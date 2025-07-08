@@ -4,10 +4,7 @@ import { Box} from '@mui/material';
 import { useRouter } from 'next/router';
 import { NavBar } from './navbar/index';
 
-type Props = {
-    children: any;
-}
-function Layout({ children }: Props) {
+function Layout({ children }:  { children: any}) {
     const router = useRouter();
     const [showMobileNav, setShowMobileNav] = useState(false);
   
@@ -40,5 +37,4 @@ function Layout({ children }: Props) {
         </Box>
     );
 }
-
 export default Layout;
