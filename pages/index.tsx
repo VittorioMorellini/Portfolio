@@ -72,8 +72,8 @@ function Home<NextPage>({categories}: HomeProps) {
   }, [])
 
   return (
-    <div>
-      Site no longer available, goto: https://portfolioapp-vittoriomorellini.vercel.app 
+    <div className="flex items-center justify-center h-screen">
+      <span className='text-2xl'>Site no longer available</span> goto: https://portfolioapp-vittoriomorellini.vercel.app 
     </div>
   )
 }

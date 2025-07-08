@@ -9,15 +9,15 @@ function Layout({ children }:  { children: any}) {
     const [showMobileNav, setShowMobileNav] = useState(false);
   
     useEffect(() => {
-      router.events.on("routeChangeStart", () => {
-        //console.log("CGANGE");
-        setShowMobileNav(false);
-      });
+      // router.events.on("routeChangeStart", () => {
+      //   //console.log("CGANGE");
+      //   setShowMobileNav(false);
+      // });
       window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
 
-      return () => {
-        router.events.off("routeChangeStart", () => {});
-      };
+      // return () => {
+      //   router.events.off("routeChangeStart", () => {});
+      // };
     }, [router]);  
   
     
