@@ -11,6 +11,7 @@ import PageTransition from "@/components/pageTransition";
 import { motion } from "framer-motion";
 import { getPosts } from "lib/postSupport";
 import Link from "next/link";
+import React from "react";
 
 interface PostProps {
   posts: Post[];
@@ -59,9 +60,18 @@ function PostIndex({posts}: PostProps) {
     }
     
     const editPost = (id: number) => router.push('/post/' + id);    
-    //console.log({posts})
+    React.useEffect(() => {
+      //console.log('PostIndex useEffect')  
+      window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
+    }, [])
     return (
-      <PageTransition ref={ref}>
+      <div>
+        Post
+      </div>
+    );
+}
+export default PostIndex
+      {/*<PageTransition ref={ref}>
         <div className="flex flex-col">
           <Container>
           <div className="flex flex-col items-center mb-4 md:flex-row">
@@ -72,16 +82,11 @@ function PostIndex({posts}: PostProps) {
                   <Button variant="outlined" className="w-32">
                     <Link href='/post/0' className='font-black hover:text-blue-500' title="New">Add post</Link>
                   </Button>
-                  {/* <Link href='/post/0' className='font-black hover:text-blue-500' title="New">
-                      <Add />
-                  </Link> */}
               </motion.div>
               <div className="text-center w-full">
                 <h1 className="text-3xl font-black text-center">Tell me what do you think about my portfolio</h1>
               </div>
           </div>
-          {/*YYYY-MM-DDTHH:mm:ss.sssZ  post.Date.toString() */}
-          {/* format(new Date(parseISO(post.Date).valueOf() + date.getTimezoneOffset() * 60 * 1000), "yyyy-MM-dd'T'HH:mm:ss") */}
           </Container>
           <div>
           <Container>
@@ -95,11 +100,6 @@ function PostIndex({posts}: PostProps) {
                   </ListItemText>
                   <ListItemIcon>
                     <IconButton onClick={(e: React.MouseEvent<HTMLButtonElement>) => editPost(post.Id)} >
-                      {/* <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}              
-                      >
-                      </motion.div> */}
                       <Edit />
                     </IconButton> 
                   </ListItemIcon> 
@@ -123,9 +123,7 @@ function PostIndex({posts}: PostProps) {
           />
         </div>  
       </PageTransition>
-    );
-}
-export default PostIndex
+      */}
 
 export async function getStaticProps(context: any) {  
   let posts = await getPosts()
