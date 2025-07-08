@@ -3,7 +3,6 @@ import Footer from './footer';
 import { Box} from '@mui/material';
 import { useRouter } from 'next/router';
 import { NavBar } from './navbar/index';
-import { redirect, RedirectType } from 'next/navigation';
 
 function Layout({ children }:  { children: any}) {
     const router = useRouter();
@@ -14,8 +13,8 @@ function Layout({ children }:  { children: any}) {
       //   //console.log("CGANGE");
       //   setShowMobileNav(false);
       // });
-      //window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
-      redirect('https://portfolioapp-vittoriomorellini.vercel.app', RedirectType.replace)
+      window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
+      // redirect('https://portfolioapp-vittoriomorellini.vercel.app', RedirectType.replace)
       // return () => {
       //   router.events.off("routeChangeStart", () => {});
       // };

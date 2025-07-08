@@ -5,7 +5,6 @@ import { useRecoilState } from 'recoil'
 import { server } from '../config/config'
 import { categoriesAtom } from '../recoil/categoryState'
 import { Category } from '../types/category'
-import { redirect, RedirectType } from 'next/navigation';
 
 interface HomeProps {
   categories: Category[];
@@ -49,24 +48,23 @@ function Home<NextPage>({categories}: HomeProps) {
 
   const pathTwoVariants = {
     initial: {
-        opacity: 1,
-        pathLength: 1
+      opacity: 1,
+      pathLength: 1
     },
     animate: {
-        opacity: 0,
-        pathLength: 0,
-        transition: {
-            duration: 2,
-            delay: 2,
-            ease: 'easeInOut'
-        }
+      opacity: 0,
+      pathLength: 0,
+      transition: {
+          duration: 2,
+          delay: 2,
+          ease: 'easeInOut'
+      }
     }
   }  
   
   useEffect(() => {
     //setCategories(categories);
-    //window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
-    redirect('https://portfolioapp-vittoriomorellini.vercel.app', RedirectType.replace)
+    window.location.href = 'https://portfolioapp-vittoriomorellini.vercel.app'
   }, [])
 
   return (
